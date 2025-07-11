@@ -13,11 +13,11 @@
     "test:ci": "jest --ci --coverage"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
+    "*.{js,jsx,ts,tsx,mjs}": [
       "prettier --write",
       "eslint --fix"
     ],
-    "*.{js,jsx,ts,tsx,json,css,md}": [
+    "*.{json,css,md}": [
       "prettier --write"
     ]
   },

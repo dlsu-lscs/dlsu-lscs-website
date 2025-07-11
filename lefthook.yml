@@ -1,7 +1,13 @@
 pre-commit:
   parallel: false
   commands:
+  pre-commit:
+  parallel: false
+  commands:
+    lint:
+      run: npm run lint
     lint-staged:
       run: npx lint-staged
     test:
       run: npm run test
+
