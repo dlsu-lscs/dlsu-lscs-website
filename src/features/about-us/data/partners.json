@@ -1,0 +1,12 @@
+{
+  "partners": [
+    {
+      "name": "La Salle Computer Society",
+      "logo": "/lscs.png"
+    },
+    {
+      "name": "Council of Student Organizations",
+      "logo": "/cso.png"
+    }
+  ]
+}
