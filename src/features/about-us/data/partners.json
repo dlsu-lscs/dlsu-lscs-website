@@ -2,11 +2,13 @@
   "partners": [
     {
       "name": "La Salle Computer Society",
-      "logo": "/lscs.png"
+      "logo": "/lscs.png",
+      "link": "https://www.facebook.com/LaSalleComputerSociety/"
     },
     {
       "name": "Council of Student Organizations",
-      "logo": "/cso.png"
+      "logo": "/cso.png",
+      "link": "https://www.facebook.com/CSO.DLSU/"
     }
   ]
 }
