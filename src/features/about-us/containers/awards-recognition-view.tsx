@@ -16,11 +16,26 @@ export default function AwardsRecognitionView() {
 
   return (
     <>
-      <div className="min-h-screen min-w-screen bg-gradient-to-b from-[#003D6F] to-[#041019] flex flex-col items-center justify-center">
+      <div className="relative z-20 min-h-screen min-w-screen bg-gradient-to-b from-[#003D6F] to-[#041019] flex flex-col items-center justify-center">
+        <img src="/puzzle.png" alt="puzzle" className="absolute -top-24 left-0 w-[380px] h-auto" />
+        <div
+          className="absolute inset-0 bg-[url('/dots.png')] bg-cover bg-left-top min-h-screen opacity-60"
+          style={{
+            maskImage: 'radial-gradient(ellipse 90% 85% at center, black 30%, transparent 90%)',
+            WebkitMaskImage:
+              'radial-gradient(ellipse 90% 85% at center, black 30%, transparent 90%)',
+            zIndex: -1,
+          }}
+        />
+
         <div className="flex flex-col gap-10">
-          <h1 className="text-[#FEE373] font-bold text-5xl text-center drop-shadow-2xl text-shadow-2xl">
-            Awards <span className="text-[#003D6F]">&</span> Recognition{' '}
+          <h1
+            className="text-[#FEE373] font-bold text-5xl text-center"
+            style={{ textShadow: '3px 3px 7px rgba(0,0,0,0.8)' }}
+          >
+            Awards <span className="text-[#003D6F]">&</span> Recognition
           </h1>
+
           <p className="text-center text-[#FFFF] text-lg w-[540px] h-[186px]">
             The La Salle Computer Society shall serve as a venue for the growth and development of
             its member through a three-step course of:
