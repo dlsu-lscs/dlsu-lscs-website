@@ -1,12 +1,16 @@
 import { TriangleDownIcon } from '@radix-ui/react-icons';
+import Lscs39thBg from '../components/39th-lscs-bg';
 
 export default function LandingPage() {
   return (
     <>
       <div className="min-h-screen flex flex-col p-8 gap-8 relative">
+        {/* Background image with fade effect */}
+        <Lscs39thBg />
+
         {/* TEMPORARY NAV */}
-        <nav className="h-12 bg-[#002D57] max-w-7xl w-full rounded-xl mx-auto"></nav>
-        <main className="mask-semicircle flex-1 p-2 w-full max-w-7xl mx-auto gap-2 bg-black/60 rounded-2xl flex flex-col justify-center items-center relative">
+        <nav className="h-12 bg-[#002D57] max-w-[1920px] w-full rounded-xl mx-auto"></nav>
+        <main className="flex-1 mask-semicircle p-2 w-full max-w-[1920px] mx-auto gap-2 bg-black/60 rounded-2xl flex flex-col justify-center items-center relative">
           <h2 className="text-[#EDCC46] font-extrabold text-lg sm:text-xl md:text-2xl text-center leading-tight sm:leading-snug mb-2">
             La Salle Computer Society
           </h2>
