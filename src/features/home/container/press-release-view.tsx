@@ -20,7 +20,7 @@ export default function PressReleaseView() {
           <Carousel>
             <CarouselContent>
               {pressReleasesData.pressReleases.map((pressRelease: PressReleaseType, index) => (
-                <CarouselItem key={index} className="basis-1/4">
+                <CarouselItem key={index} className="md:basis-1/4">
                   <PressReleaseCard
                     type={pressRelease.type}
                     title={pressRelease.title}
