@@ -15,7 +15,7 @@ export default function AwardsCard({
 }: AwardsCardProps) {
   return (
     <>
-      <div className="bg-[#4A4949] w-[clamp(280px,30vw,405px)] h-[clamp(96px,10vw,140px)] shadow-[12px_12px_28px_rgba(0,0,0,0.18),-4px_-4px_12px_rgba(255,255,255,0.2)] rounded-lg px-3 py-2">
+      <div className="bg-[#4A4949] w-[clamp(280px,30vw,405px)] h-[clamp(96px,10vw,140px)] shadow-[12px_12px_28px_rgba(0,0,0,0.18),-2px_-2px_12px_rgba(255,255,255,0.2)] rounded-lg px-3 py-2">
         <div className="flex flex-col justify-between h-full">
           <div className="font-bold text-[#FFFF] text-md">
             <h1>{standing || '1st-Place'}</h1>
