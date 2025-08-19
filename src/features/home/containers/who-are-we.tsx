@@ -1,8 +1,11 @@
+import Lscs39thBg from '../components/39th-lscs-bg';
+
 /* eslint-disable @next/next/no-img-element */
 export default function WhoAreWe() {
   return (
     <>
-      <div className="min-h-screen p-4 sm:p-6 lg:p-8">
+      <div className="min-h-screen p-4 sm:p-6 lg:p-8 relative">
+        <Lscs39thBg />
         <main className="w-full max-w-7xl flex mx-auto items-center min-h-screen gap-4 sm:gap-6 lg:gap-8 flex-col md:flex-row">
           <section className="flex flex-col flex-1 min-w-0 text-center md:text-left">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4">WHO ARE WE?</h1>
