@@ -5,7 +5,7 @@ export default function OrgView() {
   return (
     <>
       <div className="relative z-20 min-h-screen w-full px-6 md:px-24 py-24 bg-[radial-gradient(circle_at_center,_#f5f5f5_0%,_#d9d9d9_70%,_#b3b3b3_100%)]">
-        {/* Section 1 */}
+        {/* CSO */}
         <div className="mt-12">
           <div className="flex flex-col md:flex-row justify-center items-center gap-16">
             <img src="/cso.png" alt="cso logo" className="w-72 md:w-80 h-auto" />
@@ -22,7 +22,7 @@ export default function OrgView() {
           </div>
         </div>
 
-        {/* Section 2 */}
+        {/* ONE CCS*/}
         <div className="mt-12">
           <div className="flex flex-col md:flex-row justify-center items-center gap-16">
             <div className="max-w-2xl text-center md:text-left order-2 md:order-1">
