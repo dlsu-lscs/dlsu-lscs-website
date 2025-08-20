@@ -16,11 +16,50 @@ export default function WhatWeDo() {
         />
 
         <div className="relative z-20 flex w-full h-full">
-          <div className="w-1/2 p-8 flex items-center justify-center"></div>
+          <div className="w-1/2 p-8 flex items-center justify-center">
+            <div className="grid grid-cols-2 gap-6">
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden flex items-center justify-center">
+                <Image
+                  src="/example1.png"
+                  alt="Example 1"
+                  width={150}
+                  height={150}
+                  className="object-contain"
+                />
+              </div>
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden flex items-center justify-center">
+                <Image
+                  src="/example2.png"
+                  alt="Example 2"
+                  width={150}
+                  height={150}
+                  className="object-contain"
+                />
+              </div>
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden flex items-center justify-center">
+                <Image
+                  src="/example3.png"
+                  alt="Example 3"
+                  width={150}
+                  height={150}
+                  className="object-contain"
+                />
+              </div>
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden flex items-center justify-center">
+                <Image
+                  src="/example4.png"
+                  alt="Example 4"
+                  width={150}
+                  height={150}
+                  className="object-contain"
+                />
+              </div>
+            </div>
+          </div>
 
           <div className="w-1/2 p-8 flex flex-col justify-start items-start mt-32 mr-20">
             {/* change font to poppins */}
-            <h1 className="text-[#FFFFFF] text-[48px] font-extrabold leading-none drop-shadow-2xl">
+            <h1 className="pt-10 text-[#FFFFFF] text-[48px] font-extrabold leading-none drop-shadow-2xl">
               What We Do
             </h1>
             <p className="text-[#FFFFFF] text-[20px] mt-4">
