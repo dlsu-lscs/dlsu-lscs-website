@@ -4,9 +4,9 @@ import GoldHeader from '../components/gold-header';
 export default function OrgView() {
   return (
     <>
-      <div className="relative z-20 min-h-screen w-full px-6 md:px-24 py-24 bg-[radial-gradient(circle_at_center,_#f5f5f5_0%,_#d9d9d9_70%,_#b3b3b3_100%)]">
+      <main className="relative z-20 min-h-screen w-full px-6 md:px-24 py-24 bg-[radial-gradient(circle_at_center,_#f5f5f5_0%,_#d9d9d9_70%,_#b3b3b3_100%)]">
         {/* CSO */}
-        <div className="mt-12">
+        <section className="mt-12">
           <div className="flex flex-col md:flex-row justify-center items-center gap-16">
             <img src="/cso.png" alt="cso logo" className="w-72 md:w-80 h-auto" />
             <div className="max-w-2xl text-center md:text-left">
@@ -20,10 +20,10 @@ export default function OrgView() {
               </ContentCallout>
             </div>
           </div>
-        </div>
+        </section>
 
         {/* ONE CCS*/}
-        <div className="mt-12">
+        <section className="mt-12">
           <div className="flex flex-col md:flex-row justify-center items-center gap-16">
             <div className="max-w-2xl text-center md:text-left order-2 md:order-1">
               <GoldHeader>ONECCS</GoldHeader>
@@ -39,8 +39,8 @@ export default function OrgView() {
               className="w-48 md:w-56 h-auto antialiased order-1 md:order-2"
             />
           </div>
-        </div>
-      </div>
+        </section>
+      </main>
     </>
   );
 }
