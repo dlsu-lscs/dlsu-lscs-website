@@ -2,6 +2,38 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
+/* Responsive semi-circle mask */
+.mask-semicircle {
+  mask-image: radial-gradient(ellipse 50px 50px at center bottom, transparent 100%, black 100%);
+  -webkit-mask-image: radial-gradient(
+    ellipse 50px 50px at center bottom,
+    transparent 100%,
+    black 100%
+  );
+}
+
+@media (min-width: 640px) {
+  .mask-semicircle {
+    mask-image: radial-gradient(ellipse 75px 75px at center bottom, transparent 100%, black 100%);
+    -webkit-mask-image: radial-gradient(
+      ellipse 75px 75px at center bottom,
+      transparent 100%,
+      black 100%
+    );
+  }
+}
+
+@media (min-width: 768px) {
+  .mask-semicircle {
+    mask-image: radial-gradient(ellipse 100px 100px at center bottom, transparent 100%, black 100%);
+    -webkit-mask-image: radial-gradient(
+      ellipse 100px 100px at center bottom,
+      transparent 100%,
+      black 100%
+    );
+  }
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
