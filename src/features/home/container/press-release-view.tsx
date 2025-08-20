@@ -12,11 +12,11 @@ import { pressRelease as PressReleaseType } from '../types/press-releases';
 export default function PressReleaseView() {
   return (
     <>
-      <div className="min-h-screen min-w-screen bg-white border-black border-2">
-        <div className="flex justify-center text-center mt-20">
+      <main className="min-h-screen min-w-screen bg-white border-black border-2">
+        <header className="flex justify-center text-center mt-20">
           <h1 className="font-bold text-4xl sm:text-5xl">PRESS RELEASES</h1>
-        </div>
-        <main className="w-[95%] px-20 py-24">
+        </header>
+        <section className="w-[95%] px-20 py-24">
           <Carousel>
             <CarouselContent>
               {pressReleasesData.pressReleases.map((pressRelease: PressReleaseType, index) => (
@@ -33,8 +33,8 @@ export default function PressReleaseView() {
             <CarouselPrevious />
             <CarouselNext />
           </Carousel>
-        </main>
-      </div>
+        </section>
+      </main>
     </>
   );
 }
