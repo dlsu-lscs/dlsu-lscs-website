@@ -12,7 +12,7 @@ import { pressRelease as PressReleaseType } from '../types/press-releases';
 export default function PressReleaseView() {
   return (
     <>
-      <main className="min-h-screen min-w-screen bg-white border-black border-2">
+      <main className="min-h-screen w-full bg-white border-black border-2 overflow-x-hidden">
         <header className="flex justify-center text-center mt-20">
           <h1 className="font-bold text-4xl sm:text-5xl">PRESS RELEASES</h1>
         </header>
