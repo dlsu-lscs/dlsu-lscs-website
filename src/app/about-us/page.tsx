@@ -1,3 +1,5 @@
+import OrgView from '@/features/about-us/containers/org-view';
+import PartnersView from '@/features/about-us/containers/partners-view';
 import About from '@/features/about-us/section/about';
 import WhatWeDo from '@/features/about-us/section/what-we-do';
 
@@ -6,6 +8,8 @@ export default function AboutUs() {
     <>
       <About />
       <WhatWeDo />
+      <OrgView />
+      <PartnersView />
     </>
   );
 }
