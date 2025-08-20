@@ -154,3 +154,38 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Gallery Grid Spans */
+.gallery-large {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+@media (min-width: 640px) {
+  .gallery-large {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+}
+
+.gallery-medium {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.gallery-tall {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+@media (min-width: 640px) {
+  .gallery-tall {
+    grid-column: span 1;
+    grid-row: span 2;
+  }
+}
+
+.gallery-small {
+  grid-column: span 1;
+  grid-row: span 1;
+}
