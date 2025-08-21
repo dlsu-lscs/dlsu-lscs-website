@@ -35,7 +35,7 @@ export default function CoreValues() {
           member through a three-step course of:
         </p>
       </div>
-      <div className="relative z-30 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mt-32 mb-26">
+      <div className="relative z-30 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mt-32 mb-26 items-stretch">
         <BlueBackground
           number="1"
           imageSrc="/purpose.png"
