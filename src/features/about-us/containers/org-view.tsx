@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import ContentCallout from '../components/content-callout';
 import GoldHeader from '../components/gold-header';
 
@@ -5,6 +6,14 @@ export default function OrgView() {
   return (
     <>
       <main className="relative z-20 min-h-screen w-full px-6 md:px-24 py-24 bg-[radial-gradient(circle_at_center,_#f5f5f5_0%,_#d9d9d9_70%,_#b3b3b3_100%)]">
+        <Image
+          src="/virus.png"
+          alt="virus"
+          width={280}
+          height={280}
+          className="absolute -top-28 md:-top-36 right-0 w-[200px] md:w-[300px] h-auto -z-10 md:z-0 antialiased"
+        />
+
         {/* CSO */}
         <section className="mt-12">
           <div className="flex flex-col md:flex-row justify-center items-center gap-16">

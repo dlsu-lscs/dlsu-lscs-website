@@ -1,0 +1,40 @@
+{
+  "pressReleases": [
+    {
+      "type": "Community",
+      "title": "TITLE HERE",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin viverra, eros nec commodo semper, massa ipsum consequat risus, non efficitur tellus orci id nunc.",
+      "buttonText": "Lorem ipsum dolor"
+    },
+    {
+      "type": "Community",
+      "title": "TITLE HERE",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin viverra, eros nec commodo semper, massa ipsum consequat risus, non efficitur tellus orci id nunc.",
+      "buttonText": "Lorem ipsum dolor"
+    },
+    {
+      "type": "Community",
+      "title": "TITLE HERE",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin viverra, eros nec commodo semper, massa ipsum consequat risus, non efficitur tellus orci id nunc.",
+      "buttonText": "Lorem ipsum dolor"
+    },
+    {
+      "type": "Community",
+      "title": "TITLE HERE",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin viverra, eros nec commodo semper, massa ipsum consequat risus, non efficitur tellus orci id nunc.",
+      "buttonText": "Lorem ipsum dolor"
+    },
+    {
+      "type": "Community",
+      "title": "TITLE HERE",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin viverra, eros nec commodo semper, massa ipsum consequat risus, non efficitur tellus orci id nunc.",
+      "buttonText": "Lorem ipsum dolor"
+    },
+    {
+      "type": "Community",
+      "title": "TITLE HERE",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin viverra, eros nec commodo semper, massa ipsum consequat risus, non efficitur tellus orci id nunc.",
+      "buttonText": "Lorem ipsum dolor"
+    }
+  ]
+}
