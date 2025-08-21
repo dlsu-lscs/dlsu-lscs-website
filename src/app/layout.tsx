@@ -13,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-Poppins antialiased">{children}</body>
+      <body className="min-h-screen w-full font-Poppins antialiased">{children}</body>
     </html>
   );
 }

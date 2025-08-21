@@ -1,7 +1,13 @@
+import ContactUsPage from '@/features/home/containers/contact-us';
+import LandingPage from '@/features/home/containers/landing-page';
+import WhoAreWe from '@/features/home/containers/who-are-we';
+
 export default function Home() {
   return (
     <>
-      <h1>Test</h1>
+      <LandingPage />
+      <WhoAreWe />
+      <ContactUsPage />
     </>
   );
 }
