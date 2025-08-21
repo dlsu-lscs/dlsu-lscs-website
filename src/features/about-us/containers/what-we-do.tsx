@@ -1,6 +1,13 @@
 import Image from 'next/image';
+import ImageGrid from '../components/image-grid';
 
 export default function WhatWeDo() {
+  const images = [
+    { src: '/example1.png', alt: 'Example 1' },
+    { src: '/example2.png', alt: 'Example 2' },
+    { src: '/example3.png', alt: 'Example 3' },
+    { src: '/example4.png', alt: 'Example 4' },
+  ];
   return (
     <div className="min-h-screen flex items-center justify-between">
       <div className="relative w-[98%] h-screen mx-auto my-16 rounded-xl overflow-hidden flex">
@@ -16,45 +23,8 @@ export default function WhatWeDo() {
         />
 
         <div className="relative z-20 flex w-full h-full">
-          <div className="w-1/2 p-8 flex items-center justify-center">
-            <div className="grid grid-cols-2 gap-6">
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden flex items-center justify-center">
-                <Image
-                  src="/example1.png"
-                  alt="Example 1"
-                  width={150}
-                  height={150}
-                  className="object-contain"
-                />
-              </div>
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden flex items-center justify-center">
-                <Image
-                  src="/example2.png"
-                  alt="Example 2"
-                  width={150}
-                  height={150}
-                  className="object-contain"
-                />
-              </div>
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden flex items-center justify-center">
-                <Image
-                  src="/example3.png"
-                  alt="Example 3"
-                  width={150}
-                  height={150}
-                  className="object-contain"
-                />
-              </div>
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden flex items-center justify-center">
-                <Image
-                  src="/example4.png"
-                  alt="Example 4"
-                  width={150}
-                  height={150}
-                  className="object-contain"
-                />
-              </div>
-            </div>
+          <div className="w-1/2 p-8 flex items-center justify-center mx-auto my-auto">
+            <ImageGrid images={images} />
           </div>
 
           <div className="w-1/2 p-8 flex flex-col justify-start items-start mt-32 mr-20">
