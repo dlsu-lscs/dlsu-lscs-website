@@ -52,45 +52,35 @@ export default function AwardsRecognitionView() {
         <section className="w-[75%] sm:w-[90%] lg:w-[85%] mx-auto mt-12">
           {firstHalf.length > 0 ? (
             <Carousel>
-              <CarouselContent className="py-4 flex justify-center md:justify-start gap-6 overflow-visible">
+              <CarouselContent className="py-4 flex justify-start gap-6 overflow-visible">
                 {firstHalf.map((award, index) => (
                   <CarouselItem
                     key={index}
-                    className="flex-none basis-[85%] sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
+                    className="flex-none min-w-[260px] sm:min-w-[300px] md:min-w-[280px] lg:min-w-[260px]"
                   >
-                    <AwardsCard
-                      standing={award.standing}
-                      awardCommmittee={award.awardCommmittee}
-                      awardName={award.awardName}
-                      awardType={award.awardType}
-                      academicYear={award.academicYear}
-                    />
+                    <AwardsCard {...award} />
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious /> <CarouselNext />
+              <CarouselPrevious />
+              <CarouselNext />
             </Carousel>
           ) : null}
 
           {secondHalf.length > 0 ? (
             <Carousel>
-              <CarouselContent className="py-4 flex justify-center md:justify-start gap-6 overflow-visible">
+              <CarouselContent className="py-4 flex justify-start gap-6 overflow-visible">
                 {secondHalf.map((award, index) => (
                   <CarouselItem
                     key={index}
-                    className="flex-none basis-[85%] sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
+                    className="flex-none min-w-[260px] sm:min-w-[300px] md:min-w-[280px] lg:min-w-[260px]"
                   >
-                    <AwardsCard
-                      standing={award.standing}
-                      awardCommmittee={award.awardCommmittee}
-                      awardName={award.awardName}
-                      awardType={award.awardType}
-                      academicYear={award.academicYear}
-                    />
+                    <AwardsCard {...award} />
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious /> <CarouselNext />
+              <CarouselPrevious />
+              <CarouselNext />
             </Carousel>
           ) : null}
         </section>
