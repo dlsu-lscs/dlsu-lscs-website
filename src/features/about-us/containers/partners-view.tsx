@@ -21,14 +21,15 @@ export default function PartnersView() {
           </h1>
         </header>
         {/* List of Partners */}
-        <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mt-16 place-items-center">
+        <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-16">
           {partnersData.partners.map((partner: PartnerType, index) => (
-            <PartnerCard
-              key={index}
-              partnerName={partner.name}
-              partnerLogo={partner.logo}
-              partnerLink={partner.link}
-            />
+            <div key={index} className="flex justify-center">
+              <PartnerCard
+                partnerName={partner.name}
+                partnerLogo={partner.logo}
+                partnerLink={partner.link}
+              />
+            </div>
           ))}
         </section>
       </main>
