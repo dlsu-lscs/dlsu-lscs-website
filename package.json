@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "lefthook install",
+    "prepare": "if [ -d .git ]; then lefthook install || true; fi",
     "format": "prettier --write .",
     "test": "jest --passWithNoTests",
     "test:ci": "jest --ci --coverage"
