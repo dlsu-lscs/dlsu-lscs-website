@@ -9,8 +9,8 @@ export default function WhatWeDo() {
     { src: '/example4.png', alt: 'Example 4' },
   ];
   return (
-    <div className="min-h-screen flex items-center justify-between">
-      <div className="relative w-[98%] h-screen mx-auto my-16 rounded-xl overflow-hidden flex">
+    <main className="relative z-20 flex min-h-screen w-full flex-col px-10 py-10 bg-[radial-gradient(circle_at_center,_#f5f5f5_0%,_#d9d9d9_70%,_#b3b3b3_100%)]">
+      <div className="relative w-full h-screen mx-auto rounded-xl overflow-hidden flex">
         <div className="absolute inset-0 bg-gradient-to-b from-[#1A5D89] to-[#001E3B] z-0"></div>
 
         {/* unsure if dots should be png or tailwind, using image for now */}
@@ -50,6 +50,6 @@ export default function WhatWeDo() {
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
