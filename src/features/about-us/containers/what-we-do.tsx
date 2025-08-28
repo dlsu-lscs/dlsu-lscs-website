@@ -10,7 +10,7 @@ export default function WhatWeDo() {
   ];
   return (
     <main className="relative z-20 flex min-h-screen w-full flex-col px-10 py-10 bg-[radial-gradient(circle_at_center,_#f5f5f5_0%,_#d9d9d9_70%,_#b3b3b3_100%)]">
-      <div className="relative w-full h-screen mx-auto rounded-xl overflow-hidden flex">
+      <div className="relative w-full min-h-screen mx-auto rounded-xl overflow-hidden flex">
         <div className="absolute inset-0 bg-gradient-to-b from-[#1A5D89] to-[#001E3B] z-0"></div>
 
         {/* unsure if dots should be png or tailwind, using image for now */}
@@ -27,12 +27,12 @@ export default function WhatWeDo() {
             <ImageGrid images={images} />
           </div>
 
-          <div className="w-1/2 p-8 flex flex-col justify-start items-start mt-32 mr-20">
+          <div className="w-1/2 p-8 flex flex-col justify-start items-start mt-32 mr-20 pl-20 pr-2">
             {/* change font to poppins */}
-            <h1 className="pt-10 text-[#FFFFFF] text-[48px] font-extrabold leading-none drop-shadow-2xl">
+            <h1 className="pt-10 text-[#FFFFFF] text-[58px] font-bold leading-none drop-shadow-2xl">
               What We Do
             </h1>
-            <p className="text-[#FFFFFF] text-[20px] mt-4">
+            <p className="text-[#FFFFFF] text-[24px] mt-4">
               LSCS holds many on-campus and off-campus activities for the college. Some of these
               on-campus activities include programming seminars, workshops, fund-raising programs,
               and bazaars. For off-campus activities, these include outreach programs, company
@@ -41,10 +41,10 @@ export default function WhatWeDo() {
 
             <Image
               src="/lscs.png"
-              alt="Right side illustration"
-              width={232}
-              height={259}
-              className="absolute top-10 right-10 -z-10"
+              alt="LSCS logo"
+              width={268}
+              height={299}
+              className="absolute top-9 right-10 -z-10"
               style={{ marginTop: '20px', marginRight: '20px' }}
             />
           </div>
