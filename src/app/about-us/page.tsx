@@ -3,6 +3,7 @@ import OrgView from '@/features/about-us/containers/org-view';
 import PartnersView from '@/features/about-us/containers/partners-view';
 import About from '@/features/about-us/containers/about';
 import CoreValuesView from '@/features/about-us/containers/core-values-view';
+import WhatWeDo from '@/features/about-us/containers/what-we-do';
 import ScrollAnimation from '@/components/animation/scroll-animation';
 
 export default function AboutUs() {
@@ -11,6 +12,9 @@ export default function AboutUs() {
       <div className="h-screen overflow-y-scroll snap-y snap-mandatory">
         <ScrollAnimation>
           <About />
+        </ScrollAnimation>
+        <ScrollAnimation>
+          <WhatWeDo />
         </ScrollAnimation>
         <ScrollAnimation>
           <CoreValuesView />
