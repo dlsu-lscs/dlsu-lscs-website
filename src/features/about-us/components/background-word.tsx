@@ -12,9 +12,9 @@ export default function BackgroundWord({ text, yOffset = '0%' }: BackgroundWords
       }}
     >
       <h1
-        className="absolute text-[160px] font-extrabold 
-          bg-[linear-gradient(to_top,#002D57_0%,#1A5D89_35%,#DDB518_40%,#EDCC46_100%)] 
-          bg-clip-text text-transparent"
+        className="absolute text-[80px] sm:text-[120px] md:text-[160px] font-extrabold 
+        bg-[linear-gradient(to_top,#002D57_0%,#1A5D89_35%,#DDB518_40%,#EDCC46_100%)] 
+        bg-clip-text text-transparent"
         style={{
           WebkitTextStroke: '4px transparent',
           WebkitTextFillColor: 'transparent',
@@ -22,8 +22,9 @@ export default function BackgroundWord({ text, yOffset = '0%' }: BackgroundWords
       >
         {text}
       </h1>
-
-      <h1 className="relative text-[160px] font-extrabold text-white">{text}</h1>
+      <h1 className="relative text-[80px] sm:text-[120px] md:text-[160px] font-extrabold text-white">
+        {text}
+      </h1>
     </div>
   );
 }
