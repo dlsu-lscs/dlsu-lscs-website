@@ -1,13 +1,38 @@
+import AwardsRecognitionView from '@/features/about-us/containers/awards-recognition-view';
+import OrgView from '@/features/about-us/containers/org-view';
 import PartnersView from '@/features/about-us/containers/partners-view';
-import About from '@/features/about-us/section/about';
 import VisionMission from '@/features/about-us/containers/vision-mission';
+import About from '@/features/about-us/containers/about';
+import CoreValuesView from '@/features/about-us/containers/core-values-view';
+import WhatWeDo from '@/features/about-us/containers/what-we-do';
+import ScrollAnimation from '@/components/animation/scroll-animation';
 
 export default function AboutUs() {
   return (
     <>
-      <About />
-      <VisionMission />
-      <PartnersView />
+      <div className="h-screen overflow-y-scroll snap-y snap-mandatory">
+        <ScrollAnimation>
+          <About />
+        </ScrollAnimation>
+        <ScrollAnimation>
+          <WhatWeDo />
+        </ScrollAnimation>
+         <ScrollAnimation>
+           <VisionMission />
+        </ScrollAnimation>
+        <ScrollAnimation>
+          <CoreValuesView />
+        </ScrollAnimation>
+        <ScrollAnimation>
+          <AwardsRecognitionView />
+        </ScrollAnimation>
+        <ScrollAnimation>
+          <OrgView />
+        </ScrollAnimation>
+        <ScrollAnimation>
+          <PartnersView />
+        </ScrollAnimation>
+      </div>
     </>
   );
 }

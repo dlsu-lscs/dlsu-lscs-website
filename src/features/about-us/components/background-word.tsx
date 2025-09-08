@@ -22,7 +22,6 @@ export default function BackgroundWord({ text, yOffset = '0%' }: BackgroundWords
       >
         {text}
       </h1>
-
       <h1 className="relative text-[80px] sm:text-[120px] md:text-[160px] font-extrabold text-white">
         {text}
       </h1>
