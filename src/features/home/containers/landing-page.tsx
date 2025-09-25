@@ -1,12 +1,12 @@
+import DiagonalLscsBg from '@/components/diagonal-lscs-bg';
 import { TriangleDownIcon } from '@radix-ui/react-icons';
-import Lscs39thBg from '../components/39th-lscs-bg';
 
 export default function LandingPage() {
   return (
     <>
       <div className="min-h-screen flex flex-col p-8 gap-8 relative">
         {/* Background image with fade effect */}
-        <Lscs39thBg />
+        <DiagonalLscsBg />
 
         {/* TEMPORARY NAV */}
         <nav className="h-12 bg-[#002D57] max-w-[1920px] w-full rounded-xl mx-auto"></nav>
