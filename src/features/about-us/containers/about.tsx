@@ -1,4 +1,4 @@
-import HorizontalLscsBg from '../components/horizontal-lscs-bg';
+import HorizontalLscsBg from '../../../components/horizontal-lscs-bg';
 
 export default function About() {
   return (
