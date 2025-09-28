@@ -75,7 +75,7 @@ Inside features, we follow the **Container/Presentational pattern**.
 
 ### File Structure
 
-\`\`\`
+```
 src/
 ├── app/ # Next.js App Router
 │ ├── layout.tsx
@@ -103,7 +103,7 @@ src/
 ├── styles/ # Global & theme styles
 ├── types/ # Global TypeScript types
 └── tests/ # Unit + E2E tests
-\`\`\`
+```
 
 ---
 
