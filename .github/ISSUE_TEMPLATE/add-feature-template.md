@@ -1,21 +1,21 @@
 ---
 name: Add Feature Template
-about: 'Adding features '
+about: 'Use this template to add new features.'
 title: "[FEATURE] <Feature Name> "
-labels: enhancement
+labels: new-feature
 assignees: ''
 
 ---
 
-# [FEATURE] <Feature Name> 
-
 ## Task: <Task Title>
-- **Description: ** Briefly describe what this task accomplishes.
+- **Description:** Briefly describe what this task accomplishes.
+
 - **Requirements / Steps:**
   - [ ] Requirement 1
   - [ ] Requirement 2
   - [ ] Requirement 3
-**Acceptance Criteria:**
+ 
+- **Acceptance Criteria:**
   - [ ] Criteria 1
   - [ ] Criteria 2
   - [ ] Criteria 3
