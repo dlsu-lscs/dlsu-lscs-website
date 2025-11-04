@@ -1,3 +1,4 @@
+'use client';
 import AwardsCard from '../components/awards-card';
 import {
   Carousel,
@@ -6,6 +7,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
 import Image from 'next/image';
 import awardDate from '../data/awards.json';
 import { awards as AwardsType } from '../types/awards';
@@ -51,7 +53,13 @@ export default function AwardsRecognitionView() {
         </header>
         <section className="w-[75%] sm:w-[90%] lg:w-[85%] mx-auto mt-12">
           {firstHalf.length > 0 ? (
-            <Carousel>
+            <Carousel
+              plugins={[
+                Autoplay({
+                  delay: 4000,
+                }),
+              ]}
+            >
               <CarouselContent className="py-4 flex justify-start gap-6 overflow-visible">
                 {firstHalf.map((award, index) => (
                   <CarouselItem
@@ -68,7 +76,13 @@ export default function AwardsRecognitionView() {
           ) : null}
 
           {secondHalf.length > 0 ? (
-            <Carousel>
+            <Carousel
+              plugins={[
+                Autoplay({
+                  delay: 8000,
+                }),
+              ]}
+            >
               <CarouselContent className="py-4 flex justify-start gap-6 overflow-visible">
                 {secondHalf.map((award, index) => (
                   <CarouselItem
