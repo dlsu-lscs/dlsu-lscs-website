@@ -4,7 +4,7 @@ type PressReleaseCardProps = {
   title: string;
   description: string;
   date: string;
-  author: string;
+  author?: string;
   image: string;
   link: string;
 };
@@ -15,7 +15,6 @@ export default function PressReleaseCard({
   date,
   author,
   image,
-  link,
 }: PressReleaseCardProps) {
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col hover:-translate-y-1 hover:shadow-xl transition">
@@ -25,10 +24,7 @@ export default function PressReleaseCard({
         <p className="text-sm text-gray-500 mb-2">
           {date} • {author}
         </p>
-        <p className="text-gray-600 flex-1 mb-3">{description}</p>
-        <a href={link} className="text-[#001F3F] font-medium hover:underline">
-          Read More →
-        </a>
+        <p className="text-gray-600 flex-1 mb-3 line-clamp-3">{description}</p>
       </div>
     </div>
   );

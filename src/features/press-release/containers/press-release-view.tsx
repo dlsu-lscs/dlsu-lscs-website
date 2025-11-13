@@ -130,8 +130,6 @@ const mockReleases: PressRelease[] = [
 export default function PressReleaseView() {
   const [releases, setReleases] = useState<PressRelease[]>([]);
   const [query, setQuery] = useState('');
-  const [yearFilter, setYearFilter] = useState<number | null>(null);
-  const [authorFilter, setAuthorFilter] = useState<string>('');
   const [currentPage, setCurrentPage] = useState(1);
 
   const ITEMS_PER_PAGE = 6;
@@ -150,14 +148,9 @@ export default function PressReleaseView() {
     loadReleases();
   }, []);
 
-  const filtered = releases.filter((item) => {
-    const matchesQuery = item.title.toLowerCase().includes(query.toLowerCase());
-    const matchesYear = yearFilter ? new Date(item.date || '').getFullYear() === yearFilter : true;
-    const matchesAuthor = authorFilter
-      ? item.author?.toLowerCase().includes(authorFilter.toLowerCase())
-      : true;
-    return matchesQuery && matchesYear && matchesAuthor;
-  });
+  const filtered = releases.filter((item) =>
+    item.title.toLowerCase().includes(query.toLowerCase())
+  );
 
   const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
   const paginated = filtered.slice(
@@ -165,45 +158,11 @@ export default function PressReleaseView() {
     currentPage * ITEMS_PER_PAGE
   );
 
-  const years = Array.from(
-    new Set(releases.map((r) => new Date(r.date || '').getFullYear()))
-  ).filter(Boolean);
-  const authors = Array.from(new Set(releases.map((r) => r.author))).filter(Boolean);
-
   return (
     <main className="min-h-screen w-full bg-transparent overflow-x-hidden">
       <section className="max-w-7xl mx-auto px-6 py-8">
-        <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
-          <FilterBar onSearch={setQuery} placeholder="Search press releases..." />
-
-          <div className="flex gap-2">
-            <select
-              value={yearFilter ?? ''}
-              onChange={(e) => setYearFilter(e.target.value ? Number(e.target.value) : null)}
-              className="border rounded px-2 py-1"
-            >
-              <option value="">All Years</option>
-              {years.map((y) => (
-                <option key={y} value={y}>
-                  {y}
-                </option>
-              ))}
-            </select>
-
-            <select
-              value={authorFilter}
-              onChange={(e) => setAuthorFilter(e.target.value)}
-              className="border rounded px-2 py-1"
-            >
-              <option value="">All Authors</option>
-              {authors.map((a) => (
-                <option key={a} value={a}>
-                  {a}
-                </option>
-              ))}
-            </select>
-          </div>
-        </div>
+        {/* Only the FilterBar is needed */}
+        <FilterBar onSearch={setQuery} />
 
         {filtered.length === 0 ? (
           <p className="mt-8 text-center text-gray-500">No press releases yet.</p>
