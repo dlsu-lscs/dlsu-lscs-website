@@ -4,7 +4,7 @@ export default function WhiteDiagonalLscsBg() {
       <div
         className="absolute top-1/2 left-1/2 w-[175%] h-[175%] -translate-x-1/2 -translate-y-1/2"
         style={{
-          backgroundColor: 'white',
+          backgroundColor: 'rgba(255, 255, 255, 0.1)',
           WebkitMaskImage: "url('/40th-lscs-single.svg')",
           maskImage: "url('/40th-lscs-single.svg')",
           WebkitMaskRepeat: 'repeat',

@@ -37,6 +37,5 @@ export function getPressReleases(): PressRelease[] {
       };
     });
 
-  // Sort newest first
   return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }

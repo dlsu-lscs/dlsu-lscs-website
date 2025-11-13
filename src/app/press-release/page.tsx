@@ -5,7 +5,7 @@ import WhiteDiagonalLscsBg from '@/components/white-diagonal-lscs-bg';
 
 export default function PressReleasePage() {
   return (
-    <div className="relative min-h-screen bg-[#001F3F] text-white overflow-hidden">
+    <div className="relative min-h-screen bg-gradient-to-b from-[#002D57] to-[#1A5D89] text-white overflow-hidden">
       <WhiteDiagonalLscsBg />
 
       <div className="relative z-10">
