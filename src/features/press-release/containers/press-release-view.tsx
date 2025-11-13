@@ -24,7 +24,7 @@ const mockReleases: PressRelease[] = [
     content: 'Lorem ipsum dolor sit amet...',
     date: '2025-11-01',
     author: 'Jane Doe',
-    featuredImage: '/default.jpg',
+    featuredImage: '/uploads/sample-card.png',
   },
   {
     slug: 'press-002',
@@ -33,7 +33,7 @@ const mockReleases: PressRelease[] = [
     content: 'Sed do eiusmod tempor incididunt...',
     date: '2024-09-15',
     author: 'John Smith',
-    featuredImage: '/default.jpg',
+    featuredImage: '/uploads/sample-card.png',
   },
   {
     slug: 'press-003',
@@ -42,7 +42,7 @@ const mockReleases: PressRelease[] = [
     content: 'Ut enim ad minim veniam...',
     date: '2023-05-20',
     author: 'Jane Doe',
-    featuredImage: '/default.jpg',
+    featuredImage: '/uploads/sample-card.png',
   },
   {
     slug: 'press-004',
@@ -51,7 +51,7 @@ const mockReleases: PressRelease[] = [
     content: 'Duis aute irure dolor in reprehenderit...',
     date: '2023-04-10',
     author: 'Alice Tan',
-    featuredImage: '/default.jpg',
+    featuredImage: '/uploads/sample-card.png',
   },
   {
     slug: 'press-005',
@@ -60,7 +60,7 @@ const mockReleases: PressRelease[] = [
     content: 'Excepteur sint occaecat cupidatat non proident...',
     date: '2024-01-22',
     author: 'John Smith',
-    featuredImage: '/default.jpg',
+    featuredImage: '/uploads/sample-card.png',
   },
   {
     slug: 'press-006',
@@ -69,7 +69,7 @@ const mockReleases: PressRelease[] = [
     content: 'Sunt in culpa qui officia deserunt mollit anim id est laborum...',
     date: '2024-03-05',
     author: 'Jane Doe',
-    featuredImage: '/default.jpg',
+    featuredImage: '/uploads/sample-card.png',
   },
   {
     slug: 'press-007',
@@ -78,7 +78,7 @@ const mockReleases: PressRelease[] = [
     content: 'Lorem ipsum dolor sit amet...',
     date: '2025-02-17',
     author: 'Alice Tan',
-    featuredImage: '/default.jpg',
+    featuredImage: '/uploads/sample-card.png',
   },
   {
     slug: 'press-008',
@@ -87,7 +87,7 @@ const mockReleases: PressRelease[] = [
     content: 'Sed do eiusmod tempor incididunt...',
     date: '2024-11-09',
     author: 'John Smith',
-    featuredImage: '/default.jpg',
+    featuredImage: '/uploads/sample-card.png',
   },
   {
     slug: 'press-009',
@@ -96,7 +96,7 @@ const mockReleases: PressRelease[] = [
     content: 'Ut enim ad minim veniam...',
     date: '2023-07-30',
     author: 'Jane Doe',
-    featuredImage: '/default.jpg',
+    featuredImage: '/uploads/sample-card.png',
   },
   {
     slug: 'press-010',
@@ -105,7 +105,7 @@ const mockReleases: PressRelease[] = [
     content: 'Duis aute irure dolor in reprehenderit...',
     date: '2023-10-12',
     author: 'Alice Tan',
-    featuredImage: '/default.jpg',
+    featuredImage: '/uploads/sample-card.png',
   },
   {
     slug: 'press-011',
@@ -114,7 +114,7 @@ const mockReleases: PressRelease[] = [
     content: 'Excepteur sint occaecat cupidatat non proident...',
     date: '2025-06-15',
     author: 'John Smith',
-    featuredImage: '/default.jpg',
+    featuredImage: '/uploads/sample-card.png',
   },
   {
     slug: 'press-012',
@@ -123,7 +123,7 @@ const mockReleases: PressRelease[] = [
     content: 'Sunt in culpa qui officia deserunt mollit anim id est laborum...',
     date: '2024-08-20',
     author: 'Jane Doe',
-    featuredImage: '/default.jpg',
+    featuredImage: '/uploads/sample-card.png',
   },
 ];
 
