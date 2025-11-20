@@ -38,6 +38,8 @@
 
 @theme inline {
   --font-Poppins: 'Poppins', sans-serif;
+  --font-onest: var(--font-onest);
+  --font-geist: var(--font-geist);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
