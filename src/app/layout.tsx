@@ -8,8 +8,8 @@ export const metadata: Metadata = {
   description: 'La Salle Computer Society Website',
 };
 
-const onest = Onest({ variable: '--font-onest' });
-const geist = Geist({ variable: '--font-geist' });
+const onest = Onest({ variable: '--font-onest', subsets: ['latin'] });
+const geist = Geist({ variable: '--font-geist', subsets: ['latin'] });
 
 export default function RootLayout({
   children,

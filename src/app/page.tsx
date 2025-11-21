@@ -1,7 +1,7 @@
-import PressReleaseView from '@/features/home/containers/press-release-view';
-import ContactUsPage from '@/features/home/containers/contact-us';
-import LandingPage from '@/features/home/containers/landing-page';
-import WhoAreWe from '@/features/home/containers/who-are-we';
+import PressReleaseTemplate from '@/features/home/components/templates/press-release-template';
+import ContactUsTemplate from '@/features/home/components/templates/contact-us-template';
+import LandingPageTemplate from '@/features/home/components/templates/landing-page-template';
+import WhoAreWeTemplate from '@/features/home/components/templates/who-are-we-template';
 import ScrollAnimation from '@/components/animation/scroll-animation';
 
 export default function Home() {
@@ -9,16 +9,16 @@ export default function Home() {
     <>
       <div className="h-screen overflow-y-scroll snap-y snap-mandatory">
         <ScrollAnimation>
-          <LandingPage />
+          <LandingPageTemplate />
         </ScrollAnimation>
         <ScrollAnimation>
-          <WhoAreWe />
+          <WhoAreWeTemplate />
         </ScrollAnimation>
         <ScrollAnimation>
-          <PressReleaseView />
+          <PressReleaseTemplate />
         </ScrollAnimation>
         <ScrollAnimation>
-          <ContactUsPage />
+          <ContactUsTemplate />
         </ScrollAnimation>
       </div>
     </>

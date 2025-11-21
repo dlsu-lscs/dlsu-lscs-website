@@ -6,9 +6,12 @@ interface bgProps {
 
 export default function DiagonalLscsBg({ className }: bgProps) {
   return (
-    <div className={cn('absolute inset-0 overflow-hidden -z-10', className)} aria-hidden="true">
+    <div
+      className={cn('fixed inset-0 overflow-hidden -z-10 pointer-events-none', className)}
+      aria-hidden="true"
+    >
       <div
-        className="absolute top-1/2 left-1/2 w-[175%] h-[175%] -translate-x-1/2 -translate-y-1/2
+        className="absolute inset-0 w-full h-full
                    bg-[url('/40th-lscs-single.svg')] bg-repeat bg-center"
         style={{
           transform: 'rotate(-30deg)', // rotate background container

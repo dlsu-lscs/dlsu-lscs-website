@@ -1,19 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import FilterBar from '../components/filter-bar';
 import PressReleaseCard from '../components/press-release-card';
 import Pagination from '../components/pagination';
-
-type PressRelease = {
-  slug: string;
-  title: string;
-  subtitle?: string;
-  content?: string;
-  date?: string;
-  author?: string;
-  featuredImage?: string;
-};
+import { applyFiltersAndSort } from '../utils';
+import { PressRelease } from '../types';
 
 type PressReleaseCardContainerProps = {
   releases: PressRelease[];
@@ -23,10 +15,14 @@ const ITEMS_PER_PAGE = 6;
 
 export default function PressReleaseCardContainer({ releases }: PressReleaseCardContainerProps) {
   const [query, setQuery] = useState('');
+  const [selectedYear, setSelectedYear] = useState('');
+  const [selectedAuthor, setSelectedAuthor] = useState('');
+  const [selectedSort, setSelectedSort] = useState('latest');
   const [currentPage, setCurrentPage] = useState(1);
 
-  const filtered = releases.filter((item) =>
-    item.title.toLowerCase().includes(query.toLowerCase())
+  const filtered = useMemo(
+    () => applyFiltersAndSort(releases, query, selectedYear, selectedAuthor, selectedSort),
+    [releases, query, selectedYear, selectedAuthor, selectedSort]
   );
 
   const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
@@ -35,9 +31,25 @@ export default function PressReleaseCardContainer({ releases }: PressReleaseCard
     currentPage * ITEMS_PER_PAGE
   );
 
+  // Reset to page 1 when filters change
+  const handleFilterChange = (callback: (value: string) => void) => {
+    return (value: string) => {
+      callback(value);
+      setCurrentPage(1);
+    };
+  };
+
   return (
     <>
-      <FilterBar onSearch={setQuery} />
+      <FilterBar
+        onSearch={handleFilterChange(setQuery)}
+        onYearChange={handleFilterChange(setSelectedYear)}
+        onAuthorChange={handleFilterChange(setSelectedAuthor)}
+        onSortChange={handleFilterChange(setSelectedSort)}
+        selectedYear={selectedYear}
+        selectedAuthor={selectedAuthor}
+        selectedSort={selectedSort}
+      />
 
       {filtered.length === 0 ? (
         <p className="mt-8 text-center text-gray-400">No press releases found.</p>

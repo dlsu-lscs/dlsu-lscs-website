@@ -4,7 +4,23 @@ import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
 
 export default function ArticleContent({ article }: { article: LscsArticle }) {
-  const { content, data } = matter(article.mdContent ?? '');
+  let content = '';
+  let featuredImageUrl = '';
+
+  try {
+    const { content: parsedContent, data } = matter(article.mdContent ?? '');
+    content = parsedContent;
+    featuredImageUrl = data.featuredImage || '';
+  } catch {
+    // If YAML parsing fails, just use the mdContent as-is
+    console.warn('Failed to parse YAML for article:', article.slug);
+    content = article.mdContent ?? '';
+    // Try to get featured image from article data instead
+    featuredImageUrl =
+      typeof article.featuredImage === 'object' && article.featuredImage?.url
+        ? article.featuredImage.url
+        : '';
+  }
 
   return (
     <>
@@ -17,7 +33,7 @@ export default function ArticleContent({ article }: { article: LscsArticle }) {
             day: 'numeric',
           })}
           author={typeof article.author === 'object' ? article.author.name : ''}
-          featuredImage={data.featuredImage}
+          featuredImage={featuredImageUrl}
         />
         <article className="w-full prose prose-a:text-blue-600 prose-a:hover:text-blue-500 font-geist">
           <ReactMarkdown>{content}</ReactMarkdown>{' '}
