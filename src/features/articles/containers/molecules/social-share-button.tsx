@@ -26,7 +26,7 @@ export default function SocialShareButton({ icon, alt, platform }: SocialShareBu
     return (
       <FacebookShareButton url={articleUrl} quote={title}>
         <button className="hover:opacity-75 transition-opacity" title="Share on Facebook">
-          <Image alt={alt} width={32} height={32} src={icon} />
+          <Image alt={alt} width={28} height={28} src={icon} />
         </button>
       </FacebookShareButton>
     );

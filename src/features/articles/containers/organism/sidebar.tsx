@@ -1,11 +1,10 @@
 import SideBarCard from '../molecules/sidebar-card';
-import { fetchArticlesLimited } from '../../services';
+import { fetchArticles } from '../../services';
 import SocialShareButton from '../molecules/social-share-button';
 
 export default async function SideBar() {
-  // TEMP
-  // Fetch limited articles (3 for latest + extra for random selection)
-  const articles = await fetchArticlesLimited(10);
+  // Fetch articles (10 for latest + random selection)
+  const articles = await fetchArticles(10);
 
   // Get 3 latest articles for "Latest Releases" (already sorted by newest first)
   const latestArticles = articles.slice(0, 3);
