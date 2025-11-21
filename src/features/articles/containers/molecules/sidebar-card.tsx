@@ -10,7 +10,7 @@ export default function SideBarCard(props: cardProps) {
   return (
     <>
       <div className="flex gap-4">
-        <div className="relative aspect-video w-[120px] rounded-l-md overflow-hidden">
+        <div className="relative aspect-video w-[120px] overflow-hidden">
           <Image src="/misc/placeholder.png" alt="article image" fill className="object-contain" />
         </div>
         <p className="font-geist">

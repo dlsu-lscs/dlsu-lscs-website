@@ -19,7 +19,7 @@ export async function fetchArticle(id: number) {
 }
 
 export async function fetchArticles(): Promise<LscsArticle[]> {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/lscs-articles`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/lscs-articles?limit=0&depth=0`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
