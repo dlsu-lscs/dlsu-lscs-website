@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils';
 
 interface bgProps {
-  className: string;
+  className?: string;
 }
 
 export default function DiagonalLscsBg({ className }: bgProps) {

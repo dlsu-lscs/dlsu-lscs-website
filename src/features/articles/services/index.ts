@@ -34,6 +34,29 @@ export async function fetchArticles(): Promise<LscsArticle[]> {
   return json.docs || [];
 }
 
+export async function fetchArticlesLimited(limit: number = 10): Promise<LscsArticle[]> {
+  const params = new URLSearchParams({
+    limit: limit.toString(),
+    sort: '-createdAt', // Sort by newest first
+    'where[_status][equals]': 'published', // Only get published articles
+  });
+
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/lscs-articles?${params.toString()}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `users API-Key ${process.env.API_KEY}`,
+    },
+  });
+
+  if (!res.ok) {
+    throw new Error(`Fetch error: ${res.status}`);
+  }
+
+  const json = await res.json();
+  return json.docs || [];
+}
+
 export async function fetchArticleBySlug(slug: string): Promise<LscsArticle> {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/lscs-articles?where[slug][equals]=${slug}`,

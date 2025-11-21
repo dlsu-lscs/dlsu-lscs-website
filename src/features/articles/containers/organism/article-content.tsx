@@ -4,9 +4,7 @@ import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
 
 export default function ArticleContent({ article }: { article: LscsArticle }) {
-   
   const { content, data } = matter(article.mdContent ?? '');
-  console.log(content);
 
   return (
     <>
