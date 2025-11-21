@@ -7,7 +7,6 @@ export async function fetchArticle(id: number) {
       'Content-Type': 'application/json',
       Authorization: `users API-Key ${process.env.API_KEY}`,
     },
-    cache: 'force-cache', // or "force-cache" depending on your need
   });
 
   if (!res.ok) {
@@ -25,7 +24,6 @@ export async function fetchArticles(): Promise<LscsArticle[]> {
       'Content-Type': 'application/json',
       Authorization: `users API-Key ${process.env.API_KEY}`,
     },
-    cache: 'force-cache',
   });
 
   if (!res.ok) {
@@ -45,7 +43,6 @@ export async function fetchArticleBySlug(slug: string): Promise<LscsArticle> {
         'Content-Type': 'application/json',
         Authorization: `users API-Key ${process.env.API_KEY}`,
       },
-      cache: 'force-cache',
     }
   );
 
@@ -58,5 +55,6 @@ export async function fetchArticleBySlug(slug: string): Promise<LscsArticle> {
   if (articles.length === 0) {
     throw new Error(`Article with slug "${slug}" not found`);
   }
+
   return articles[0];
 }

@@ -9,8 +9,10 @@ export default function PressReleasePage() {
       <WhiteDiagonalLscsBg />
 
       <div className="relative z-10">
-        <PageHeader />
-        <FeaturedArticleSection />
+        <div className="min-h-screen">
+          <PageHeader />
+          <FeaturedArticleSection />
+        </div>
         <PressReleaseView />
       </div>
     </div>

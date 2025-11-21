@@ -1,9 +1,9 @@
 import { notFound } from 'next/navigation';
-import Article from '@/features/articles/containers/article-page';
+import Article from '@/features/articles/containers/templates/article-page';
 import { fetchArticles, fetchArticleBySlug } from '@/features/articles/services';
 import { LscsArticle } from '@/features/articles/types';
 
-export const revalidate = 3600; // Revalidate every hour
+export const revalidate = 10; // Revalidate every hour
 
 export async function generateStaticParams() {
   const articles = await fetchArticles();
