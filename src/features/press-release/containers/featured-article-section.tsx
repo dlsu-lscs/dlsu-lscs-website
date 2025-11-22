@@ -1,26 +1,40 @@
 import FeaturedArticle from '../components/featured-article';
-import { getPressReleases } from '../lib/getPressReleases';
+import { fetchArticles } from '@/features/articles/services';
+import { LscsArticleAuthor, Media } from '@/features/articles/types';
+import matter from 'gray-matter';
 
-export default function FeaturedArticleSection() {
-  const articles = getPressReleases();
-  const featured = articles[0];
-  if (!featured) return null;
+export default async function FeaturedArticleSection() {
+  try {
+    const articles = await fetchArticles(1); // Fetch latest 1 article
+    const featured = articles[0];
 
-  const cleanContent = featured.content?.replace(/<!--[\s\S]*?-->/g, '').trim() ?? '';
+    if (!featured) return null;
 
-  const description =
-    featured.subtitle && featured.subtitle !== '-' ? featured.subtitle : cleanContent;
+    let description = featured.subtitle ?? '';
 
-  return (
-    <section className="max-w-7xl mx-auto px-6 py-2">
-      <FeaturedArticle
-        title={featured.title}
-        date={featured.date ? new Date(featured.date).toLocaleDateString() : ''}
-        author={featured.author}
-        description={description}
-        image={featured.featuredImage ?? '/default.jpg'}
-        link={`/press/${featured.slug}`}
-      />
-    </section>
-  );
+    if (!description || description === '-') {
+      try {
+        const { content } = matter(featured.mdContent ?? '');
+        description = content.trim().slice(0, 150) + '...';
+      } catch {
+        description = '';
+      }
+    }
+
+    return (
+      <section className="max-w-7xl mx-auto px-6 py-2">
+        <FeaturedArticle
+          title={featured.title}
+          date={featured.createdAt ? new Date(featured.createdAt).toLocaleDateString() : ''}
+          author={(featured.author as LscsArticleAuthor)?.name}
+          description={description}
+          image={(featured.featuredImage as Media)?.url ?? '/default.jpg'}
+          link={`/article/${featured.slug}`}
+        />
+      </section>
+    );
+  } catch (error) {
+    console.error('Error loading featured article:', error);
+    return null;
+  }
 }

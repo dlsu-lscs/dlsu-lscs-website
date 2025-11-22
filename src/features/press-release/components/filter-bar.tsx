@@ -2,35 +2,61 @@ import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 
 type FilterBarProps = {
   onSearch: (query: string) => void;
+  onYearChange: (year: string) => void;
+  onAuthorChange: (author: string) => void;
+  onSortChange: (sort: string) => void;
+  selectedYear: string;
+  selectedAuthor: string;
+  selectedSort: string;
 };
 
-export default function FilterBar({ onSearch }: FilterBarProps) {
+export default function FilterBar({
+  onSearch,
+  onYearChange,
+  onAuthorChange,
+  onSortChange,
+  selectedYear,
+  selectedAuthor,
+  selectedSort,
+}: FilterBarProps) {
   return (
     <div className="flex flex-wrap justify-between items-end gap-6 w-full">
       <div className="flex flex-wrap gap-4">
         <div className="flex flex-col">
           <label className="text-white font-medium mb-1">Publish Year:</label>
-          <select className="bg-[#D0D0D0] text-gray-800 px-3 py-2 rounded-md w-40">
-            <option>All Time</option>
-            <option>2025</option>
-            <option>2024</option>
+          <select
+            className="bg-[#D0D0D0] text-gray-800 px-3 py-2 rounded-md w-40"
+            value={selectedYear}
+            onChange={(e) => onYearChange(e.target.value)}
+          >
+            <option value="">All Time</option>
+            <option value="2025">2025</option>
+            <option value="2024">2024</option>
           </select>
         </div>
 
         <div className="flex flex-col">
           <label className="text-white font-medium mb-1">Author:</label>
-          <select className="bg-[#D0D0D0] text-gray-800 px-3 py-2 rounded-md w-40">
-            <option>All Authors</option>
-            <option>Admin</option>
-            <option>LSCS PR Team</option>
+          <select
+            className="bg-[#D0D0D0] text-gray-800 px-3 py-2 rounded-md w-40"
+            value={selectedAuthor}
+            onChange={(e) => onAuthorChange(e.target.value)}
+          >
+            <option value="">All Authors</option>
+            <option value="Admin">Admin</option>
+            <option value="LSCS PR Team">LSCS PR Team</option>
           </select>
         </div>
 
         <div className="flex flex-col">
           <label className="text-white font-medium mb-1">Sort By:</label>
-          <select className="bg-[#D0D0D0] text-gray-800 px-3 py-2 rounded-md w-40">
-            <option>Latest</option>
-            <option>Oldest</option>
+          <select
+            className="bg-[#D0D0D0] text-gray-800 px-3 py-2 rounded-md w-40"
+            value={selectedSort}
+            onChange={(e) => onSortChange(e.target.value)}
+          >
+            <option value="latest">Latest</option>
+            <option value="oldest">Oldest</option>
           </select>
         </div>
       </div>
