@@ -26,7 +26,7 @@ export default function Home() {
       </ScrollAnimation>
 
       <ScrollAnimation>
-        <section className="snap-start min-h-screen">
+        <section className="snap-start">
           <ContactUsTemplate />
         </section>
       </ScrollAnimation>
