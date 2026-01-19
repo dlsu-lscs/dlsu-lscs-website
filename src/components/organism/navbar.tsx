@@ -1,19 +1,20 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
+import NavbarButton from '../molecules/navbar-button';
 export default function Navbar() {
   const pathname = usePathname();
 
   return (
     <>
-      <nav className="sticky top-0 z-50 bg-[#1E1E1E] text-white h-20 px-16 flex justify-between items-center">
+      <nav className="sticky top-0 z-50 bg-[#1E1E1E] text-white h-20 px-16 flex justify-between items-center font-onest">
         {/* Logo*/}
         <div>
           <img src="/40th_logo.png" alt="40th logo" width={50} height={37} />
         </div>
 
         {/* Nav Links */}
-        <div className="flex gap-16 text-md h-full items-center">
+        <div className="flex gap-20 text-md h-full items-center">
           {[
             { href: '/', label: 'Home' },
             { href: '/about-us', label: 'About Us' },
@@ -31,6 +32,7 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
+          <NavbarButton>Join Us</NavbarButton>
         </div>
       </nav>
     </>
