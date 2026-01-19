@@ -7,9 +7,6 @@ export default function LandingPageTemplate() {
       {/* Background image with fade effect */}
       <DiagonalLscsBg />
 
-      {/* TEMPORARY NAV */}
-      <nav className="h-12 bg-[#002D57] max-w-7xl w-full rounded-xl mx-auto"></nav>
-
       <HeroSection />
     </div>
   );
