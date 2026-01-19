@@ -6,21 +6,30 @@ import ScrollAnimation from '@/components/animation/scroll-animation';
 
 export default function Home() {
   return (
-    <>
-      <div className="h-screen overflow-y-scroll snap-y snap-mandatory">
-        <ScrollAnimation>
+    <div className="overflow-y-scroll snap-y snap-mandatory min-h-[100dvh]">
+      <ScrollAnimation>
+        <section className="snap-start min-h-screen">
           <LandingPageTemplate />
-        </ScrollAnimation>
-        <ScrollAnimation>
+        </section>
+      </ScrollAnimation>
+
+      <ScrollAnimation>
+        <section className="snap-start min-h-screen">
           <WhoAreWeTemplate />
-        </ScrollAnimation>
-        <ScrollAnimation>
+        </section>
+      </ScrollAnimation>
+
+      <ScrollAnimation>
+        <section className="snap-start min-h-screen">
           <PressReleaseTemplate />
-        </ScrollAnimation>
-        <ScrollAnimation>
+        </section>
+      </ScrollAnimation>
+
+      <ScrollAnimation>
+        <section className="snap-start min-h-screen">
           <ContactUsTemplate />
-        </ScrollAnimation>
-      </div>
-    </>
+        </section>
+      </ScrollAnimation>
+    </div>
   );
 }
