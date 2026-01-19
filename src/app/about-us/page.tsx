@@ -9,30 +9,48 @@ import ScrollAnimation from '@/components/animation/scroll-animation';
 
 export default function AboutUs() {
   return (
-    <>
-      <div className="h-screen overflow-y-scroll snap-y snap-mandatory">
-        <ScrollAnimation>
+    <div className="overflow-y-scroll snap-y snap-mandatory min-h-[100dvh]">
+      <ScrollAnimation>
+        <section className="snap-start min-h-screen">
           <About />
-        </ScrollAnimation>
-        <ScrollAnimation>
+        </section>
+      </ScrollAnimation>
+
+      <ScrollAnimation>
+        <section className="snap-start min-h-screen">
           <WhatWeDo />
-        </ScrollAnimation>
-         <ScrollAnimation>
-           <VisionMission />
-        </ScrollAnimation>
-        <ScrollAnimation>
+        </section>
+      </ScrollAnimation>
+
+      <ScrollAnimation>
+        <section className="snap-start min-h-screen">
+          <VisionMission />
+        </section>
+      </ScrollAnimation>
+
+      <ScrollAnimation>
+        <section className="snap-start min-h-screen">
           <CoreValuesView />
-        </ScrollAnimation>
-        <ScrollAnimation>
+        </section>
+      </ScrollAnimation>
+
+      <ScrollAnimation>
+        <section className="snap-start min-h-screen">
           <AwardsRecognitionView />
-        </ScrollAnimation>
-        <ScrollAnimation>
+        </section>
+      </ScrollAnimation>
+
+      <ScrollAnimation>
+        <section className="snap-start min-h-screen">
           <OrgView />
-        </ScrollAnimation>
-        <ScrollAnimation>
+        </section>
+      </ScrollAnimation>
+
+      <ScrollAnimation>
+        <section className="snap-start min-h-screen">
           <PartnersView />
-        </ScrollAnimation>
-      </div>
-    </>
+        </section>
+      </ScrollAnimation>
+    </div>
   );
 }
