@@ -32,7 +32,7 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
-          <NavbarButton>Join Us</NavbarButton>
+          <NavbarButton link="mailto:lscs@dlsu.edu.ph">Contact Us</NavbarButton>
         </div>
       </nav>
     </>
