@@ -11,9 +11,13 @@ interface StayInTouchCardProps {
 
 export default function StayInTouchCard({ title, description, socialLinks }: StayInTouchCardProps) {
   return (
-    <section className="flex flex-col gap-4">
-      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">{title}</h1>
-      <p className="text-xs sm:text-sm md:text-base">{description}</p>
+    <section className="flex flex-col gap-6">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-onest text-[#DDB518]">
+        {title}
+      </h1>
+      <p className="text-xs sm:text-sm md:text-base text-[#FFFFFF] font-geist font-normal">
+        {description}
+      </p>
       <div className="flex gap-2 sm:gap-3 md:gap-4">
         {socialLinks.map((link, index) => (
           <a
