@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import '@/styles/globals.css';
 import { Onest, Geist } from 'next/font/google';
 import { cn } from '@/lib/utils';
+import Navbar from '@/components/organism/navbar';
 
 export const metadata: Metadata = {
   title: 'La Salle Computer Society',
@@ -18,7 +19,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={cn(onest.variable, geist.variable)}>
-      <body className="min-h-screen w-full font-Poppins antialiased">{children}</body>
+      <body className="min-h-screen w-full font-Poppins antialiased">
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
