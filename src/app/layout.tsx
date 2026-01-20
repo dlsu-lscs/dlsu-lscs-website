@@ -18,8 +18,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn(onest.variable, geist.variable)}>
-      <body className="min-h-screen w-full font-Poppins antialiased">
+    <html
+      lang="en"
+      className={cn(onest.variable, geist.variable, 'snap-y scroll-pt-20 snap-mandatory')}
+    >
+      <body className="w-full font-Poppins antialiased">
         <Navbar />
         {children}
       </body>

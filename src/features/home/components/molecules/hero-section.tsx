@@ -2,7 +2,7 @@ import { TriangleDownIcon } from '@radix-ui/react-icons';
 
 export default function HeroSection() {
   return (
-    <main className="w-full max-w-7xl mx-auto h-full flex-1 relative flex">
+    <main className="w-full max-w-9xl mx-auto h-full flex-1 relative flex">
       {/* Masked background container */}
       <div className="absolute inset-0 mask-semicircle p-2 w-full gap-2 bg-black/60 rounded-2xl" />
 

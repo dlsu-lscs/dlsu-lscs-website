@@ -2,12 +2,18 @@
 
 import { usePathname } from 'next/navigation';
 import NavbarButton from '../molecules/navbar-button';
+import { useScrollDirection } from '@/hooks/useScrollDirection';
+
 export default function Navbar() {
   const pathname = usePathname();
+  const { isVisible } = useScrollDirection();
 
   return (
     <>
-      <nav className="sticky top-0 z-50 bg-[#1E1E1E] text-white h-20 px-16 flex justify-between items-center font-onest">
+      <nav
+        className={`z-50 bg-[#1E1E1E] text-white h-20 px-16 flex justify-between items-center font-onest transition-all duration-300 sticky 
+         ${!isVisible ? '-top-20' : 'top-0'}`}
+      >
         {/* Logo*/}
         <div>
           <img src="/40th_logo.png" alt="40th logo" width={50} height={37} />
