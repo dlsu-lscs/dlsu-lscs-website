@@ -1,6 +1,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 import NavbarButton from '../molecules/navbar-button';
 import { useScrollDirection } from '@/hooks/useScrollDirection';
 
@@ -16,7 +17,7 @@ export default function Navbar() {
       >
         {/* Logo*/}
         <div>
-          <img src="/40th_logo.png" alt="40th logo" width={50} height={37} />
+          <Image src="/40th_logo.png" alt="40th logo" width={50} height={37} />
         </div>
 
         {/* Nav Links */}
