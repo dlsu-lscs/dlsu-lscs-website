@@ -4,7 +4,8 @@ export default function HeroSection() {
   return (
     <main className="w-full max-w-9xl mx-auto h-full flex-1 relative flex">
       {/* Masked background container */}
-      <div className="absolute inset-0 mask-semicircle p-2 w-full gap-2 bg-black/60 rounded-2xl" />
+      <div className="absolute inset-0 mask-semicircle p-2 w-full gap-2 bg-black/60 rounded-2xl bg-[url(/misc/lscs-people.png)] bg-center bg-cover " />
+      <div className="absolute inset-0 mask-semicircle p-2 w-full gap-2 bg-black/60 rounded-2xl " />
 
       {/* Content */}
       <div className="relative z-10 flex flex-col justify-center items-center flex-1 p-2 gap-2">
