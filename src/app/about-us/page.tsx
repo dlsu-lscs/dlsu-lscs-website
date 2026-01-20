@@ -9,9 +9,9 @@ import ScrollAnimation from '@/components/animation/scroll-animation';
 
 export default function AboutUs() {
   return (
-    <div className="overflow-y-scroll snap-y snap-mandatory min-h-[100dvh]">
+    <div>
       <ScrollAnimation>
-        <section className="snap-start min-h-screen">
+        <section className="snap-start ">
           <About />
         </section>
       </ScrollAnimation>
