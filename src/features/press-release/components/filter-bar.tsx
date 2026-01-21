@@ -8,6 +8,8 @@ type FilterBarProps = {
   selectedYear: string;
   selectedAuthor: string;
   selectedSort: string;
+  authors?: string[];
+  years?: string[];
 };
 
 export default function FilterBar({
@@ -18,6 +20,8 @@ export default function FilterBar({
   selectedYear,
   selectedAuthor,
   selectedSort,
+  authors = [],
+  years = [],
 }: FilterBarProps) {
   return (
     <div className="flex flex-wrap justify-between items-end gap-6 w-full">
@@ -30,8 +34,11 @@ export default function FilterBar({
             onChange={(e) => onYearChange(e.target.value)}
           >
             <option value="">All Time</option>
-            <option value="2025">2025</option>
-            <option value="2024">2024</option>
+            {years.map((year) => (
+              <option key={year} value={year}>
+                {year}
+              </option>
+            ))}
           </select>
         </div>
 
@@ -43,8 +50,11 @@ export default function FilterBar({
             onChange={(e) => onAuthorChange(e.target.value)}
           >
             <option value="">All Authors</option>
-            <option value="Admin">Admin</option>
-            <option value="LSCS PR Team">LSCS PR Team</option>
+            {authors.map((author) => (
+              <option key={author} value={author}>
+                {author}
+              </option>
+            ))}
           </select>
         </div>
 
@@ -65,7 +75,7 @@ export default function FilterBar({
         <input
           type="text"
           placeholder="Search by title..."
-          className="bg-[#D0D0D0] text-gray-800 pr-10 pl-3 py-2 rounded-md w-64"
+          className="bg-slate-200 text-gray-800 pr-10 pl-3 py-2 rounded-md w-64 sm:w-96"
           onChange={(e) => onSearch(e.target.value)}
         />
         <MagnifyingGlassIcon className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />

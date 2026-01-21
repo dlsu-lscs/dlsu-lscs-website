@@ -1,6 +1,15 @@
+'use client';
+
 import { TriangleDownIcon } from '@radix-ui/react-icons';
 
 export default function HeroSection() {
+  const handleScrollDown = () => {
+    window.scrollBy({
+      top: window.innerHeight,
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <main className="w-full max-w-9xl mx-auto h-full flex-1 relative flex">
       {/* Masked background container */}
@@ -18,7 +27,10 @@ export default function HeroSection() {
       </div>
 
       {/* Circle shape at bottom */}
-      <div className="absolute left-1/2 -translate-x-1/2 bottom-0 md:w-40 md:h-20 sm:w-32 sm:h-16 h-10 w-20 flex justify-center items-center bg-yellow-400 rounded-t-full z-20 bg-gradient-to-b from-[#DDB518] to-[#77610D] shadow-[4px_4px_4px_rgba(0,0,0,0.25)]">
+      <div
+        onClick={handleScrollDown}
+        className="absolute left-1/2 -translate-x-1/2 bottom-0 md:w-40 md:h-20 sm:w-32 sm:h-16 h-10 w-20 flex justify-center items-center bg-yellow-400 rounded-t-full z-20 bg-gradient-to-b from-[#DDB518] to-[#77610D] shadow-[4px_4px_4px_rgba(0,0,0,0.25)] cursor-pointer hover:opacity-90 transition-opacity"
+      >
         <TriangleDownIcon className="text-white md:w-24 md:h-24 sm:w-20 sm:h-20 w-16 h-16" />
       </div>
     </main>

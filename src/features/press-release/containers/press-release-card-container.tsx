@@ -3,9 +3,10 @@
 import { useState, useMemo } from 'react';
 import FilterBar from '../components/filter-bar';
 import PressReleaseCard from '../components/press-release-card';
-import Pagination from '../components/pagination';
+import ResponsivePagination from '../components/responsive-pagination';
 import { applyFiltersAndSort } from '../utils';
 import { PressRelease } from '../types';
+import useDebouncer from '@/hooks/useDebouncer';
 
 type PressReleaseCardContainerProps = {
   releases: PressRelease[];
@@ -20,9 +21,11 @@ export default function PressReleaseCardContainer({ releases }: PressReleaseCard
   const [selectedSort, setSelectedSort] = useState('latest');
   const [currentPage, setCurrentPage] = useState(1);
 
+  const debouncedVal = useDebouncer({ delay: 400, value: query });
+
   const filtered = useMemo(
-    () => applyFiltersAndSort(releases, query, selectedYear, selectedAuthor, selectedSort),
-    [releases, query, selectedYear, selectedAuthor, selectedSort]
+    () => applyFiltersAndSort(releases, debouncedVal, selectedYear, selectedAuthor, selectedSort),
+    [releases, debouncedVal, selectedYear, selectedAuthor, selectedSort]
   );
 
   const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
@@ -39,6 +42,26 @@ export default function PressReleaseCardContainer({ releases }: PressReleaseCard
     };
   };
 
+  // Extract unique authors and years from releases
+  const uniqueAuthors = useMemo(() => {
+    const authors = new Set(
+      releases.map((r) => r.author).filter((author): author is string => Boolean(author))
+    );
+    return Array.from(authors).sort();
+  }, [releases]);
+
+  const uniqueYears = useMemo(() => {
+    const years = new Set(
+      releases
+        .map((r) => {
+          const year = r.date ? new Date(r.date).getFullYear().toString() : null;
+          return year;
+        })
+        .filter((year): year is string => Boolean(year))
+    );
+    return Array.from(years).sort().reverse();
+  }, [releases]);
+
   return (
     <>
       <FilterBar
@@ -49,6 +72,8 @@ export default function PressReleaseCardContainer({ releases }: PressReleaseCard
         selectedYear={selectedYear}
         selectedAuthor={selectedAuthor}
         selectedSort={selectedSort}
+        authors={uniqueAuthors}
+        years={uniqueYears}
       />
 
       {filtered.length === 0 ? (
@@ -69,15 +94,11 @@ export default function PressReleaseCardContainer({ releases }: PressReleaseCard
             ))}
           </div>
 
-          {totalPages > 1 && (
-            <div className="mt-8 flex justify-center">
-              <Pagination
-                currentPage={currentPage}
-                totalPages={totalPages}
-                onPageChange={(page) => setCurrentPage(page)}
-              />
-            </div>
-          )}
+          <ResponsivePagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={setCurrentPage}
+          />
         </>
       )}
     </>

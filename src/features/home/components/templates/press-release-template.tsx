@@ -47,7 +47,7 @@ export default async function PressReleaseTemplate() {
       <header className="flex justify-center text-center">
         <h1 className="font-bold text-4xl sm:text-5xl text-[#002D57] mb-8">PRESS RELEASES</h1>
       </header>
-      <section className="max-w-7xl flex items-center justify-center">
+      <section className="max-w-7xl flex items-center justify-center mx-auto">
         <PressReleaseGrid articles={articles} />
       </section>
       <div className="text-center mt-8">
