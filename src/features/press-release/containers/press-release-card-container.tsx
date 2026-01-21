@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react';
 import FilterBar from '../components/filter-bar';
 import PressReleaseCard from '../components/press-release-card';
-import Pagination from '../components/pagination';
+import ResponsivePagination from '../components/responsive-pagination';
 import { applyFiltersAndSort } from '../utils';
 import { PressRelease } from '../types';
 import useDebouncer from '@/hooks/useDebouncer';
@@ -72,15 +72,11 @@ export default function PressReleaseCardContainer({ releases }: PressReleaseCard
             ))}
           </div>
 
-          {totalPages > 1 && (
-            <div className="mt-8 flex justify-center">
-              <Pagination
-                currentPage={currentPage}
-                totalPages={totalPages}
-                onPageChange={(page) => setCurrentPage(page)}
-              />
-            </div>
-          )}
+          <ResponsivePagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={setCurrentPage}
+          />
         </>
       )}
     </>
