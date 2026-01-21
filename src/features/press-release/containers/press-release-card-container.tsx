@@ -6,6 +6,7 @@ import PressReleaseCard from '../components/press-release-card';
 import Pagination from '../components/pagination';
 import { applyFiltersAndSort } from '../utils';
 import { PressRelease } from '../types';
+import useDebouncer from '@/hooks/useDebouncer';
 
 type PressReleaseCardContainerProps = {
   releases: PressRelease[];
@@ -20,9 +21,11 @@ export default function PressReleaseCardContainer({ releases }: PressReleaseCard
   const [selectedSort, setSelectedSort] = useState('latest');
   const [currentPage, setCurrentPage] = useState(1);
 
+  const debouncedVal = useDebouncer({ delay: 400, value: query });
+
   const filtered = useMemo(
-    () => applyFiltersAndSort(releases, query, selectedYear, selectedAuthor, selectedSort),
-    [releases, query, selectedYear, selectedAuthor, selectedSort]
+    () => applyFiltersAndSort(releases, debouncedVal, selectedYear, selectedAuthor, selectedSort),
+    [releases, debouncedVal, selectedYear, selectedAuthor, selectedSort]
   );
 
   const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
