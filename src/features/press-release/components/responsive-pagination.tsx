@@ -90,7 +90,10 @@ export default function ResponsivePagination({
                 e.preventDefault();
                 if (currentPage > 1) onPageChange(currentPage - 1);
               }}
-              className={currentPage === 1 ? 'pointer-events-none opacity-50' : ''}
+              className={cn(
+                currentPage === 1 ? 'pointer-events-none opacity-50' : '',
+                'font-semibold bg-white text-black'
+              )}
             />
           </PaginationItem>
 
@@ -123,7 +126,10 @@ export default function ResponsivePagination({
                 e.preventDefault();
                 if (currentPage < totalPages) onPageChange(currentPage + 1);
               }}
-              className={currentPage === totalPages ? 'pointer-events-none opacity-50' : ''}
+              className={cn(
+                currentPage === totalPages ? 'pointer-events-none opacity-50' : '',
+                'bg-white text-black font-semibold'
+              )}
             />
           </PaginationItem>
         </PaginationContent>
