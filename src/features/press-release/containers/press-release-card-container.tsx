@@ -42,6 +42,26 @@ export default function PressReleaseCardContainer({ releases }: PressReleaseCard
     };
   };
 
+  // Extract unique authors and years from releases
+  const uniqueAuthors = useMemo(() => {
+    const authors = new Set(
+      releases.map((r) => r.author).filter((author): author is string => Boolean(author))
+    );
+    return Array.from(authors).sort();
+  }, [releases]);
+
+  const uniqueYears = useMemo(() => {
+    const years = new Set(
+      releases
+        .map((r) => {
+          const year = r.date ? new Date(r.date).getFullYear().toString() : null;
+          return year;
+        })
+        .filter((year): year is string => Boolean(year))
+    );
+    return Array.from(years).sort().reverse();
+  }, [releases]);
+
   return (
     <>
       <FilterBar
@@ -52,6 +72,8 @@ export default function PressReleaseCardContainer({ releases }: PressReleaseCard
         selectedYear={selectedYear}
         selectedAuthor={selectedAuthor}
         selectedSort={selectedSort}
+        authors={uniqueAuthors}
+        years={uniqueYears}
       />
 
       {filtered.length === 0 ? (
