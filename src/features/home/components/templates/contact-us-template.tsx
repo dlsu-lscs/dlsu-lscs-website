@@ -5,7 +5,7 @@ import Image from 'next/image';
 export default function ContactUsTemplate() {
   const socialLinks = [
     {
-      icon: <Image src="/social_links/fb-logo.png" alt="Facebook" width={24} height={24} />,
+      icon: <Image src="/social_links/fb-logo.png" alt="Facebook" width={18} height={18} />,
       url: 'https://www.facebook.com/LaSalleComputerSociety',
     },
     {
