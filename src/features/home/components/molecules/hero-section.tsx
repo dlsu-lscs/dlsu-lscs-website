@@ -18,10 +18,10 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 flex flex-col justify-center items-center flex-1 p-2 gap-2">
-        <h2 className="text-[#EDCC46] font-extrabold text-lg sm:text-xl md:text-2xl text-center leading-tight sm:leading-snug mb-2">
-          La Salle Computer Society
+        <h2 className="text-[#EDCC46] font-onest font-extrabold text-base text- sm:text-xl md:text-3xl text-center leading-tight sm:leading-snug mb-2">
+          LA SALLE COMPUTER SOCIETY
         </h2>
-        <h1 className="mb-8 sm:mb-10 md:mb-12 text-white font-bold text-2xl sm:text-3xl md:text-5xl text-center whitespace-pre-line leading-tight sm:leading-snug">
+        <h1 className="mb-8 sm:mb-10 md:mb-12 font-onest text-white font-bold text-2xl sm:text-3xl md:text-5xl text-center whitespace-pre-line leading-tight sm:leading-snug">
           {`Living Yesterday's Vision\nSetting Today's Trends\nInspiring Tomorrow's Leaders`}
         </h1>
       </div>
