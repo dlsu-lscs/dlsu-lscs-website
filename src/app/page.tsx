@@ -20,7 +20,7 @@ export default function Home() {
       </ScrollAnimation>
 
       <ScrollAnimation>
-        <section className="snap-start h-screen">
+        <section className="snap-start min-h-screen">
           <PressReleaseTemplate />
         </section>
       </ScrollAnimation>

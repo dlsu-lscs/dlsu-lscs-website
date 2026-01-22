@@ -71,11 +71,11 @@ export default function FilterBar({
         </div>
       </div>
 
-      <div className="relative">
+      <div className="relative w-full sm:w-96">
         <input
           type="text"
           placeholder="Search by title..."
-          className="bg-slate-200 text-gray-800 pr-10 pl-3 py-2 rounded-md w-64 sm:w-96"
+          className="bg-slate-200 text-gray-800 pr-10 pl-3 py-2 rounded-md w-full"
           onChange={(e) => onSearch(e.target.value)}
         />
         <MagnifyingGlassIcon className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />

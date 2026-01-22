@@ -11,7 +11,7 @@ export default function PressReleasePage() {
       <WhiteDiagonalLscsBg />
 
       <div className="relative z-10">
-        <div className="min-h-screen">
+        <div className="">
           <PageHeader />
           <FeaturedArticleSection />
         </div>

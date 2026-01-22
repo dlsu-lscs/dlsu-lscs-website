@@ -33,14 +33,14 @@ export default function FeaturedArticle({
 
       <div className="p-6 md:w-1/2 flex flex-col justify-between">
         <div>
-          <h2 className="text-6xl font-bold text-white mb-2">{title}</h2>
+          <h2 className="text-2xl md:text-5xl lg:6xl font-bold text-white mb-2">{title}</h2>
 
-          <p className="text-lg text-white/80 mb-4">
+          <p className="text-base sm:text-lg text-white/80 mb-4">
             {formattedDate}
             {author ? ` • ${author}` : ''}
           </p>
 
-          <p className="text-white/90 text-lg mb-4 line-clamp-4">{description}</p>
+          <p className="text-white/90 text-base sm:text-lg mb-4 line-clamp-4">{description}</p>
         </div>
 
         <a
