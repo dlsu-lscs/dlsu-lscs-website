@@ -37,7 +37,10 @@ export default function ContactUsTemplate() {
           zIndex: -1,
         }}
       />
-      <main className="flex w-full h-full flex-wrap items-center justify-center lg:gap-24 sm:gap-16 gap-8">
+      <main
+        id="contact-us"
+        className="flex w-full h-full flex-wrap items-center justify-center lg:gap-24 sm:gap-16 gap-8"
+      >
         <GetInTouchCard
           title="Get in touch"
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
