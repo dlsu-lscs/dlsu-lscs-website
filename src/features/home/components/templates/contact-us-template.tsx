@@ -48,7 +48,7 @@ export default function ContactUsTemplate() {
         />
         <StayInTouchCard
           title="Stay in touch"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          description="Follow us on social media to stay updated with our latest events, projects, and announcements."
           socialLinks={socialLinks}
         />
       </main>

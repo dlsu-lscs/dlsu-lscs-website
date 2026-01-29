@@ -8,7 +8,7 @@ export default function WhoAreWeTemplate() {
       <AboutSection
         title="WHO ARE WE?"
         subtitle="La Salle Computer Society"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin viverra, eros nec commodo semper, massa ipsum consequat risus, non efficitur tellus orci id nunc. Praesent nec eros cursus, pellentesque libero eu, finibus tortor. Ut at odio eu turpis sollicitudin tincidunt. Nulla pellentesque, augue cursus pretium laoreet, velit dui mollis felis, ac efficitur quam erat id massa."
+        description="La Salle Computer Society (LSCS) is DLSU's largest and pioneering technological organization and the home organization of the College of Computer Studies. LSCS is committed to help students learn more about tech through interactive workshops, make new friends with recreational events, develop their leadership skills through the esteemed Junior Officer Training program, secure a job through various career events, and more. Now in its 40th year of service, LSCS continues to ignite, innovate, and inspire."
         imageUrl="https://blocks.astratic.com/img/general-img-square.png"
         imageAlt="Placeholder network illustration"
         buttonText="Learn More"
