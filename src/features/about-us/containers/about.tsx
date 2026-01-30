@@ -3,9 +3,17 @@
 import HorizontalLscsBg from '../../../components/horizontal-lscs-bg';
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 import Image from 'next/image';
+import { CmsImage } from '../../home/services/getWebAssets';
 
-export default function About() {
-  const images = [
+interface AboutProps {
+  aboutImages?: Array<{
+    id: string;
+    image: CmsImage;
+  }>;
+}
+
+export default function About({ aboutImages }: AboutProps) {
+  const defaultImages = [
     {
       url: 'https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=600&h=800&fit=crop',
       label: 'Programming workspace',
@@ -23,6 +31,10 @@ export default function About() {
       label: 'Students learning',
     },
     {
+      url: 'https://plus.unsplash.com/premium_photo-1678566111481-8e275550b700?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      label: 'Screen',
+    },
+    {
       url: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&h=200&fit=crop',
       label: 'Computer setup',
     },
@@ -31,6 +43,14 @@ export default function About() {
       label: 'Developer coding',
     },
   ];
+
+  const images =
+    aboutImages && aboutImages.length > 0
+      ? aboutImages.map((item) => ({
+          url: item.image.url,
+          label: item.image.alt || 'About image',
+        }))
+      : defaultImages;
 
   return (
     <>

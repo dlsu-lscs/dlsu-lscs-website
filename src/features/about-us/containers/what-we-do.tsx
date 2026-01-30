@@ -1,13 +1,32 @@
 import Image from 'next/image';
 import ImageGrid from '../components/image-grid';
+import { CmsImage } from '../../home/services/getWebAssets';
 
-export default function WhatWeDo() {
-  const images = [
+interface WhatWeDoProps {
+  whatWeDoImages?: {
+    image1: CmsImage;
+    image2: CmsImage;
+    image3: CmsImage;
+    image4: CmsImage;
+  };
+}
+
+export default function WhatWeDo({ whatWeDoImages }: WhatWeDoProps) {
+  const defaultImages = [
     { src: '/example1.png', alt: 'Example 1' },
     { src: '/example2.png', alt: 'Example 2' },
     { src: '/example3.png', alt: 'Example 3' },
     { src: '/example4.png', alt: 'Example 4' },
   ];
+
+  const images = whatWeDoImages
+    ? [
+        { src: whatWeDoImages.image1.url, alt: whatWeDoImages.image1.alt || 'What we do image 1' },
+        { src: whatWeDoImages.image2.url, alt: whatWeDoImages.image2.alt || 'What we do image 2' },
+        { src: whatWeDoImages.image3.url, alt: whatWeDoImages.image3.alt || 'What we do image 3' },
+        { src: whatWeDoImages.image4.url, alt: whatWeDoImages.image4.alt || 'What we do image 4' },
+      ]
+    : defaultImages;
 
   return (
     <main className="relative z-20 flex min-h-screen w-full flex-col px-6 sm:px-10 py-10 bg-[radial-gradient(circle_at_center,_#f5f5f5_0%,_#d9d9d9_70%,_#b3b3b3_100%)]">
