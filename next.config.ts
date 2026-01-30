@@ -9,6 +9,14 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'cms.app.dlsu-lscs.org',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'plus.unsplash.com',
+      },
     ],
   },
 };

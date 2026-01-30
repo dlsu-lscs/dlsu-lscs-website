@@ -3,19 +3,22 @@ import ContactUsTemplate from '@/features/home/components/templates/contact-us-t
 import LandingPageTemplate from '@/features/home/components/templates/landing-page-template';
 import WhoAreWeTemplate from '@/features/home/components/templates/who-are-we-template';
 import ScrollAnimation from '@/components/animation/scroll-animation';
+import { getWebAssets } from '@/features/home/services/getWebAssets';
 
-export default function Home() {
+export default async function Home() {
+  const webAssets = await getWebAssets();
+
   return (
     <div>
       <ScrollAnimation>
         <section className="snap-start h-[90dvh]">
-          <LandingPageTemplate />
+          <LandingPageTemplate heroImage={webAssets?.hero.image} />
         </section>
       </ScrollAnimation>
 
       <ScrollAnimation>
         <section className="snap-start h-screen">
-          <WhoAreWeTemplate />
+          <WhoAreWeTemplate whoAreWeImage={webAssets?.whoAreWe.image} />
         </section>
       </ScrollAnimation>
 

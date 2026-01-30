@@ -1,5 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
+import Link from 'next/link';
+
 interface AboutSectionProps {
   title: string;
   subtitle: string;
@@ -25,9 +27,12 @@ export default function AboutSection({
         <p className="text-base sm:text-lg lg:text-xl my-4 sm:my-6 text-justify leading-relaxed">
           {description}
         </p>
-        <button className="bg-gradient-to-b from-[#1A5D89] to-[#071823] rounded-[10px] px-6 py-2 sm:px-8 sm:py-3 lg:px-9 lg:py-3 w-full sm:w-64 lg:w-56 text-lg sm:text-xl font-medium text-white mx-auto lg:mx-0">
-          {buttonText}
-        </button>
+        <Link href={'/about-us'}>
+          {' '}
+          <button className="bg-gradient-to-b from-[#1A5D89] hover:cursor-pointer to-[#071823] rounded-[10px] px-6 py-2 sm:px-8 sm:py-3 lg:px-9 lg:py-3 w-full sm:w-64 lg:w-56 text-lg sm:text-xl font-medium text-white mx-auto lg:mx-0">
+            {buttonText}
+          </button>
+        </Link>
       </section>
       <section className="flex-1 p-2 sm:p-4 min-w-0 w-full lg:w-auto">
         <img

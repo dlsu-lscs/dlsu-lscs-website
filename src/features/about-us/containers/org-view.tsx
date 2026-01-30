@@ -17,7 +17,13 @@ export default function OrgView() {
         {/* CSO */}
         <section className="mt-12">
           <div className="flex flex-col md:flex-row justify-center items-center gap-16">
-            <img src="/cso.png" alt="cso logo" className="w-72 md:w-80 h-auto" />
+            <Image
+              src="/cso.png"
+              alt="cso logo"
+              width={320}
+              height={320}
+              className="w-72 md:w-80 h-auto"
+            />
             <div className="max-w-2xl text-center md:text-left">
               <GoldHeader>Council of Student Organizations</GoldHeader>
               <ContentCallout>
@@ -42,9 +48,11 @@ export default function OrgView() {
                 Council of Student Organizations and the office of the Associate Dean.
               </ContentCallout>
             </div>
-            <img
+            <Image
               src="/oneccs.png"
               alt="oneccs logo"
+              width={224}
+              height={224}
               className="w-48 md:w-56 h-auto antialiased order-1 md:order-2"
             />
           </div>

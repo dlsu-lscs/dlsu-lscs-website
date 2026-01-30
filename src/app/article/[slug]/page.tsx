@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import Article from '@/features/articles/containers/templates/article-page';
 import { fetchArticles, fetchArticleBySlug } from '@/features/articles/services';
 import { LscsArticle } from '@/features/articles/types';
+import { createArticleSchema, createBreadcrumbSchema } from '@/lib/structured-data';
 
 export const revalidate = 60; // Revalidate every hour
 
@@ -37,6 +38,8 @@ export async function generateMetadata({
     const title = article.meta?.title || article.title;
     const description =
       article.meta?.description || article.subtitle || `Read ${article.title} on LSCS`;
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+    const articleUrl = `${baseUrl}/article/${slug}`;
 
     return {
       title,
@@ -47,11 +50,13 @@ export async function generateMetadata({
         title,
         description,
         type: 'article',
+        url: articleUrl,
         publishedTime: article.createdAt,
         modifiedTime: article.updatedAt,
         authors: typeof article.author === 'object' ? [article.author.name] : undefined,
-        images: featuredImageUrl ? [{ url: featuredImageUrl, alt: title }] : undefined,
-        url: typeof window !== 'undefined' ? window.location.href : undefined,
+        images: featuredImageUrl
+          ? [{ url: featuredImageUrl, alt: title, width: 1200, height: 630 }]
+          : undefined,
       },
       twitter: {
         card: 'summary_large_image',
@@ -72,14 +77,32 @@ export default async function ArticleRoute({ params }: { params: Promise<{ slug:
   const { slug } = await params;
 
   try {
-    await fetchArticleBySlug(slug);
+    const article = await fetchArticleBySlug(slug);
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+
+    const breadcrumbItems = [
+      { name: 'Home', url: baseUrl },
+      { name: 'Articles', url: `${baseUrl}/press-release` },
+      { name: article.title, url: `${baseUrl}/article/${slug}` },
+    ];
+
+    const articleSchema = createArticleSchema(article);
+    const breadcrumbSchema = createBreadcrumbSchema(breadcrumbItems);
+
+    return (
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+        <Article slug={slug} />
+      </>
+    );
   } catch {
     notFound();
   }
-
-  return (
-    <>
-      <Article slug={slug} />
-    </>
-  );
 }

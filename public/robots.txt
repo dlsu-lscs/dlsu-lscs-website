@@ -1,0 +1,9 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Host
+Host: https://lscs-website.com
+
+# Sitemaps
+Sitemap: https://lscs-website.com/sitemap.xml

@@ -6,19 +6,24 @@ import About from '@/features/about-us/containers/about';
 import CoreValuesView from '@/features/about-us/containers/core-values-view';
 import WhatWeDo from '@/features/about-us/containers/what-we-do';
 import ScrollAnimation from '@/components/animation/scroll-animation';
+import { getAwards } from '@/features/about-us/services/getAwards';
+import { getWebAssets } from '@/features/home/services/getWebAssets';
 
-export default function AboutUs() {
+export default async function AboutUs() {
+  const awards = await getAwards();
+  const webAssets = await getWebAssets();
+
   return (
     <div>
       <ScrollAnimation>
         <section className="snap-start ">
-          <About />
+          <About aboutImages={webAssets?.about.images} />
         </section>
       </ScrollAnimation>
 
       <ScrollAnimation>
         <section className="snap-start min-h-screen">
-          <WhatWeDo />
+          <WhatWeDo whatWeDoImages={webAssets?.whatWeDo} />
         </section>
       </ScrollAnimation>
 
@@ -36,7 +41,7 @@ export default function AboutUs() {
 
       <ScrollAnimation>
         <section className="snap-start min-h-screen">
-          <AwardsRecognitionView />
+          <AwardsRecognitionView awards={awards} />
         </section>
       </ScrollAnimation>
 

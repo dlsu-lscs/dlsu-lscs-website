@@ -42,7 +42,7 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
-          <NavbarButton link="mailto:lscs@dlsu.edu.ph">Contact Us</NavbarButton>
+          <NavbarButton link="/#contact-us">Contact Us</NavbarButton>
         </div>
         <div className="flex md:hidden">
           <Sheet>

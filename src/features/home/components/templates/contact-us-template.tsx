@@ -20,10 +20,6 @@ export default function ContactUsTemplate() {
       icon: <Image src="/social_links/tiktok-logo.png" alt="TikTok" width={24} height={24} />,
       url: 'https://www.tiktok.com/@dlsu_lscs',
     },
-    {
-      icon: <Image src="/social_links/gmail-logo.png" alt="Gmail" width={24} height={24} />,
-      url: 'mailto:lscs@dlsu.edu.ph',
-    },
   ];
 
   return (
@@ -37,17 +33,25 @@ export default function ContactUsTemplate() {
           zIndex: -1,
         }}
       />
-      <main className="flex w-full h-full flex-wrap items-center justify-center lg:gap-24 sm:gap-16 gap-8">
-        <GetInTouchCard
-          title="Get in touch"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-          buttonText="Lorem ipsum dolor"
-        />
-        <StayInTouchCard
-          title="Stay in touch"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-          socialLinks={socialLinks}
-        />
+      <main
+        id="contact-us"
+        className="flex w-full h-full items-center justify-center lg:gap-24 sm:gap-16 gap-8"
+      >
+        <div className="flex-1 max-w-sm">
+          <GetInTouchCard
+            title="Get in touch"
+            description="Have questions or want to collaborate with us? Reach out to the La Salle Computer Society"
+            buttonText="Contact Us"
+            email="lscs@dlsu.edu.ph"
+          />
+        </div>
+        <div className="flex-1 max-w-sm">
+          <StayInTouchCard
+            title="Stay in touch"
+            description="Follow us on social media to stay updated with our latest events, projects, and announcements."
+            socialLinks={socialLinks}
+          />
+        </div>
       </main>
     </div>
   );

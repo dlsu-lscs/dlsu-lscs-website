@@ -9,13 +9,16 @@ import {
 } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
 import Image from 'next/image';
-import awardDate from '../data/awards.json';
-import { awards as AwardsType } from '../types/awards';
+import { CmsAward } from '../types/awards';
 
-export default function AwardsRecognitionView() {
-  const mid = Math.ceil(awardDate.awards.length / 2);
-  const firstHalf: AwardsType[] = awardDate.awards.slice(0, mid);
-  const secondHalf: AwardsType[] = awardDate.awards.slice(mid);
+interface AwardsRecognitionViewProps {
+  awards: CmsAward[];
+}
+
+export default function AwardsRecognitionView({ awards }: AwardsRecognitionViewProps) {
+  const mid = Math.ceil(awards.length / 2);
+  const firstHalf: CmsAward[] = awards.slice(0, mid);
+  const secondHalf: CmsAward[] = awards.slice(mid);
 
   return (
     <>
@@ -61,9 +64,9 @@ export default function AwardsRecognitionView() {
               ]}
             >
               <CarouselContent className="py-4 flex justify-start gap-6 overflow-visible">
-                {firstHalf.map((award, index) => (
+                {firstHalf.map((award) => (
                   <CarouselItem
-                    key={index}
+                    key={award.id}
                     className="flex-none min-w-[260px] sm:min-w-[300px] md:min-w-[280px] lg:min-w-[260px]"
                   >
                     <AwardsCard {...award} />
@@ -84,9 +87,9 @@ export default function AwardsRecognitionView() {
               ]}
             >
               <CarouselContent className="py-4 flex justify-start gap-6 overflow-visible">
-                {secondHalf.map((award, index) => (
+                {secondHalf.map((award) => (
                   <CarouselItem
-                    key={index}
+                    key={award.id}
                     className="flex-none min-w-[260px] sm:min-w-[300px] md:min-w-[280px] lg:min-w-[260px]"
                   >
                     <AwardsCard {...award} />
