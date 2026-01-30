@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import Article from '@/features/articles/containers/templates/article-page';
 import { fetchArticles, fetchArticleBySlug } from '@/features/articles/services';
 import { LscsArticle } from '@/features/articles/types';
+import { createArticleSchema, createBreadcrumbSchema } from '@/lib/structured-data';
 
 export const revalidate = 60; // Revalidate every hour
 
@@ -76,14 +77,32 @@ export default async function ArticleRoute({ params }: { params: Promise<{ slug:
   const { slug } = await params;
 
   try {
-    await fetchArticleBySlug(slug);
+    const article = await fetchArticleBySlug(slug);
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+
+    const breadcrumbItems = [
+      { name: 'Home', url: baseUrl },
+      { name: 'Articles', url: `${baseUrl}/press-release` },
+      { name: article.title, url: `${baseUrl}/article/${slug}` },
+    ];
+
+    const articleSchema = createArticleSchema(article);
+    const breadcrumbSchema = createBreadcrumbSchema(breadcrumbItems);
+
+    return (
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+        <Article slug={slug} />
+      </>
+    );
   } catch {
     notFound();
   }
-
-  return (
-    <>
-      <Article slug={slug} />
-    </>
-  );
 }

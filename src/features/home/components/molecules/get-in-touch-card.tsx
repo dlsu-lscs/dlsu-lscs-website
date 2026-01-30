@@ -27,7 +27,7 @@ export default function GetInTouchCard({
       </p>
       <button
         onClick={handleEmailClick}
-        className="bg-gradient-to-b from-[#DDB518] to-[#77610D] self-start px-6 sm:px-8 md:px-10 py-2 font-medium font-geist rounded-lg shadow-2xl text-white text-sm sm:text-base md:text-lg lg:text-xl hover:opacity-90 transition-opacity"
+        className="hover:cursor-pointer bg-gradient-to-b from-[#DDB518] to-[#77610D] self-start px-6 sm:px-8 md:px-10 py-2 font-medium font-geist rounded-lg shadow-2xl text-white text-sm sm:text-base md:text-lg lg:text-xl hover:opacity-90 transition-opacity"
       >
         {buttonText}
       </button>
