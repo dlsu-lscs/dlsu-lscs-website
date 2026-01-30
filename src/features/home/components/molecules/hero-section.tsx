@@ -33,8 +33,8 @@ export default function HeroSection({ heroImage }: HeroSectionProps) {
         <h2 className="text-[#EDCC46] font-onest font-extrabold text-base text- sm:text-xl md:text-3xl text-center leading-tight sm:leading-snug mb-2">
           LA SALLE COMPUTER SOCIETY
         </h2>
-        <h1 className="mb-8 sm:mb-10 md:mb-12 font-onest text-white font-bold text-2xl sm:text-3xl md:text-5xl text-center whitespace-pre-line leading-tight sm:leading-snug">
-          {`Living Yesterday's Vision\nSetting Today's Trends\nInspiring Tomorrow's Leaders`}
+        <h1 className="mb-8 sm:mb-10 md:mb-12 font-onest text-white font-bold text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-center whitespace-pre-line leading-tight sm:leading-snug">
+          {`Living Yesterday's Vision,\nSetting Today's Trends,\nInspiring Tomorrow's Leaders.`}
         </h1>
       </div>
 

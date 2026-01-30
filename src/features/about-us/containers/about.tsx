@@ -63,14 +63,14 @@ export default function About({ aboutImages }: AboutProps) {
             className="flex flex-col flex-1 gap-8 justify-center
           "
           >
-            <h1 className=" self-start flex bg-gradient-to-r from-[#DDB518] to-[#AA8B12] text-white font-bold px-4 py-1.5 rounded-lg text-[18px] tracking-wider drop-shadow-2xl ">
+            <h1 className=" self-start flex bg-linear-to-r from-[#DDB518] to-[#AA8B12] text-white font-bold px-4 py-1.5 rounded-lg text-[18px] tracking-wider drop-shadow-2xl ">
               ABOUT US
             </h1>
 
-            <div className="text-[#003D6F] sm:text-7xl text-5xl font-extrabold leading-none text-shadow-2xl drop-shadow-2xl">
-              <h1>LA SALLE</h1>
-              <h1>COMPUTER</h1>
-              <h1>SOCIETY</h1>
+            <div className="text-[#003D6F] sm:text-7xl text-5xl font-extrabold leading-none drop-shadow-lg">
+              <h1 className="drop-shadow-lg">LA SALLE</h1>
+              <h1 className="drop-shadow-lg">COMPUTER</h1>
+              <h1 className="drop-shadow-lg">SOCIETY</h1>
             </div>
 
             <div>

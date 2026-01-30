@@ -35,9 +35,9 @@ export default function ContactUsTemplate() {
       />
       <main
         id="contact-us"
-        className="flex w-full h-full items-center justify-center lg:gap-24 sm:gap-16 gap-8"
+        className="flex flex-col md:flex-row w-full h-full items-center justify-center lg:gap-24 sm:gap-16 gap-8"
       >
-        <div className="flex-1 max-w-sm">
+        <div className="flex-1 w-full max-w-sm">
           <GetInTouchCard
             title="Get in touch"
             description="Have questions or want to collaborate with us? Reach out to the La Salle Computer Society"
@@ -45,9 +45,9 @@ export default function ContactUsTemplate() {
             email="lscs@dlsu.edu.ph"
           />
         </div>
-        <div className="flex-1 max-w-sm">
+        <div className="flex-1 w-full max-w-sm">
           <StayInTouchCard
-            title="Stay in touch"
+            title="Stay Updated"
             description="Follow us on social media to stay updated with our latest events, projects, and announcements."
             socialLinks={socialLinks}
           />
