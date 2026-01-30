@@ -76,33 +76,34 @@ export async function generateMetadata({
 export default async function ArticleRoute({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
 
-  try {
-    const article = await fetchArticleBySlug(slug);
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+  const article = await fetchArticleBySlug(slug);
 
-    const breadcrumbItems = [
-      { name: 'Home', url: baseUrl },
-      { name: 'Articles', url: `${baseUrl}/press-release` },
-      { name: article.title, url: `${baseUrl}/article/${slug}` },
-    ];
-
-    const articleSchema = createArticleSchema(article);
-    const breadcrumbSchema = createBreadcrumbSchema(breadcrumbItems);
-
-    return (
-      <>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-        />
-        <Article slug={slug} />
-      </>
-    );
-  } catch {
+  if (!article) {
     notFound();
   }
+
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+
+  const breadcrumbItems = [
+    { name: 'Home', url: baseUrl },
+    { name: 'Articles', url: `${baseUrl}/press-release` },
+    { name: article.title, url: `${baseUrl}/article/${slug}` },
+  ];
+
+  const articleSchema = createArticleSchema(article);
+  const breadcrumbSchema = createBreadcrumbSchema(breadcrumbItems);
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <Article slug={slug} />
+    </>
+  );
 }

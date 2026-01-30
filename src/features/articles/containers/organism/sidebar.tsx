@@ -10,8 +10,8 @@ export default async function SideBar() {
   const latestArticles = articles.slice(0, 3);
 
   // Get 3 random articles for "Suggested Articles"
-  const shuffled = [...articles].sort(() => Math.random() - 0.5);
-  const suggestedArticles = shuffled.slice(0, 3);
+  // Use stable selection: skip first 3, take next 3
+  const suggestedArticles = articles.slice(3, 6);
 
   const socialLinks = [
     { icon: '', alt: 'copy icon', platform: 'instagram' as const },

@@ -17,8 +17,7 @@ export interface LscsArticle {
     root: {
       type: string;
       children: {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        type: any;
+        type: unknown;
         version: number;
         [k: string]: unknown;
       }[];
