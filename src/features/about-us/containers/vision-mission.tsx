@@ -2,11 +2,12 @@ import BackgroundWord from '../components/background-word';
 
 export default function VisionMission() {
   return (
-    <main className="relative min-h-[480px] sm:min-h-screen flex flex-col">
-      <section className="absolute w-full h-1/2 flex justify-center -top-5 sm:top-0">
+    <main className="relative min-h-screen flex flex-col">
+      {/* Vision Background */}
+      <section className="absolute w-full h-1/2 flex justify-center top-0 md:-top-5 lg:top-0">
         <BackgroundWord text="VISION" yOffset="0%" />
         <div
-          className="absolute top-0 left-0 w-full h-26 sm:h-28 md:h-40 pointer-events-none z-10"
+          className="absolute top-0 left-0 w-full h-20 sm:h-26 md:h-28 lg:h-40 pointer-events-none z-10"
           style={{
             WebkitMaskImage:
               'linear-gradient(to bottom, black 0%, black 40%, rgba(0,0,0,0.9) 50%, rgba(0,0,0,0.5) 70%, transparent 100%)',
@@ -17,10 +18,11 @@ export default function VisionMission() {
         />
       </section>
 
-      <section className="absolute w-full h-1/2 flex justify-center -bottom-15 sm:bottom-0">
+      {/* Mission Background */}
+      <section className="absolute w-full h-1/2 flex justify-center bottom-0 md:-bottom-15 lg:bottom-0">
         <BackgroundWord text="MISSION" yOffset="30%" />
         <div
-          className="absolute bottom-0 left-0 w-full h-50 sm:h-28 md:h-40 pointer-events-none z-10"
+          className="absolute bottom-0 left-0 w-full h-32 sm:h-40 md:h-50 lg:h-40 pointer-events-none z-10"
           style={{
             WebkitMaskImage:
               'linear-gradient(to top, black 0%, black 40%, rgba(0,0,0,0.9) 50%, rgba(0,0,0,0.5) 70%, transparent 100%)',
@@ -31,15 +33,17 @@ export default function VisionMission() {
         />
       </section>
 
+      {/* Content */}
       <section
-        className="relative flex flex-1 items-center justify-between 
-                   px-0 py-0 sm:px-10 sm:py-16 md:px-20 md:py-20"
+        className="relative flex flex-col md:flex-row flex-1 items-center justify-between 
+                   px-6 py-12 sm:px-10 sm:py-16 md:px-20 md:py-20 gap-8 md:gap-0"
       >
-        <article className="w-1/2 pr-3 sm:pr-6 md:pr-10 scale-[0.75] sm:scale-[0.95] md:scale-100">
-          <h1 className="text-[26px] sm:text-[36px] md:text-[48px] font-extrabold mb-4">
+        {/* Vision */}
+        <article className="w-full md:w-1/2 md:pr-6 lg:pr-10">
+          <h1 className="text-3xl sm:text-4xl md:text-[36px] lg:text-[48px] font-extrabold mb-4">
             Our Vision
           </h1>
-          <p className="text-[14px] sm:text-[16px] md:text-[18px] leading-relaxed">
+          <p className="text-base sm:text-lg md:text-[16px] lg:text-[18px] leading-relaxed">
             We envision the La Salle Computer Society to be an organization that, through quality
             assistance and activities, will mold its members academically, socially and spiritually
             in order for them to become competent Lasallian students and well-rounded individuals.
@@ -49,11 +53,12 @@ export default function VisionMission() {
           </p>
         </article>
 
-        <article className="w-1/2 pl-3 sm:pl-6 md:pl-10 scale-[0.75] sm:scale-[0.95] md:scale-100">
-          <h1 className="text-[26px] sm:text-[36px] md:text-[48px] font-extrabold mb-4">
+        {/* Mission */}
+        <article className="w-full md:w-1/2 md:pl-6 lg:pl-10">
+          <h1 className="text-3xl sm:text-4xl md:text-[36px] lg:text-[48px] font-extrabold mb-4">
             Our Mission
           </h1>
-          <p className="text-[14px] sm:text-[16px] md:text-[18px] leading-relaxed">
+          <p className="text-base sm:text-lg md:text-[16px] lg:text-[18px] leading-relaxed">
             We envision the La Salle Computer Society to be an organization that, through quality
             assistance and activities, will mold its members academically, socially and spiritually
             in order for them to become competent Lasallian students and well-rounded individuals.
