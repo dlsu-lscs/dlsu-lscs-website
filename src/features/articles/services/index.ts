@@ -7,6 +7,7 @@ export async function fetchArticle(id: number) {
       'Content-Type': 'application/json',
       Authorization: `users API-Key ${process.env.API_KEY}`,
     },
+    next: { revalidate: 3600, tags: ['articles'] },
   });
 
   if (!res.ok) {
@@ -30,6 +31,7 @@ export async function fetchArticles(limit: number = 0): Promise<LscsArticle[]> {
       'Content-Type': 'application/json',
       Authorization: `users API-Key ${process.env.API_KEY}`,
     },
+    next: { revalidate: 3600, tags: ['articles'] },
   });
 
   if (!res.ok) {
@@ -49,6 +51,7 @@ export async function fetchArticleBySlug(slug: string): Promise<LscsArticle> {
         'Content-Type': 'application/json',
         Authorization: `users API-Key ${process.env.API_KEY}`,
       },
+      next: { revalidate: 3600, tags: ['articles'] },
     }
   );
 

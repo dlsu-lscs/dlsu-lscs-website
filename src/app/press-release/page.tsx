@@ -3,11 +3,11 @@ import FeaturedArticleSection from '@/features/press-release/containers/featured
 import PressReleaseView from '@/features/press-release/containers/press-release-view';
 import WhiteDiagonalLscsBg from '@/components/white-diagonal-lscs-bg';
 
-export const revalidate = 60; // ISR: Revalidate every 10 seconds
+export const revalidate = 3600; // ISR: Revalidate every 60 seconds
 
 export default function PressReleasePage() {
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-[#002D57] to-[#1A5D89] text-white overflow-hidden">
+    <div className="relative min-h-screen bg-linear-to-b from-[#002D57] to-[#1A5D89] text-white overflow-hidden">
       <WhiteDiagonalLscsBg />
 
       <div className="relative z-10">
