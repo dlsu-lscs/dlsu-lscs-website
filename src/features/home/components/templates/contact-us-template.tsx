@@ -40,7 +40,7 @@ export default function ContactUsTemplate() {
         <div className="flex-1 w-full max-w-sm">
           <GetInTouchCard
             title="Get in touch"
-            description="Have questions or want to collaborate with us? Reach out to the La Salle Computer Society"
+            description="Have questions or want to collaborate with us? Reach out to the La Salle Computer Society."
             buttonText="Contact Us"
             email="lscs@dlsu.edu.ph"
           />
