@@ -16,10 +16,16 @@ export default function OrgView() {
 
         {/* CSO */}
         <section className="mt-12">
-          <h4 className="mx-auto mb-4 max-w-3xl text-center text-sm md:text-base font-semibold uppercase tracking-wider text-[#002D57]">
-            LSCS belongs to the following student organization groups:
+          <h2 className="mx-auto text-center text-2xl font-bold font-onest bg-linear-to-b from-[#1A5D89] to-[#001E3B] bg-clip-text text-transparent">
+            La Salle Computer Society
+          </h2>
+          <h4 className="mx-auto mb-4  text-center text-sm md:text-xl font-geist text-black]">
+            belongs to the following{' '}
+            <span className="font-bold bg-linear-to-b from-[rgba(221,181,24,0.9)] to-[rgba(119,97,13,0.9)] bg-clip-text text-transparent">
+              student organization
+            </span>{' '}
+            groups
           </h4>
-          <div className="mx-auto h-px w-48 bg-[#DDB518]" />
 
           <div className="flex flex-col md:flex-row justify-center items-center gap-16">
             <Image

@@ -21,7 +21,7 @@ export default async function PartnersView() {
             <span className="text-[#DDB518]">Our</span> Partners
           </h1>
         </header>
-        <h3 className="text-center text-xl font-semibold">For AY 2025-2026</h3>
+        <h3 className="text-center text-xl font-semibold font-geist">For AY 2025-2026</h3>
 
         {/* List of Partners */}
         <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 mt-12 sm:mt-16">

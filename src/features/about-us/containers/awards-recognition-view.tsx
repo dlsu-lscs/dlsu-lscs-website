@@ -49,7 +49,7 @@ export default function AwardsRecognitionView({ awards }: AwardsRecognitionViewP
             Awards <span className="text-[#003D6F]">&</span> Recognition
           </h1>
 
-          <p className="text-center text-[#FFFF] text-wrap px-4 text-md md:text-lg font-semibold">
+          <p className="font-geist text-center text-[#FFFF] text-wrap px-4 text-md md:text-lg font-semibold">
             Awards received this AY 2025-2026
           </p>
         </header>
@@ -66,7 +66,7 @@ export default function AwardsRecognitionView({ awards }: AwardsRecognitionViewP
                 {firstHalf.map((award) => (
                   <CarouselItem
                     key={award.id}
-                    className="flex-none min-w-[260px] sm:min-w-[300px] md:min-w-[280px] lg:min-w-[260px]"
+                    className="flex-none min-w-65 sm:min-w-75 md:min-w-70 lg:min-w-65"
                   >
                     <AwardsCard {...award} />
                   </CarouselItem>
@@ -89,7 +89,7 @@ export default function AwardsRecognitionView({ awards }: AwardsRecognitionViewP
                 {secondHalf.map((award) => (
                   <CarouselItem
                     key={award.id}
-                    className="flex-none min-w-[260px] sm:min-w-[300px] md:min-w-[280px] lg:min-w-[260px]"
+                    className="flex-none min-w-65 sm:min-w-75 md:min-w-70 lg:min-w-65"
                   >
                     <AwardsCard {...award} />
                   </CarouselItem>
