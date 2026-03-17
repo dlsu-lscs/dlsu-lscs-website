@@ -13,7 +13,7 @@ export default async function PartnersView() {
           alt="coil"
           width={175}
           height={175}
-          className="absolute -top-12 sm:-top-16 md:-top-28 right-0 w-[75px] sm:w-[120px] md:w-[175px] h-auto -z-10 md:z-0 antialiased"
+          className="absolute -top-12 sm:-top-16 md:-top-28 right-0 w-18.75 sm:w-30 md:w-43.75 h-auto -z-10 md:z-0 antialiased"
         />
 
         <header className="flex justify-center">
@@ -21,6 +21,7 @@ export default async function PartnersView() {
             <span className="text-[#DDB518]">Our</span> Partners
           </h1>
         </header>
+        <h3 className="text-center text-xl font-semibold font-geist">For AY 2025-2026</h3>
 
         {/* List of Partners */}
         <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 mt-12 sm:mt-16">

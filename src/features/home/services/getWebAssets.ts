@@ -30,10 +30,10 @@ export interface CmsWebAssets {
     image4: CmsImage;
   };
   about: {
-    images: Array<{
+    images: {
       id: string;
       image: CmsImage;
-    }>;
+    }[];
   };
   updatedAt: string;
   createdAt: string;

@@ -51,10 +51,11 @@ export default function WhatWeDo({ whatWeDoImages }: WhatWeDoProps) {
               What We Do
             </h1>
             <p className="text-[#FFFFFF] text-base sm:text-lg md:text-[24px] mt-4 max-w-xl">
-              LSCS holds many on-campus and off-campus activities for the college. Some of these
-              on-campus activities include programming seminars, workshops, fund-raising programs,
-              and bazaars. For off-campus activities, these include outreach programs, company
-              career talks, and many more.
+              LSCS hold various activities, events, and projects, whether it be for the College of
+              Computer Studies, general DLSU student body, or wider computer science community.
+              These initiatives include academic workshops, career seminars, recreational
+              activities, training programs, fundraising events, hackathons and contests, and
+              socio-civic advocacy promotions.
             </p>
           </div>
 
