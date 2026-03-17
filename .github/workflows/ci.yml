@@ -11,7 +11,7 @@ jobs:
   check:
     runs-on: ubuntu-latest
     env:
-      NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+      NEXT_PUBLIC_API_URL: ${{ vars.NEXT_PUBLIC_API_URL }}
       API_KEY: ${{ secrets.API_KEY }}
 
     steps:
