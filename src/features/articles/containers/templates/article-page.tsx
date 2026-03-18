@@ -7,7 +7,7 @@ export default async function Article({ slug }: { slug: string }) {
   const article = await fetchArticleBySlug(slug);
 
   return (
-    <div className="w-full flex md:px-16 md:py-12 py-6 px-8 gap-14">
+    <div className="w-full flex md:px-16 md:py-12 py-6 px-8 gap-14 md:flex-row flex-col">
       <DiagonalLscsBg className="opacity-40" />
       <ArticleContent article={article} />
       <SideBar />

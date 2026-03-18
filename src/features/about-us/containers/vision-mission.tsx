@@ -4,7 +4,7 @@ export default function VisionMission() {
   return (
     <main className="relative min-h-screen flex flex-col">
       {/* Vision Background */}
-      <section className="absolute w-full h-1/2 flex justify-center top-0 md:-top-5 lg:top-0">
+      <section className="absolute w-full flex justify-center -top-10 sm:-top-15 md:-top-5 lg:top-0">
         <BackgroundWord text="VISION" yOffset="0%" />
         <div
           className="absolute top-0 left-0 w-full h-20 sm:h-26 md:h-28 lg:h-40 pointer-events-none z-10"
@@ -19,13 +19,13 @@ export default function VisionMission() {
       </section>
 
       {/* Mission Background */}
-      <section className="absolute w-full h-1/2 flex justify-center bottom-0 md:-bottom-15 lg:bottom-0">
-        <BackgroundWord text="MISSION" yOffset="30%" />
+      <section className="absolute w-full flex justify-center -bottom-5 sm:-bottom-15 md:bottom-10 lg:bottom-20 -z-10">
+        <BackgroundWord text="MISSION" yOffset="-5%" />
         <div
           className="absolute bottom-0 left-0 w-full h-32 sm:h-40 md:h-50 lg:h-40 pointer-events-none z-10"
           style={{
             WebkitMaskImage:
-              'linear-gradient(to top, black 0%, black 40%, rgba(0,0,0,0.9) 50%, rgba(0,0,0,0.5) 70%, transparent 100%)',
+              'linear-gradient(to top, black 0%, black 40%, rgba(0,0,0,0.9) 50%, rgba(0,0,0,0.5) 60%, transparent 100%)',
             WebkitMaskRepeat: 'no-repeat',
             WebkitMaskSize: 'cover',
             backgroundColor: 'white',
@@ -36,7 +36,7 @@ export default function VisionMission() {
       {/* Content */}
       <section
         className="relative flex flex-col md:flex-row flex-1 items-center justify-between 
-                   px-6 py-12 sm:px-10 sm:py-16 md:px-20 md:py-20 gap-8 md:gap-0"
+                   px-6 py-12 sm:px-10 sm:py-16 md:px-20 md:py-20 gap-4 md:gap-0"
       >
         {/* Vision */}
         <article className="w-full md:w-1/2 md:pr-6 lg:pr-10">

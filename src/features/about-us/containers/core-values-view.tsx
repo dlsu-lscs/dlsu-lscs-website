@@ -10,26 +10,30 @@ export default function CoreValues() {
         alt="macky1"
         width={280}
         height={280}
-        className="absolute -top-28 md:-top-36 left-0 w-[200px] md:w-[300px] h-auto z-20 antialiased"
+        className="absolute -top-28 md:-top-36 z-20 left-0 w-24 md:w-75 h-auto antialiased"
       />
       <Image
         src="/macky2.png"
         alt="macky2"
         width={280}
         height={280}
-        className="absolute -top-28 md:-top-36 right-0 w-[200px] md:w-[300px] h-auto z-20 antialiased"
+        className="absolute -top-28 md:-top-36 right-0 w-24 md:w-75 h-auto z-20 antialiased"
       />
       <div className="absolute top-0 left-0 w-full h-1/2 flex justify-center">
         <BackgroundWord text="CORE" yOffset="0%" />
         <div
           className="absolute top-0 left-0 w-full h-60 pointer-events-none z-10"
           style={{
-            background: 'linear-gradient(to bottom, transparent 0%, transparent 20%, white 100%)',
+            WebkitMaskImage:
+              'linear-gradient(to top, black 0%, black 30%, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0.5) 60%, transparent 100%)',
+            WebkitMaskRepeat: 'no-repeat',
+            WebkitMaskSize: 'cover',
+            backgroundColor: 'white',
           }}
         />
       </div>
       <div className="top-0 flex flex-col items-center justify-center max-w-2xl mx-auto h-full z-30 translate-y-20">
-        <h1 className="text-[48px] font-extrabold mb-4">Our Core Values</h1>
+        <h1 className="md:text-5xl text-2xl font-extrabold mb-4">Our Core Values</h1>
         <p className="text-[18px] text-center">
           The La Salle Computer Society shall serve as a venue for the growth and development of its
           member through a three-step course of:
