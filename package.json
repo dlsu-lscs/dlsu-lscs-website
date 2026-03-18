@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "prepare": "if [ -d .git ]; then lefthook install || true; fi",
+    "prepare": "node scripts/prepare.js",
     "format": "prettier --write .",
     "test": "jest --passWithNoTests",
     "test:ci": "jest --ci --coverage"
