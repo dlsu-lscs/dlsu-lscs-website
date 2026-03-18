@@ -40,7 +40,7 @@ export default function About({ aboutImages }: AboutProps) {
               </p>
             </div>
           </section>
-          <section className="flex-1 flex items-center justify-center">
+          <section className="flex-1 flex items-center justify-center min-w-48">
             <Image
               src={aboutImages ? aboutImages[0].image.url : '/40th_logo.png'}
               alt={aboutImages ? aboutImages[0].image.alt : 'logo'}

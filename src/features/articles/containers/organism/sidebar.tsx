@@ -21,7 +21,7 @@ export default async function SideBar() {
   ];
 
   return (
-    <div className="md:flex-2/6 lg:block hidden">
+    <div className="md:flex-2/6">
       <aside className="justify-start max-w-96 flex flex-col gap-6">
         <section className="py-4 px-6 rounded-lg bg-white drop-shadow-xl flex flex-col gap-2">
           <h3 className="font-onest font-bold text-base">Share This Story</h3>
