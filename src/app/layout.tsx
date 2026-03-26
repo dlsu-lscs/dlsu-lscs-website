@@ -28,10 +28,10 @@ export const metadata: Metadata = {
     description: 'La Salle Computer Society Website',
     images: [
       {
-        url: '/icon.svg',
+        url: '/cover/Web_Cover.jpg',
         width: 128,
         height: 128,
-        alt: 'La Salle Computer Society Logo',
+        alt: 'La Salle Computer Society GA',
       },
     ],
   },
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: 'summary',
     title: 'La Salle Computer Society',
     description: 'La Salle Computer Society Website',
-    images: ['/icon.svg'],
+    images: ['/cover/Web_Cover.jpg'],
   },
 };
 
