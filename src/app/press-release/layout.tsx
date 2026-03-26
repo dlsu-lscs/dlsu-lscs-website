@@ -12,8 +12,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: '/cover/Web_Cover.jpg',
-        width: 128,
-        height: 128,
+        width: 1200,
+        height: 630,
         alt: 'La Salle Computer Society GA',
       },
     ],
