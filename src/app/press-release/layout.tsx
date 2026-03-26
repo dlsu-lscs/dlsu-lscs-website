@@ -11,10 +11,10 @@ export const metadata: Metadata = {
     url: '/press-release',
     images: [
       {
-        url: '/icon.svg',
+        url: '/cover/Web_Cover.jpg',
         width: 128,
         height: 128,
-        alt: 'La Salle Computer Society Logo',
+        alt: 'La Salle Computer Society GA',
       },
     ],
   },
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Press Releases | La Salle Computer Society',
     description: 'Catch the latest press releases, news, and articles from LSCS.',
-    images: ['/icon.svg'],
+    images: ['/cover/Web_Cover.jpg.svg'],
   },
   alternates: {
     canonical: '/press-release',

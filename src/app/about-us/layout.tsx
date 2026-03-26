@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     url: '/about-us',
     images: [
       {
-        url: '/icon.svg',
+        url: '/cover/Web_Cover.jpg',
         width: 128,
         height: 128,
         alt: 'La Salle Computer Society Logo',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: 'About Us | La Salle Computer Society',
     description:
       'Explore the mission, vision, team, achievements, and partners of the La Salle Computer Society.',
-    images: ['/icon.svg'],
+    images: ['/cover/Web_Cover.jpg'],
   },
   alternates: {
     canonical: '/about-us',
