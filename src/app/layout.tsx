@@ -8,7 +8,7 @@ import { createOrganizationSchema, createWebsiteSchema } from '@/lib/structured-
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'),
   title: 'La Salle Computer Society',
-  description: 'La Salle Computer Society Website',
+  description: "Living Yesterday's Vision Setting Today's Trends Inspiring Tomorrow's Leaders",
   manifest: '/manifest.json',
   icons: {
     icon: [
@@ -25,18 +25,18 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'La Salle Computer Society',
-    description: 'La Salle Computer Society Website',
+    description: "Living Yesterday's Vision Setting Today's Trends Inspiring Tomorrow's Leaders",
     images: [
       {
         url: '/cover/Web_Cover.jpg',
-        width: 128,
-        height: 128,
+        width: 1200,
+        height: 630,
         alt: 'La Salle Computer Society GA',
       },
     ],
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: 'La Salle Computer Society',
     description: 'La Salle Computer Society Website',
     images: ['/cover/Web_Cover.jpg'],
