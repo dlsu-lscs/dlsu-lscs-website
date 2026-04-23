@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import NavbarButton from '../molecules/navbar-button';
@@ -19,7 +20,9 @@ export default function Navbar() {
       >
         {/* Logo*/}
         <div>
-          <Image src="/40th_logo.png" alt="40th logo" width={50} height={37} />
+          <Link href={'/'}>
+            <Image src="/40th_logo.png" alt="40th logo" width={50} height={37} />
+          </Link>
         </div>
 
         {/* Nav Links */}
