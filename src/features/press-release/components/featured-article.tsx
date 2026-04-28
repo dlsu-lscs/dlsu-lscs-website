@@ -28,7 +28,13 @@ export default function FeaturedArticle({
   return (
     <div className="bg-gradient-to-b from-[#DDB518] to-[#BC7A00] rounded-xl overflow-hidden shadow-lg flex flex-col min-h-[24rem] md:flex-row p-6">
       <div className="relative w-full md:w-1/2 h-64 md:h-auto p-4 md:p-6">
-        <Image src={image} alt={title} fill className="object-cover rounded-lg" />
+        <Image
+          src={image}
+          alt={title}
+          fill
+          sizes="(min-width: 768px) 50vw, 100vw"
+          className="object-cover rounded-lg"
+        />
       </div>
 
       <div className="p-6 md:w-1/2 flex flex-col justify-between">

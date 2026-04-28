@@ -1,13 +1,18 @@
 import { LscsArticle } from '../types';
 
 export async function fetchArticle(id: number) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/lscs-articles/${id}`, {
+  const params = new URLSearchParams({
+    'where[id][equals]': id.toString(),
+    'where[_status][equals]': 'published', // Only get published articles
+  });
+
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/lscs-articles?${params.toString()}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
       Authorization: `users API-Key ${process.env.API_KEY}`,
     },
-    next: { revalidate: 3600, tags: ['articles'] },
+    next: { tags: ['articles'] },
   });
 
   if (!res.ok) {
@@ -15,7 +20,12 @@ export async function fetchArticle(id: number) {
   }
 
   const json = await res.json();
-  return json;
+  const articles = json.docs || [];
+  if (articles.length === 0) {
+    throw new Error(`Article with id "${id}" not found`);
+  }
+
+  return articles[0];
 }
 
 export async function fetchArticles(limit: number = 0): Promise<LscsArticle[]> {
@@ -31,7 +41,7 @@ export async function fetchArticles(limit: number = 0): Promise<LscsArticle[]> {
       'Content-Type': 'application/json',
       Authorization: `users API-Key ${process.env.API_KEY}`,
     },
-    next: { revalidate: 3600, tags: ['articles'] },
+    next: { tags: ['articles'] },
   });
 
   if (!res.ok) {
@@ -43,17 +53,19 @@ export async function fetchArticles(limit: number = 0): Promise<LscsArticle[]> {
 }
 
 export async function fetchArticleBySlug(slug: string): Promise<LscsArticle> {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/lscs-articles?where[slug][equals]=${slug}`,
-    {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `users API-Key ${process.env.API_KEY}`,
-      },
-      next: { revalidate: 3600, tags: ['articles'] },
-    }
-  );
+  const params = new URLSearchParams({
+    'where[slug][equals]': slug,
+    'where[_status][equals]': 'published', // Only get published articles
+  });
+
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/lscs-articles?${params.toString()}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `users API-Key ${process.env.API_KEY}`,
+    },
+    next: { tags: ['articles'] },
+  });
 
   if (!res.ok) {
     throw new Error(`Fetch error: ${res.status}`);
