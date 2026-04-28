@@ -5,4 +5,4 @@ pre-commit:
     lint-staged:
       run: npx lint-staged
     test:
-      run: npm run test
+      run: npm run test -- --run

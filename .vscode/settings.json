@@ -1,0 +1,5 @@
+{
+  "jest.enabled": false,
+  "vitest.enable": true,
+  "vitest.commandLine": "vitest"
+}

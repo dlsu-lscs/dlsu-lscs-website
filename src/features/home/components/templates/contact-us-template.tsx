@@ -23,10 +23,10 @@ export default function ContactUsTemplate() {
   ];
 
   return (
-    <div className="relative z-20 bg-gradient-to-b from-[#003D6F] to-[#041019] flex flex-col items-center justify-center p-6 sm:p-10 sm:h-[28rem] h-auto">
+    <div className="relative z-20 bg-linear-to-b from-[#003D6F] to-[#041019] flex flex-col items-center justify-center p-6 sm:p-10 sm:h-[28rem] h-auto">
       {/* Dots BG */}
       <div
-        className="absolute inset-0 bg-[url('/dots.png')] bg-cover bg-left-top opacity-60"
+        className="absolute inset-0 bg-[url('/dots.png')] bg-cover bg-top-left opacity-60"
         style={{
           maskImage: 'radial-gradient(ellipse 90% 85% at center, black 30%, transparent 90%)',
           WebkitMaskImage: 'radial-gradient(ellipse 90% 85% at center, black 30%, transparent 90%)',
