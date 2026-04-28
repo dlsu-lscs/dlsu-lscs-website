@@ -5,7 +5,7 @@
 /**
  * Supported webhook event types
  */
-export type WebhookEvent = 'article';
+export type WebhookEvent = 'article' | 'partner' | 'award' | 'image';
 
 /**
  * Supported webhook actions
@@ -13,12 +13,20 @@ export type WebhookEvent = 'article';
 export type WebhookAction = 'created' | 'updated' | 'deleted';
 
 /**
+ * Supported image types for image webhooks
+ */
+export type ImageType = 'hero' | 'about-section' | 'what-we-do-section' | 'who-we-are-section';
+
+/**
  * Webhook payload from CMS
  */
 export interface WebhookPayload {
   event: WebhookEvent;
   action: WebhookAction;
-  articleId: string;
+  articleId?: string;
+  partnerId?: string;
+  awardId?: string;
+  imageType?: ImageType;
   timestamp: string;
   cms?: string;
 }

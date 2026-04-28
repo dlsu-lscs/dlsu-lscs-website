@@ -21,7 +21,13 @@ export default function Navbar() {
         {/* Logo*/}
         <div>
           <Link href={'/'}>
-            <Image src="/40th_logo.png" alt="40th logo" width={50} height={37} />
+            <Image
+              src="/40th_logo.png"
+              alt="40th logo"
+              width={50}
+              height={37}
+              className="w-[50px] h-[37px]"
+            />
           </Link>
         </div>
 

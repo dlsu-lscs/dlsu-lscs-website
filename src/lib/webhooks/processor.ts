@@ -3,37 +3,78 @@
  */
 
 import { revalidatePath, revalidateTag } from 'next/cache';
-import { WebhookPayload, WebhookProcessingResult, WebhookAction } from './types';
-import { ARTICLE_REVALIDATION_PATHS } from './config';
+import { WebhookPayload, WebhookProcessingResult } from './types';
+import {
+  ARTICLE_REVALIDATION_PATHS,
+  PARTNER_REVALIDATION_PATHS,
+  AWARDS_REVALIDATION_PATHS,
+  IMAGES_REVALIDATION_PATHS,
+} from './config';
 import { webhookLogger } from './logger';
 
 /**
- * Get paths to revalidate based on article action
+ * Get paths to revalidate based on event type and action
  */
-export function getRevalidationPaths(action: WebhookAction, articleId: string): string[] {
-  const pathMap = ARTICLE_REVALIDATION_PATHS;
+export function getRevalidationPaths(payload: WebhookPayload): string[] {
+  const { event, action } = payload;
 
-  switch (action) {
-    case 'created':
-      return pathMap.created;
+  switch (event) {
+    case 'article': {
+      const revalidationMap = ARTICLE_REVALIDATION_PATHS;
+      const paths =
+        action === 'updated'
+          ? typeof revalidationMap.updated === 'function'
+            ? revalidationMap.updated(payload.articleId || '')
+            : revalidationMap.updated
+          : action === 'created'
+            ? revalidationMap.created
+            : revalidationMap.deleted;
+      return paths;
+    }
 
-    case 'updated':
-      return pathMap.updated(articleId);
+    case 'partner': {
+      const revalidationMap = PARTNER_REVALIDATION_PATHS;
+      const paths =
+        action === 'updated'
+          ? typeof revalidationMap.updated === 'function'
+            ? revalidationMap.updated(payload.partnerId || '')
+            : revalidationMap.updated
+          : action === 'created'
+            ? revalidationMap.created
+            : revalidationMap.deleted;
+      return paths;
+    }
 
-    case 'deleted':
-      return pathMap.deleted;
+    case 'award': {
+      const revalidationMap = AWARDS_REVALIDATION_PATHS;
+      const paths =
+        action === 'updated'
+          ? typeof revalidationMap.updated === 'function'
+            ? revalidationMap.updated(payload.awardId || '')
+            : revalidationMap.updated
+          : action === 'created'
+            ? revalidationMap.created
+            : revalidationMap.deleted;
+      return paths;
+    }
 
-    default:
-      // Type safety: this should never happen with proper validation
-      const _exhaustive: never = action;
-      return []; // Fallback for typescript exhaustiveness check
+    case 'image': {
+      // For images, use imageType to determine paths
+      const imageType = payload.imageType || '';
+      return IMAGES_REVALIDATION_PATHS[imageType] || [];
+    }
+
+    default: {
+      const _exhaustive: never = event;
+      return [];
+    }
   }
 }
 
 /**
  * Execute revalidation for given paths
  */
-async function executeRevalidation(paths: string[]): Promise<string[]> {
+async function executeRevalidation(paths: string[], options?: { includeArticlesTag?: boolean }) {
   const successfulPaths: string[] = [];
   const failedPaths: Array<{ path: string; error: string }> = [];
 
@@ -49,15 +90,17 @@ async function executeRevalidation(paths: string[]): Promise<string[]> {
     }
   }
 
-  // Also revalidate the articles tag to clear ISR data cache
-  try {
-    await revalidateTag('articles', 'max');
-    successfulPaths.push('tag:articles');
-  } catch (error) {
-    failedPaths.push({
-      path: 'tag:articles',
-      error: error instanceof Error ? error.message : 'Unknown error',
-    });
+  if (options?.includeArticlesTag) {
+    // Also revalidate the articles tag to clear ISR data cache
+    try {
+      await revalidateTag('articles', 'max');
+      successfulPaths.push('tag:articles');
+    } catch (error) {
+      failedPaths.push({
+        path: 'tag:articles',
+        error: error instanceof Error ? error.message : 'Unknown error',
+      });
+    }
   }
 
   // Log failures if any
@@ -71,32 +114,48 @@ async function executeRevalidation(paths: string[]): Promise<string[]> {
 }
 
 /**
- * Process article webhook event
+ * Validate and process webhook payload
  */
-export async function processArticleWebhook(
+export async function processWebhookPayload(
   payload: WebhookPayload
 ): Promise<WebhookProcessingResult> {
-  const { action, articleId, timestamp: payloadTimestamp } = payload;
+  const { event, action } = payload;
 
   try {
-    // Get paths to revalidate
-    const pathsToRevalidate = getRevalidationPaths(action, articleId);
+    // Get paths to revalidate based on event type
+    const pathsToRevalidate = getRevalidationPaths(payload);
+
+    // Log context based on event type
+    const eventContext =
+      event === 'article'
+        ? { articleId: payload.articleId }
+        : event === 'partner'
+          ? { partnerId: payload.partnerId }
+          : event === 'award'
+            ? { awardId: payload.awardId }
+            : event === 'image'
+              ? { imageType: payload.imageType }
+              : {};
 
     webhookLogger.info('Processing webhook', {
+      event,
       action,
-      articleId,
       pathCount: pathsToRevalidate.length,
       paths: pathsToRevalidate,
+      ...eventContext,
     });
 
     // Execute revalidation
-    const revalidatedPaths = await executeRevalidation(pathsToRevalidate);
+    const revalidatedPaths = await executeRevalidation(pathsToRevalidate, {
+      includeArticlesTag: event === 'article',
+    });
 
     webhookLogger.info('Webhook processed successfully', {
+      event,
       action,
-      articleId,
       revalidatedPathCount: revalidatedPaths.length,
       revalidatedPaths,
+      ...eventContext,
     });
 
     return {
@@ -107,10 +166,22 @@ export async function processArticleWebhook(
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
 
+    const eventContext =
+      event === 'article'
+        ? { articleId: payload.articleId }
+        : event === 'partner'
+          ? { partnerId: payload.partnerId }
+          : event === 'award'
+            ? { awardId: payload.awardId }
+            : event === 'image'
+              ? { imageType: payload.imageType }
+              : {};
+
     webhookLogger.error('Webhook processing failed', {
+      event,
       action,
-      articleId,
       error: errorMessage,
+      ...eventContext,
     });
 
     return {
@@ -119,17 +190,4 @@ export async function processArticleWebhook(
       timestamp: new Date().toISOString(),
     };
   }
-}
-
-/**
- * Validate and process webhook payload
- */
-export async function processWebhookPayload(
-  payload: WebhookPayload
-): Promise<WebhookProcessingResult> {
-  if (payload.event !== 'article') {
-    throw new Error(`Unsupported event type: ${payload.event}`);
-  }
-
-  return processArticleWebhook(payload);
 }

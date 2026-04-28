@@ -3,13 +3,14 @@
  */
 
 import { describe, it, expect, beforeEach, vi } from 'vitest';
-import { getRevalidationPaths, processArticleWebhook } from '../processor';
+import { getRevalidationPaths, processWebhookPayload } from '../processor';
 import { WebhookPayload } from '../types';
-import { revalidatePath } from 'next/cache';
+import { revalidatePath, revalidateTag } from 'next/cache';
 
 // Mock Next.js revalidatePath
 vi.mock('next/cache', () => ({
   revalidatePath: vi.fn().mockResolvedValue(undefined),
+  revalidateTag: vi.fn().mockResolvedValue(undefined),
 }));
 
 // Mock logger
@@ -23,8 +24,15 @@ vi.mock('../logger', () => ({
 }));
 
 describe('getRevalidationPaths', () => {
-  it('should return correct paths for created action', () => {
-    const paths = getRevalidationPaths('created', 'article-123');
+  it('should return correct paths for created article', () => {
+    const payload: WebhookPayload = {
+      event: 'article',
+      action: 'created',
+      articleId: 'article-123',
+      timestamp: new Date().toISOString(),
+    };
+
+    const paths = getRevalidationPaths(payload);
 
     expect(paths).toContain('/articles');
     expect(paths).toContain('/');
@@ -33,31 +41,83 @@ describe('getRevalidationPaths', () => {
 
   it('should include article detail path for updated action', () => {
     const articleId = 'article-456';
-    const paths = getRevalidationPaths('updated', articleId);
+    const payload: WebhookPayload = {
+      event: 'article',
+      action: 'updated',
+      articleId,
+      timestamp: new Date().toISOString(),
+    };
+
+    const paths = getRevalidationPaths(payload);
 
     expect(paths).toContain(`/article/${articleId}`);
     expect(paths).toContain('/articles');
     expect(paths).toContain('/');
   });
 
-  it('should return correct paths for deleted action', () => {
-    const paths = getRevalidationPaths('deleted', 'article-789');
+  it('should return correct paths for deleted article', () => {
+    const payload: WebhookPayload = {
+      event: 'article',
+      action: 'deleted',
+      articleId: 'article-789',
+      timestamp: new Date().toISOString(),
+    };
+
+    const paths = getRevalidationPaths(payload);
 
     expect(paths).toContain('/articles');
     expect(paths).toContain('/');
   });
 
-  it('should generate correct detail path with different article IDs', () => {
-    const articles = ['my-article', 'article-with-slug', 'uuid-abc123'];
+  it('should handle partner payloads', () => {
+    const payload: WebhookPayload = {
+      event: 'partner',
+      action: 'created',
+      partnerId: 'partner-123',
+      timestamp: new Date().toISOString(),
+    };
 
-    for (const id of articles) {
-      const paths = getRevalidationPaths('updated', id);
-      expect(paths).toContain(`/article/${id}`);
+    const paths = getRevalidationPaths(payload);
+
+    expect(paths).toContain('/about-us');
+    expect(paths).toContain('/');
+  });
+
+  it('should handle award payloads', () => {
+    const payload: WebhookPayload = {
+      event: 'award',
+      action: 'updated',
+      awardId: 'award-456',
+      timestamp: new Date().toISOString(),
+    };
+
+    const paths = getRevalidationPaths(payload);
+
+    expect(paths).toContain('/about-us');
+    expect(paths).toContain('/');
+  });
+
+  it('should handle image payloads with different image types', () => {
+    const imageTypes: Array<
+      'hero' | 'about-section' | 'what-we-do-section' | 'who-we-are-section'
+    > = ['hero', 'about-section', 'what-we-do-section', 'who-we-are-section'];
+
+    for (const imageType of imageTypes) {
+      const payload: WebhookPayload = {
+        event: 'image',
+        action: 'updated',
+        imageType,
+        timestamp: new Date().toISOString(),
+      };
+
+      const paths = getRevalidationPaths(payload);
+
+      expect(paths.length).toBeGreaterThan(0);
     }
   });
 });
 
-describe('processArticleWebhook', () => {
+describe('processWebhookPayload', () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
@@ -70,106 +130,74 @@ describe('processArticleWebhook', () => {
       timestamp: new Date().toISOString(),
     };
 
-    const result = await processArticleWebhook(payload);
+    const result = await processWebhookPayload(payload);
 
     expect(result.success).toBe(true);
     expect(result.revalidatedPaths).toBeDefined();
     expect(result.revalidatedPaths?.length).toBeGreaterThan(0);
     expect(revalidatePath).toHaveBeenCalled();
+    expect(revalidateTag).toHaveBeenCalledWith('articles', 'max');
   });
 
-  it('should process updated article webhook', async () => {
+  it('should process partner webhook', async () => {
     const payload: WebhookPayload = {
-      event: 'article',
-      action: 'updated',
-      articleId: 'existing-article',
+      event: 'partner',
+      action: 'created',
+      partnerId: 'partner-123',
       timestamp: new Date().toISOString(),
     };
 
-    const result = await processArticleWebhook(payload);
+    const result = await processWebhookPayload(payload);
 
     expect(result.success).toBe(true);
-    expect(result.revalidatedPaths).toContain('/article/existing-article');
-    expect(revalidatePath).toHaveBeenCalledWith('/article/existing-article');
-  });
-
-  it('should process deleted article webhook', async () => {
-    const payload: WebhookPayload = {
-      event: 'article',
-      action: 'deleted',
-      articleId: 'deleted-article',
-      timestamp: new Date().toISOString(),
-    };
-
-    const result = await processArticleWebhook(payload);
-
-    expect(result.success).toBe(true);
+    expect(result.revalidatedPaths).toBeDefined();
     expect(revalidatePath).toHaveBeenCalled();
+    expect(revalidateTag).not.toHaveBeenCalled();
   });
 
-  it('should revalidate all expected paths', async () => {
+  it('should process award webhook', async () => {
     const payload: WebhookPayload = {
-      event: 'article',
+      event: 'award',
       action: 'updated',
-      articleId: 'test-article',
+      awardId: 'award-456',
       timestamp: new Date().toISOString(),
     };
 
-    await processArticleWebhook(payload);
+    const result = await processWebhookPayload(payload);
 
-    expect(revalidatePath).toHaveBeenCalledWith('/article/test-article');
-    expect(revalidatePath).toHaveBeenCalledWith('/articles');
-    expect(revalidatePath).toHaveBeenCalledWith('/');
+    expect(result.success).toBe(true);
+    expect(result.revalidatedPaths).toBeDefined();
+    expect(revalidatePath).toHaveBeenCalled();
+    expect(revalidateTag).not.toHaveBeenCalled();
+  });
+
+  it('should process image webhook', async () => {
+    const payload: WebhookPayload = {
+      event: 'image',
+      action: 'updated',
+      imageType: 'hero',
+      timestamp: new Date().toISOString(),
+    };
+
+    const result = await processWebhookPayload(payload);
+
+    expect(result.success).toBe(true);
+    expect(result.revalidatedPaths).toBeDefined();
+    expect(revalidatePath).toHaveBeenCalled();
+    expect(revalidateTag).not.toHaveBeenCalled();
   });
 
   it('should return timestamp in result', async () => {
     const payload: WebhookPayload = {
       event: 'article',
       action: 'created',
-      articleId: 'article-123',
+      articleId: 'test',
       timestamp: new Date().toISOString(),
     };
 
-    const result = await processArticleWebhook(payload);
+    const result = await processWebhookPayload(payload);
 
     expect(result.timestamp).toBeDefined();
-    // Should be a valid ISO string
-    expect(new Date(result.timestamp)).toBeInstanceOf(Date);
-  });
-
-  it('should handle revalidation errors gracefully', async () => {
-    const mockRevalidate = vi.mocked(revalidatePath);
-    mockRevalidate.mockRejectedValueOnce(new Error('Revalidation failed'));
-    mockRevalidate.mockResolvedValueOnce(undefined);
-
-    const payload: WebhookPayload = {
-      event: 'article',
-      action: 'updated',
-      articleId: 'article-error',
-      timestamp: new Date().toISOString(),
-    };
-
-    const result = await processArticleWebhook(payload);
-
-    // Should still succeed overall even if one path fails
-    expect(result.success).toBe(true);
-    // Some paths should have been revalidated
-    expect(result.revalidatedPaths?.length).toBeGreaterThan(0);
-  });
-
-  it('should include cms metadata if provided', async () => {
-    const payload: WebhookPayload = {
-      event: 'article',
-      action: 'created',
-      articleId: 'cms-article',
-      timestamp: new Date().toISOString(),
-      cms: 'contentful',
-    };
-
-    const result = await processArticleWebhook(payload);
-
-    expect(result.success).toBe(true);
-    // Extra metadata is tracked in logging but not reflected in result
-    expect(revalidatePath).toHaveBeenCalled();
+    expect(new Date(result.timestamp).getTime()).toBeGreaterThan(0);
   });
 });

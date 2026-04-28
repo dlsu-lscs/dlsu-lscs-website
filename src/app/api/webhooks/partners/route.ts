@@ -1,15 +1,10 @@
 /**
- * Webhook API endpoint for article events from CMS
- * POST /api/webhooks/articles
+ * Webhook API endpoint for partner events from CMS
+ * POST /api/webhooks/partners
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import {
-  validatePayload,
-  validateAuthentication,
-  createWebhookError,
-  isWebhookError,
-} from '@/lib/webhooks/validator';
+import { validatePayload, validateAuthentication } from '@/lib/webhooks/validator';
 import { processWebhookPayload } from '@/lib/webhooks/processor';
 import {
   webhookLogger,
@@ -17,10 +12,9 @@ import {
   logAuthenticationFailure,
   logValidationError,
 } from '@/lib/webhooks/logger';
-import { WebhookErrorType } from '@/lib/webhooks/types';
 
 /**
- * Handle webhook POST requests
+ * Handle webhook POST requests for partner updates
  */
 export async function POST(request: NextRequest) {
   try {
@@ -57,7 +51,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Validate payload structure
-    const validationResult = validatePayload(body);
+    const validationResult = validatePayload(body, 'partner');
 
     if (!validationResult.valid) {
       logValidationError(validationResult.error || 'Unknown validation error', body);
@@ -79,9 +73,9 @@ export async function POST(request: NextRequest) {
     const processingResult = await processWebhookPayload(payload);
 
     if (!processingResult.success) {
-      webhookLogger.error('Webhook processing failed', {
+      webhookLogger.error('Partner webhook processing failed', {
         action: payload.action,
-        articleId: payload.articleId,
+        partnerId: payload.partnerId,
         error: processingResult.error,
       });
 
@@ -98,44 +92,25 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       {
         success: true,
-        message: `Webhook processed successfully for ${payload.action} event`,
+        message: 'Partner webhook processed successfully',
         data: {
           action: payload.action,
-          articleId: payload.articleId,
           revalidatedPaths: processingResult.revalidatedPaths,
-          timestamp: processingResult.timestamp,
         },
       },
       { status: 200 }
     );
   } catch (error) {
-    // Unexpected error
-    const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
-
-    webhookLogger.error('Unexpected webhook error', {
-      error: errorMessage,
-      type: error instanceof Error ? error.constructor.name : typeof error,
+    webhookLogger.error('Unexpected error in partner webhook handler', {
+      error: error instanceof Error ? error.message : 'Unknown error',
     });
 
     return NextResponse.json(
       {
         error: 'Internal Server Error',
-        message: 'An unexpected error occurred processing the webhook',
+        message: 'An unexpected error occurred',
       },
       { status: 500 }
     );
   }
-}
-
-/**
- * Reject other HTTP methods
- */
-export async function GET() {
-  return NextResponse.json(
-    {
-      error: 'Method Not Allowed',
-      message: 'This endpoint only accepts POST requests',
-    },
-    { status: 405 }
-  );
 }

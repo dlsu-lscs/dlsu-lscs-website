@@ -5,19 +5,51 @@ import Image from 'next/image';
 export default function ContactUsTemplate() {
   const socialLinks = [
     {
-      icon: <Image src="/social_links/fb-logo.png" alt="Facebook" width={18} height={18} />,
+      icon: (
+        <Image
+          src="/social_links/fb-logo.png"
+          alt="Facebook"
+          width={18}
+          height={18}
+          className="w-4.5 h-4.5"
+        />
+      ),
       url: 'https://www.facebook.com/LaSalleComputerSociety',
     },
     {
-      icon: <Image src="/social_links/ig-logo.png" alt="Instagram" width={24} height={24} />,
+      icon: (
+        <Image
+          src="/social_links/ig-logo.png"
+          alt="Instagram"
+          width={24}
+          height={24}
+          className="w-6 h-6"
+        />
+      ),
       url: 'https://www.instagram.com/dlsu_lscs/',
     },
     {
-      icon: <Image src="/social_links/linkedin-logo.png" alt="LinkedIn" width={24} height={24} />,
+      icon: (
+        <Image
+          src="/social_links/linkedin-logo.png"
+          alt="LinkedIn"
+          width={24}
+          height={24}
+          className="w-6 h-6"
+        />
+      ),
       url: 'https://www.linkedin.com/company/la-salle-computer-society/posts/?feedView=all',
     },
     {
-      icon: <Image src="/social_links/tiktok-logo.png" alt="TikTok" width={24} height={24} />,
+      icon: (
+        <Image
+          src="/social_links/tiktok-logo.png"
+          alt="TikTok"
+          width={24}
+          height={24}
+          className="w-6 h-6"
+        />
+      ),
       url: 'https://www.tiktok.com/@dlsu_lscs',
     },
   ];

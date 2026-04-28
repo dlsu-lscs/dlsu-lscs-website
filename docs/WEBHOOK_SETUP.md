@@ -1,13 +1,18 @@
-# Article Webhook Configuration Guide
+# Webhook Configuration Guide
 
 ## Overview
 
-The Article Webhook system enables real-time content updates by allowing your CMS to notify the website when articles change. When the CMS sends a webhook event, the website automatically revalidates the affected pages through Next.js ISR (Incremental Static Regeneration).
+The Webhook system enables real-time content updates by allowing your CMS to notify the website when content changes. When the CMS sends a webhook event, the website automatically revalidates the affected pages through Next.js ISR (Incremental Static Regeneration).
 
-## Endpoint
+## Endpoints
+
+The system exposes separate webhook endpoints per content type:
 
 ```
 POST https://your-domain.com/api/webhooks/articles
+POST https://your-domain.com/api/webhooks/partners
+POST https://your-domain.com/api/webhooks/awards
+POST https://your-domain.com/api/webhooks/images
 ```
 
 ## Authentication
@@ -43,9 +48,12 @@ The JSON payload must include the following fields:
 
 ```json
 {
-  "event": "article",
+  "event": "article|partner|award|image",
   "action": "created|updated|deleted",
   "articleId": "article-slug-or-id",
+  "partnerId": "partner-id",
+  "awardId": "award-id",
+  "imageType": "hero|about-section|what-we-do-section|who-we-are-section",
   "timestamp": "2025-01-20T14:30:00Z",
   "cms": "your-cms-name"
 }
@@ -53,24 +61,32 @@ The JSON payload must include the following fields:
 
 ### Field Descriptions
 
-| Field       | Type   | Required | Description                                     |
-| ----------- | ------ | -------- | ----------------------------------------------- |
-| `event`     | string | Yes      | Always `"article"` for article webhooks         |
-| `action`    | string | Yes      | One of: `"created"`, `"updated"`, `"deleted"`   |
-| `articleId` | string | Yes      | Unique identifier for the article (slug or ID)  |
-| `timestamp` | string | Yes      | ISO 8601 formatted timestamp                    |
-| `cms`       | string | No       | Name of your CMS system (for logging/debugging) |
+| Field       | Type   | Required         | Description                                            |
+| ----------- | ------ | ---------------- | ------------------------------------------------------ |
+| `event`     | string | Yes              | One of: `"article"`, `"partner"`, `"award"`, `"image"` |
+| `action`    | string | Yes              | One of: `"created"`, `"updated"`, `"deleted"`          |
+| `articleId` | string | If event=article | Article identifier (slug or ID)                        |
+| `partnerId` | string | If event=partner | Partner identifier                                     |
+| `awardId`   | string | If event=award   | Award identifier                                       |
+| `imageType` | string | If event=image   | Image slot identifier                                  |
+| `timestamp` | string | Yes              | ISO 8601 formatted timestamp                           |
+| `cms`       | string | No               | Name of your CMS system (for logging/debugging)        |
 
 ### Validation Rules
 
-- `articleId` must not be empty
+- `event` must be exactly one of: `article`, `partner`, `award`, `image`
+- `action` must be exactly one of: `created`, `updated`, `deleted`
+- For `event=article`: `articleId` must not be empty
+- For `event=partner`: `partnerId` must not be empty
+- For `event=award`: `awardId` must not be empty
+- For `event=image`: `imageType` must be one of: `hero`, `about-section`, `what-we-do-section`, `who-we-are-section`
 - `timestamp` must be a valid ISO 8601 date/time
-- `action` must be exactly one of the specified values
-- `event` must be exactly `"article"`
 
 ## Actions & Revalidation Behavior
 
-### "created" - New Article
+### Articles
+
+#### "created" - New Article
 
 When a new article is created in the CMS:
 
@@ -124,6 +140,62 @@ When an article is deleted from the CMS:
 
 - `/articles` - Articles listing page
 - `/` - Home page
+
+### Partners
+
+Example payload:
+
+```json
+{
+  "event": "partner",
+  "action": "updated",
+  "partnerId": "partner-123",
+  "timestamp": "2025-01-20T14:30:00Z"
+}
+```
+
+**Revalidates:**
+
+- `/about-us`
+- `/`
+
+### Awards
+
+Example payload:
+
+```json
+{
+  "event": "award",
+  "action": "updated",
+  "awardId": "award-123",
+  "timestamp": "2025-01-20T14:30:00Z"
+}
+```
+
+**Revalidates:**
+
+- `/about-us`
+- `/`
+
+### Images
+
+Example payload:
+
+```json
+{
+  "event": "image",
+  "action": "updated",
+  "imageType": "hero",
+  "timestamp": "2025-01-20T14:30:00Z"
+}
+```
+
+#### imageType → pages
+
+- `hero` → `/`, `/about-us`
+- `about-section` → `/about-us`
+- `what-we-do-section` → `/about-us`
+- `who-we-are-section` → `/`, `/about-us`
 
 ## API Response Codes
 
@@ -199,9 +271,13 @@ openssl rand -hex 32
 
 ### Step 3: Configure CMS
 
-In your CMS platform, create a webhook with:
+In your CMS platform, create a webhook per content type (or one webhook per event type, depending on CMS capabilities):
 
-- **URL**: `https://your-domain.com/api/webhooks/articles`
+- **URL**: One of:
+  - `https://your-domain.com/api/webhooks/articles`
+  - `https://your-domain.com/api/webhooks/partners`
+  - `https://your-domain.com/api/webhooks/awards`
+  - `https://your-domain.com/api/webhooks/images`
 - **Method**: POST
 - **Headers**:
   ```
@@ -229,6 +305,11 @@ curl -X POST https://your-domain.com/api/webhooks/articles \
 ```
 
 Expected response: `200 OK` with success message
+
+## Environment Variables
+
+- `WEBHOOK_SECRET` (required): Bearer token used by all webhook endpoints
+- `WEBHOOK_VERBOSE_LOGGING` (optional): set to `true` to enable debug logs
 
 ## Monitoring & Logging
 

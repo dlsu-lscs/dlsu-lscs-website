@@ -3,6 +3,7 @@
  */
 
 import { getEnvironmentMode, isVerboseLoggingEnabled } from '../env';
+import { WebhookPayload } from './types';
 
 /**
  * Log level
@@ -87,11 +88,56 @@ export const webhookLogger = {
   error: (message: string, context?: Record<string, unknown>) => log('error', message, context),
 } as const;
 
+function sanitizeWebhookPayloadForLog(payload: unknown): Record<string, unknown> | undefined {
+  if (!payload || typeof payload !== 'object') {
+    return undefined;
+  }
+
+  const data = payload as Record<string, unknown>;
+
+  const sanitized: Record<string, unknown> = {
+    event: typeof data.event === 'string' ? data.event : undefined,
+    action: typeof data.action === 'string' ? data.action : undefined,
+    timestamp: typeof data.timestamp === 'string' ? data.timestamp : undefined,
+    cms: typeof data.cms === 'string' ? data.cms : undefined,
+  };
+
+  if (typeof data.articleId === 'string') sanitized.articleId = data.articleId;
+  if (typeof data.partnerId === 'string') sanitized.partnerId = data.partnerId;
+  if (typeof data.awardId === 'string') sanitized.awardId = data.awardId;
+  if (typeof data.imageType === 'string') sanitized.imageType = data.imageType;
+
+  return sanitized;
+}
+
+function buildWebhookResourceContext(payload: WebhookPayload): Record<string, unknown> {
+  switch (payload.event) {
+    case 'article':
+      return { articleId: payload.articleId };
+    case 'partner':
+      return { partnerId: payload.partnerId };
+    case 'award':
+      return { awardId: payload.awardId };
+    case 'image':
+      return { imageType: payload.imageType };
+    default: {
+      const _exhaustive: never = payload.event;
+      return {};
+    }
+  }
+}
+
 /**
  * Helper to log webhook event receipt
  */
-export function logWebhookReceived(action: string, articleId: string): void {
-  webhookLogger.info('Webhook received', { action, articleId });
+export function logWebhookReceived(payload: WebhookPayload): void {
+  webhookLogger.info('Webhook received', {
+    event: payload.event,
+    action: payload.action,
+    timestamp: payload.timestamp,
+    cms: payload.cms,
+    ...buildWebhookResourceContext(payload),
+  });
 }
 
 /**
@@ -109,16 +155,18 @@ export function logValidationError(error: string, payload?: unknown): void {
     error,
     // Include payload structure for debugging, but sanitize sensitive fields
     hasPayload: Boolean(payload),
+    payload: sanitizeWebhookPayloadForLog(payload),
   });
 }
 
 /**
  * Helper to log revalidation completion
  */
-export function logRevalidationComplete(paths: string[], articleId: string, action: string): void {
+export function logRevalidationComplete(paths: string[], payload: WebhookPayload): void {
   webhookLogger.info('Revalidation complete', {
-    action,
-    articleId,
+    event: payload.event,
+    action: payload.action,
+    ...buildWebhookResourceContext(payload),
     pathCount: paths.length,
     paths,
   });

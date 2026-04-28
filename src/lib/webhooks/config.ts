@@ -9,6 +9,9 @@ import { RevalidationPathMap } from './types';
  */
 export const WEBHOOK_PATHS = {
   articles: '/api/webhooks/articles',
+  partners: '/api/webhooks/partners',
+  awards: '/api/webhooks/awards',
+  images: '/api/webhooks/images',
 } as const;
 
 /**
@@ -22,6 +25,35 @@ export const ARTICLE_REVALIDATION_PATHS: RevalidationPathMap = {
     '/', // Home page (may display featured articles)
   ],
   deleted: ['/articles', '/'], // Refresh article list and home page
+} as const;
+
+/**
+ * Path revalidation mapping for partner updates
+ */
+export const PARTNER_REVALIDATION_PATHS: RevalidationPathMap = {
+  created: ['/about-us', '/'], // Refresh about-us page and home page
+  updated: (_partnerId: string) => ['/about-us', '/'], // Partner pages
+  deleted: ['/about-us', '/'], // Refresh about-us page and home page
+} as const;
+
+/**
+ * Path revalidation mapping for award updates
+ */
+export const AWARDS_REVALIDATION_PATHS: RevalidationPathMap = {
+  created: ['/about-us', '/'], // Refresh about-us page and home page
+  updated: (_awardId: string) => ['/about-us', '/'], // Award pages
+  deleted: ['/about-us', '/'], // Refresh about-us page and home page
+} as const;
+
+/**
+ * Path revalidation mapping for section images
+ * Maps imageType to pages that display it
+ */
+export const IMAGES_REVALIDATION_PATHS: Record<string, string[]> = {
+  hero: ['/', '/about-us'], // Hero appears on home and about pages
+  'about-section': ['/about-us'], // About section image
+  'what-we-do-section': ['/about-us'], // What we do section image
+  'who-we-are-section': ['/', '/about-us'], // Who we are section appears on both
 } as const;
 
 /**
