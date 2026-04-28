@@ -21,7 +21,13 @@ export default function Navbar() {
         {/* Logo*/}
         <div>
           <Link href={'/'}>
-            <Image src="/40th_logo.png" alt="40th logo" width={50} height={37} />
+            <Image
+              src="/40th_logo.png"
+              alt="40th logo"
+              width={50}
+              height={37}
+              className="w-[50px] h-[37px]"
+            />
           </Link>
         </div>
 
@@ -55,7 +61,13 @@ export default function Navbar() {
             <SheetContent className="bg-[#1E1E1E] text-white border-none outline-none shadow-none font-onest p-6">
               <SheetHeader className="flex items-start gap-4">
                 <SheetTitle>
-                  <Image src="/40th_logo.png" alt="40th logo" width={55} height={37} />
+                  <Image
+                    src="/40th_logo.png"
+                    alt="40th logo"
+                    width={55}
+                    height={37}
+                    style={{ width: 'auto', height: 'auto' }}
+                  />
                 </SheetTitle>
                 <div className="flex font-medium text-xl  font-onest">
                   La Salle Computer Society

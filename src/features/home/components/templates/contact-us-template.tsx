@@ -5,28 +5,60 @@ import Image from 'next/image';
 export default function ContactUsTemplate() {
   const socialLinks = [
     {
-      icon: <Image src="/social_links/fb-logo.png" alt="Facebook" width={18} height={18} />,
+      icon: (
+        <Image
+          src="/social_links/fb-logo.png"
+          alt="Facebook"
+          width={18}
+          height={18}
+          className="w-4.5 h-4.5"
+        />
+      ),
       url: 'https://www.facebook.com/LaSalleComputerSociety',
     },
     {
-      icon: <Image src="/social_links/ig-logo.png" alt="Instagram" width={24} height={24} />,
+      icon: (
+        <Image
+          src="/social_links/ig-logo.png"
+          alt="Instagram"
+          width={24}
+          height={24}
+          className="w-6 h-6"
+        />
+      ),
       url: 'https://www.instagram.com/dlsu_lscs/',
     },
     {
-      icon: <Image src="/social_links/linkedin-logo.png" alt="LinkedIn" width={24} height={24} />,
+      icon: (
+        <Image
+          src="/social_links/linkedin-logo.png"
+          alt="LinkedIn"
+          width={24}
+          height={24}
+          className="w-6 h-6"
+        />
+      ),
       url: 'https://www.linkedin.com/company/la-salle-computer-society/posts/?feedView=all',
     },
     {
-      icon: <Image src="/social_links/tiktok-logo.png" alt="TikTok" width={24} height={24} />,
+      icon: (
+        <Image
+          src="/social_links/tiktok-logo.png"
+          alt="TikTok"
+          width={24}
+          height={24}
+          className="w-6 h-6"
+        />
+      ),
       url: 'https://www.tiktok.com/@dlsu_lscs',
     },
   ];
 
   return (
-    <div className="relative z-20 bg-gradient-to-b from-[#003D6F] to-[#041019] flex flex-col items-center justify-center p-6 sm:p-10 sm:h-[28rem] h-auto">
+    <div className="relative z-20 bg-linear-to-b from-[#003D6F] to-[#041019] flex flex-col items-center justify-center p-6 sm:p-10 sm:h-[28rem] h-auto">
       {/* Dots BG */}
       <div
-        className="absolute inset-0 bg-[url('/dots.png')] bg-cover bg-left-top opacity-60"
+        className="absolute inset-0 bg-[url('/dots.png')] bg-cover bg-top-left opacity-60"
         style={{
           maskImage: 'radial-gradient(ellipse 90% 85% at center, black 30%, transparent 90%)',
           WebkitMaskImage: 'radial-gradient(ellipse 90% 85% at center, black 30%, transparent 90%)',
