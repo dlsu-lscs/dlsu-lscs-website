@@ -25,7 +25,7 @@ export async function getTestimonials(): Promise<TestimonialResponse> {
         Authorization: `users API-Key ${API_KEY}`,
       },
       // Cache for 1 hour
-      next: { revalidate: 10 },
+      next: { revalidate: 3600 },
     });
 
     if (!response.ok) {
