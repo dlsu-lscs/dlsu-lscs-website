@@ -10,6 +10,7 @@ export interface Officer {
   image: string;
   position: string;
   committee: string;
+  committeeId?: string;
   committeeMembers?: CommitteeMember[];
 }
 

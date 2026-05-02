@@ -3,8 +3,9 @@
     "id": 1,
     "name": "Adrian Bernandino",
     "image": "/images/placeholder.jpg",
-    "position": "Executive Core",
+    "position": "President",
     "committee": "Executive Core",
+    "committeeId": "CORE",
     "committeeMembers": [
       { "name": "John Doe", "position": "Chief of Staff" },
       { "name": "Jane Smith", "position": "Secretary" },
@@ -15,8 +16,9 @@
     "id": 2,
     "name": "Maria Santos",
     "image": "/images/placeholder.jpg",
-    "position": "VP for Research & Development",
-    "committee": "RND",
+    "position": "VP",
+    "committee": "Research & Development",
+    "committeeId": "RND",
     "committeeMembers": [
       { "name": "Alice Brown", "position": "Committee Head" },
       { "name": "Bob Wilson", "position": "Member" },
@@ -28,8 +30,9 @@
     "id": 3,
     "name": "Carlos Reyes",
     "image": "/images/placeholder.jpg",
-    "position": "VP for Publications",
+    "position": "VP",
     "committee": "Publications",
+    "committeeId": "PUBLI",
     "committeeMembers": [
       { "name": "Eve Adams", "position": "Committee Head" },
       { "name": "Frank Castle", "position": "Member" },
@@ -40,8 +43,9 @@
     "id": 4,
     "name": "Sofia Garcia",
     "image": "/images/placeholder.jpg",
-    "position": "VP for Activities",
+    "position": "VP",
     "committee": "Activities",
+    "committeeId": "ACADS",
     "committeeMembers": [
       { "name": "Henry Ford", "position": "Committee Head" },
       { "name": "Iris Watson", "position": "Member" },
@@ -53,8 +57,9 @@
     "id": 5,
     "name": "Diego Martinez",
     "image": "/images/placeholder.jpg",
-    "position": "VP for External Relations",
+    "position": "VP",
     "committee": "External Relations",
+    "committeeId": "CORPREL",
     "committeeMembers": [
       { "name": "Leo Fitz", "position": "Committee Head" },
       { "name": "Mia Torres", "position": "Member" },
@@ -65,8 +70,9 @@
     "id": 6,
     "name": "Elena Vasquez",
     "image": "/images/placeholder.jpg",
-    "position": "VP for Finance",
+    "position": "VP",
     "committee": "Finance",
+    "committeeId": "FIN",
     "committeeMembers": [
       { "name": "Oscar Mike", "position": "Committee Head" },
       { "name": "Paula Abdul", "position": "Member" }
@@ -76,8 +82,9 @@
     "id": 7,
     "name": "Rafael Cruz",
     "image": "/images/placeholder.jpg",
-    "position": "VP for Membership",
+    "position": "VP",
     "committee": "Membership",
+    "committeeId": "MEM",
     "committeeMembers": [
       { "name": "Quinn Fabray", "position": "Committee Head" },
       { "name": "Rachel Green", "position": "Member" },

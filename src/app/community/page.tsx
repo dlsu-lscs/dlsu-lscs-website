@@ -18,6 +18,7 @@ export default async function Community() {
       </section>
 
       <OfficersSection officers={officers} />
+      <div className="bg-black h-[1px] w-full" />
       <TestimonialsSection testimonialsData={testimonialsData} />
     </main>
   );

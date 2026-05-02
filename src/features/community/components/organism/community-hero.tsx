@@ -7,7 +7,7 @@ export default function CommunityHero() {
   const scrollToOfficers = useCallback(() => {
     const section = document.getElementById('officers-section');
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }, []);
 

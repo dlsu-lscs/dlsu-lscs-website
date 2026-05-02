@@ -1,8 +1,15 @@
 'use client';
 
 import * as React from 'react';
-import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  type CarouselApi,
+} from '@/components/ui/carousel';
 import TestimonialCard from '@/features/community/components/molecules/testimonial-card';
 import { TestimonialResponse } from '@/features/community/types';
 
@@ -16,102 +23,62 @@ export default function TestimonialsSection({ testimonialsData }: TestimonialsSe
   const middleIndex = Math.floor(slideCount / 2);
 
   const [centeredIndex, setCenteredIndex] = React.useState(middleIndex);
+  const [api, setApi] = React.useState<CarouselApi | null>(null);
 
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    {
-      loop: true,
-      align: 'center',
-      slidesToScroll: 1,
-    },
-    [Autoplay({ delay: 5000, stopOnInteraction: false })]
-  );
-
-  // Scroll to middle slide on mount so a card is centered
+  // Scroll to middle slide on mount
   React.useEffect(() => {
-    if (!emblaApi) return;
-    emblaApi.scrollTo(middleIndex, false);
-  }, [emblaApi]);
+    if (!api) return;
+    api.scrollTo(middleIndex, false);
+  }, [api, middleIndex]);
 
   React.useEffect(() => {
-    if (!emblaApi) return;
+    if (!api) return;
 
     const onSelect = () => {
-      setCenteredIndex(emblaApi.selectedScrollSnap());
+      setCenteredIndex(api.selectedScrollSnap());
     };
 
-    emblaApi.on('select', onSelect);
+    api.on('select', onSelect);
     onSelect();
 
     return () => {
-      emblaApi.off('select', onSelect);
+      api.off('select', onSelect);
     };
-  }, [emblaApi]);
-
-  const scrollPrev = React.useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
-
-  const scrollNext = React.useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
-
-  const scrollTo = React.useCallback(
-    (index: number) => {
-      if (emblaApi) emblaApi.scrollTo(index);
-    },
-    [emblaApi]
-  );
+  }, [api]);
 
   return (
-    <section className="mx-auto max-w-7xl px-4 py-16">
-      <h2 className="mb-8 text-center text-4xl font-bold">What Our Members Say</h2>
+    <section className="mx-auto max-w-7xl px-4 py-16 min-h-screen">
+      <Carousel
+        opts={{
+          loop: true,
+          align: 'center',
+          slidesToScroll: 1,
+        }}
+        plugins={[Autoplay({ delay: 5000, stopOnInteraction: false })]}
+        setApi={setApi}
+        className="relative"
+      >
+        <CarouselContent>
+          {testimonials.map((testimonial) => {
+            const isHighlighted = testimonials.indexOf(testimonial) === centeredIndex;
 
-      <div className="relative">
-        <div className="overflow-hidden" ref={emblaRef}>
-          <div className="flex">
-            {testimonials.map((testimonial) => {
-              const isHighlighted = testimonials.indexOf(testimonial) === centeredIndex;
+            return (
+              <CarouselItem key={testimonial.id} className="pl-4 sm:basis-1/3">
+                <TestimonialCard testimonial={testimonial} isHighlighted={isHighlighted} />
+              </CarouselItem>
+            );
+          })}
+        </CarouselContent>
+        <CarouselNext className="mr-14 opacity-40" />
+        <CarouselPrevious className="ml-14 opacity-40" />
+      </Carousel>
 
-              return (
-                <div
-                  key={testimonial.id}
-                  className="min-w-0 flex-[0_0_100%] sm:flex-[0_0_calc(100%/3)]"
-                >
-                  <TestimonialCard testimonial={testimonial} isHighlighted={isHighlighted} />
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        <button
-          className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white p-2 shadow-md z-10"
-          onClick={scrollPrev}
-          aria-label="Previous testimonial"
-        >
-          &larr;
-        </button>
-        <button
-          className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white p-2 shadow-md z-10"
-          onClick={scrollNext}
-          aria-label="Next testimonial"
-        >
-          &rarr;
-        </button>
-      </div>
-
-      <div className="mt-4 flex justify-center gap-2">
-        {testimonials.map((_, index) => (
-          <button
-            key={index}
-            className={`h-2 w-2 rounded-full ${
-              index === centeredIndex ? 'bg-blue-600' : 'bg-gray-300'
-            }`}
-            onClick={() => scrollTo(index)}
-            aria-label={`Go to testimonial ${index + 1}`}
-          />
-        ))}
-      </div>
+      <h2 className="mb-8 text-center sm:text-4xl text-3xl font-bold font-Poppins mt-8">
+        {'"Why Join LSCS?"'}
+      </h2>
+      <p className="text-center -mt-8 text-base">
+        Check out the testimonies of previous and current members of LSCS
+      </p>
     </section>
   );
 }
