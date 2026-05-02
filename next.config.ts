@@ -3,6 +3,7 @@ import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
   /* config options here */
   output: 'standalone',
+  allowedDevOrigins: ['10.23.23.188'],
   images: {
     unoptimized: process.env.NODE_ENV === 'development',
     remotePatterns: [

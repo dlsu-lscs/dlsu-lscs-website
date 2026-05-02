@@ -21,7 +21,7 @@ export default function HeroSection({ heroImage }: HeroSectionProps) {
     <main className="w-full max-w-9xl mx-auto h-full flex-1 relative flex">
       {/* Masked background container */}
       <div
-        className="absolute inset-0 mask-semicircle p-2 w-full gap-2 bg-black/60 rounded-2xl bg-center bg-cover"
+        className="absolute inset-0 mask-semicircle p-2 w-full gap-2 rounded-2xl bg-center bg-cover"
         style={{
           backgroundImage: `url(${backgroundImageUrl})`,
         }}

@@ -1,0 +1,87 @@
+[
+  {
+    "id": 1,
+    "name": "Adrian Bernandino",
+    "image": "/images/placeholder.jpg",
+    "position": "Executive Core",
+    "committee": "Executive Core",
+    "committeeMembers": [
+      { "name": "John Doe", "position": "Chief of Staff" },
+      { "name": "Jane Smith", "position": "Secretary" },
+      { "name": "Mark Lee", "position": "Treasurer" }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Maria Santos",
+    "image": "/images/placeholder.jpg",
+    "position": "VP for Research & Development",
+    "committee": "RND",
+    "committeeMembers": [
+      { "name": "Alice Brown", "position": "Committee Head" },
+      { "name": "Bob Wilson", "position": "Member" },
+      { "name": "Charlie Davis", "position": "Member" },
+      { "name": "Diana Prince", "position": "Member" }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Carlos Reyes",
+    "image": "/images/placeholder.jpg",
+    "position": "VP for Publications",
+    "committee": "Publications",
+    "committeeMembers": [
+      { "name": "Eve Adams", "position": "Committee Head" },
+      { "name": "Frank Castle", "position": "Member" },
+      { "name": "Grace Lee", "position": "Member" }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Sofia Garcia",
+    "image": "/images/placeholder.jpg",
+    "position": "VP for Activities",
+    "committee": "Activities",
+    "committeeMembers": [
+      { "name": "Henry Ford", "position": "Committee Head" },
+      { "name": "Iris Watson", "position": "Member" },
+      { "name": "Jack Ryan", "position": "Member" },
+      { "name": "Karen Page", "position": "Member" }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Diego Martinez",
+    "image": "/images/placeholder.jpg",
+    "position": "VP for External Relations",
+    "committee": "External Relations",
+    "committeeMembers": [
+      { "name": "Leo Fitz", "position": "Committee Head" },
+      { "name": "Mia Torres", "position": "Member" },
+      { "name": "Nathan Drake", "position": "Member" }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Elena Vasquez",
+    "image": "/images/placeholder.jpg",
+    "position": "VP for Finance",
+    "committee": "Finance",
+    "committeeMembers": [
+      { "name": "Oscar Mike", "position": "Committee Head" },
+      { "name": "Paula Abdul", "position": "Member" }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Rafael Cruz",
+    "image": "/images/placeholder.jpg",
+    "position": "VP for Membership",
+    "committee": "Membership",
+    "committeeMembers": [
+      { "name": "Quinn Fabray", "position": "Committee Head" },
+      { "name": "Rachel Green", "position": "Member" },
+      { "name": "Sam Winchester", "position": "Member" }
+    ]
+  }
+]

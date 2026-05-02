@@ -1,7 +1,6 @@
 import PressReleaseGrid from '../organism/press-release-grid';
 import { fetchArticles } from '@/features/articles/services';
 import { HomeArticle } from '../../types';
-import DiagonalLscsBg from '@/components/diagonal-lscs-bg';
 import matter from 'gray-matter';
 import Link from 'next/link';
 
@@ -42,8 +41,7 @@ export default async function PressReleaseTemplate() {
   }
 
   return (
-    <main className="relative min-h-screen w-full border-t-black border-2 sm:p-12 p-6">
-      <DiagonalLscsBg />
+    <main className="min-h-screen w-full border-t-black border-2 sm:p-12 p-6">
       <header className="flex justify-center text-center">
         <h1 className="font-bold text-4xl sm:text-5xl text-[#002D57] mb-8">PRESS RELEASES</h1>
       </header>
