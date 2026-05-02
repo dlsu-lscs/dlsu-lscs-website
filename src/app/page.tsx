@@ -4,30 +4,29 @@ import LandingPageTemplate from '@/features/home/components/templates/landing-pa
 import WhoAreWeTemplate from '@/features/home/components/templates/who-are-we-template';
 import ScrollAnimation from '@/components/animation/scroll-animation';
 import { getWebAssets } from '@/features/home/services/getWebAssets';
+import DiagonalLscsBg from '@/components/diagonal-lscs-bg';
 
 export default async function Home() {
   const webAssets = await getWebAssets();
 
   return (
-    <div>
+    <div className="relative">
+      <DiagonalLscsBg />
       <ScrollAnimation>
         <section className="snap-start h-[90dvh]">
           <LandingPageTemplate heroImage={webAssets?.hero.image} />
         </section>
       </ScrollAnimation>
-
       <ScrollAnimation>
         <section className="snap-start h-screen">
           <WhoAreWeTemplate whoAreWeImage={webAssets?.whoAreWe.image} />
         </section>
       </ScrollAnimation>
-
       <ScrollAnimation>
         <section className="snap-start min-h-screen">
           <PressReleaseTemplate />
         </section>
       </ScrollAnimation>
-
       <ScrollAnimation>
         <section className="snap-start flex-1">
           <ContactUsTemplate />

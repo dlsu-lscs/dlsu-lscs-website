@@ -1,4 +1,3 @@
-import DiagonalLscsBg from '@/components/diagonal-lscs-bg';
 import AboutSection from '../molecules/about-section';
 import { CmsImage } from '../../services/getWebAssets';
 
@@ -11,8 +10,7 @@ export default function WhoAreWeTemplate({ whoAreWeImage }: WhoAreWeTemplateProp
   const imageAlt = whoAreWeImage?.alt || 'Placeholder network illustration';
 
   return (
-    <div className="min-h-screen p-4 sm:p-6 lg:p-8 relative">
-      <DiagonalLscsBg />
+    <div className="min-h-screen p-4 sm:p-6 lg:p-8">
       <AboutSection
         title="WHO ARE WE?"
         subtitle="La Salle Computer Society"

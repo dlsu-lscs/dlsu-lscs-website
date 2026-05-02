@@ -11,6 +11,12 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/co
 export default function Navbar() {
   const pathname = usePathname();
   const { isVisible } = useScrollDirection();
+  const links = [
+    { href: '/', label: 'Home' },
+    { href: '/about-us', label: 'About Us' },
+    { href: '/press-release', label: 'Press Release' },
+    { href: '/community', label: 'Community' },
+  ];
 
   return (
     <>
@@ -33,11 +39,7 @@ export default function Navbar() {
 
         {/* Nav Links */}
         <div className="hidden md:flex gap-20 text-md h-full items-center">
-          {[
-            { href: '/', label: 'Home' },
-            { href: '/about-us', label: 'About Us' },
-            { href: '/press-release', label: 'Press Release' },
-          ].map((link) => (
+          {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
@@ -76,11 +78,7 @@ export default function Navbar() {
 
               <section className="mt-6">
                 <div className="flex flex-col gap-4 text-lg items-start font-medium">
-                  {[
-                    { href: '/', label: 'Home' },
-                    { href: '/about-us', label: 'About Us' },
-                    { href: '/press-release', label: 'Press Release' },
-                  ].map((link) => (
+                  {links.map((link) => (
                     <a
                       key={link.href}
                       href={link.href}
