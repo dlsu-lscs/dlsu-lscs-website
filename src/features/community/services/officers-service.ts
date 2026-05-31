@@ -33,7 +33,7 @@ const POSITION_NAMES: Record<string, string> = {
   PRES: 'President',
   EVP: 'Executive Vice President',
   VP: 'Vice President',
-  AVP: 'Assistant Vice President',
+  AVP: 'Associate Vice President',
 };
 
 export function getPositionFullName(positionId: string): string {
