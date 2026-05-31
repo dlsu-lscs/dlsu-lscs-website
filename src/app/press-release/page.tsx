@@ -3,7 +3,7 @@ import FeaturedArticleSection from '@/features/press-release/containers/featured
 import PressReleaseView from '@/features/press-release/containers/press-release-view';
 import WhiteDiagonalLscsBg from '@/components/white-diagonal-lscs-bg';
 
-export const revalidate = 3600; // ISR: Revalidate every 60 seconds
+export const revalidate = 3600; // ISR: Revalidate every hour
 
 export default function PressReleasePage() {
   return (
@@ -11,10 +11,8 @@ export default function PressReleasePage() {
       <WhiteDiagonalLscsBg />
 
       <div className="relative z-10">
-        <div className="">
-          <PageHeader />
-          <FeaturedArticleSection />
-        </div>
+        <PageHeader />
+        <FeaturedArticleSection />
         <PressReleaseView />
       </div>
     </div>

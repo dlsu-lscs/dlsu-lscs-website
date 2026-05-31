@@ -1,15 +1,6 @@
 import PressReleaseCardContainer from './press-release-card-container';
 import { fetchArticles } from '@/features/articles/services';
-
-type PressRelease = {
-  slug: string;
-  title: string;
-  subtitle?: string;
-  content?: string;
-  date?: string;
-  author?: string;
-  featuredImage?: string;
-};
+import { PressRelease } from '../types';
 
 export default async function PressReleaseView() {
   let releases: PressRelease[] = [];
@@ -34,8 +25,16 @@ export default async function PressReleaseView() {
   }
 
   return (
-    <main className="min-h-screen w-full bg-transparent overflow-x-hidden">
-      <section className="max-w-7xl mx-auto px-6 py-8">
+    <main className="w-full bg-transparent overflow-x-hidden">
+      <section className="max-w-7xl mx-auto px-6 py-12">
+        {/* Subtle section header */}
+        <div className="mb-8">
+          <h2 className="text-2xl sm:text-3xl font-onest font-bold text-white tracking-tight">
+            All Articles
+          </h2>
+          <div className="w-16 h-1 bg-linear-to-r from-[#ddb518] to-transparent rounded-full mt-2" />
+        </div>
+
         <PressReleaseCardContainer releases={releases} />
       </section>
     </main>

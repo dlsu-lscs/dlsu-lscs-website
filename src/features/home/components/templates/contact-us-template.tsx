@@ -10,8 +10,8 @@ export default function ContactUsTemplate() {
           src="/social_links/fb-logo.png"
           alt="Facebook"
           width={18}
-          height={18}
-          className="w-4.5 h-4.5"
+          height={24}
+          className="w-4.5 h-6"
         />
       ),
       url: 'https://www.facebook.com/LaSalleComputerSociety',
@@ -34,8 +34,8 @@ export default function ContactUsTemplate() {
           src="/social_links/linkedin-logo.png"
           alt="LinkedIn"
           width={24}
-          height={24}
-          className="w-6 h-6"
+          height={18}
+          className="w-6 h-4.5"
         />
       ),
       url: 'https://www.linkedin.com/company/la-salle-computer-society/posts/?feedView=all',

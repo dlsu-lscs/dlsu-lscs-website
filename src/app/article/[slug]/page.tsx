@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
-import Article from '@/features/articles/containers/templates/article-page';
+import Article from '@/features/articles/components/templates/article-page';
 import { fetchArticles, fetchArticleBySlug } from '@/features/articles/services';
 import { LscsArticle } from '@/features/articles/types';
 import { createArticleSchema, createBreadcrumbSchema } from '@/lib/structured-data';
