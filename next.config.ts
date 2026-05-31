@@ -13,6 +13,10 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 's3.api.dlsu-lscs.org',
+      },
+      {
+        protocol: 'https',
         hostname: 'images.unsplash.com',
       },
       {
