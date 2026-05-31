@@ -35,7 +35,7 @@ export default function PressReleaseCard({
             alt={title}
             width={400}
             height={250}
-            className="object-cover w-full rounded-md"
+            className="object-cover w-full rounded-md max-h-52"
           />
         </div>
 

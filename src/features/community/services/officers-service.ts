@@ -44,6 +44,9 @@ interface CoreApiMember {
   id: number;
   full_name: string;
   image_url: string;
+  email: string;
+  discord: string;
+  telegram: string;
   position_id: string;
   committee_id: string;
   [key: string]: unknown;
@@ -92,7 +95,10 @@ export async function getOfficers(): Promise<Officer[]> {
       ? {
           id: presidentMember.id,
           name: presidentMember.full_name,
-          image: presidentMember.image_url || '/images/placeholder.jpg',
+          image: presidentMember.image_url || '/images/placeholder-profile.png',
+          email: presidentMember.email || '',
+          discord: presidentMember.discord || '',
+          telegram: presidentMember.telegram || '',
           position: 'President',
           committee: 'Executive Core',
           committeeId: 'CORE',
@@ -104,7 +110,10 @@ export async function getOfficers(): Promise<Officer[]> {
     const evps: Officer[] = evpMembers.map((member) => ({
       id: member.id,
       name: member.full_name,
-      image: member.image_url || '/images/placeholder.jpg',
+      image: member.image_url || '/images/placeholder-profile.png',
+      email: member.email || '',
+      discord: member.discord || '',
+      telegram: member.telegram || '',
       position: 'EVP',
       committee: 'Executive Core',
       committeeId: 'CORE',
@@ -115,7 +124,10 @@ export async function getOfficers(): Promise<Officer[]> {
     const vps: Officer[] = vpData.map((member) => ({
       id: member.id,
       name: member.full_name,
-      image: member.image_url || '/images/placeholder.jpg',
+      image: member.image_url || '/images/placeholder-profile.png',
+      email: member.email || '',
+      discord: member.discord || '',
+      telegram: member.telegram || '',
       position: 'VP',
       committee: getCommitteeFullName(member.committee_id),
       committeeId: member.committee_id,

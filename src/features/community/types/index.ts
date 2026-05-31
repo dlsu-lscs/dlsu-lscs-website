@@ -10,6 +10,9 @@ export interface Officer {
   image: string;
   position: string;
   committee: string;
+  email: string;
+  discord: string;
+  telegram: string;
   committeeId?: string;
   committeeMembers?: CommitteeMember[];
 }

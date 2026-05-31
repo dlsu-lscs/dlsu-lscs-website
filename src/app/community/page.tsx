@@ -18,7 +18,12 @@ export default async function Community() {
       </section>
 
       <OfficersSection officers={officers} />
-      <div className="bg-black h-[1px] w-full" />
+
+      {/* Gradient divider for a smoother visual transition */}
+      <div className="mx-auto max-w-5xl px-8">
+        <div className="h-px bg-gradient-to-r from-transparent via-[#1A5D89]/30 to-transparent" />
+      </div>
+
       <TestimonialsSection testimonialsData={testimonialsData} />
     </main>
   );
