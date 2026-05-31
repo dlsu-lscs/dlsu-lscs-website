@@ -4,14 +4,21 @@ import { Button } from '@/components/ui/button';
 import { useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
+import { useLenis } from 'lenis/react';
 
 export default function CommunityHero() {
+  const lenis = useLenis();
+
   const scrollToOfficers = useCallback(() => {
-    const section = document.getElementById('officers-section');
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (lenis) {
+      lenis.scrollTo('#officers-section');
+    } else {
+      const section = document.getElementById('officers-section');
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
-  }, []);
+  }, [lenis]);
 
   return (
     <div

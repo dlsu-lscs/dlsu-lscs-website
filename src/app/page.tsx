@@ -13,22 +13,22 @@ export default async function Home() {
     <div className="relative">
       <DiagonalLscsBg />
       <ScrollAnimation>
-        <section className="snap-start h-[90dvh]">
+        <section className="h-[90dvh]">
           <LandingPageTemplate heroImage={webAssets?.hero.image} />
         </section>
       </ScrollAnimation>
       <ScrollAnimation>
-        <section className="snap-start h-screen">
+        <section className="min-h-screen">
           <WhoAreWeTemplate whoAreWeImage={webAssets?.whoAreWe.image} />
         </section>
       </ScrollAnimation>
       <ScrollAnimation>
-        <section className="snap-start min-h-screen">
+        <section className="min-h-screen">
           <PressReleaseTemplate />
         </section>
       </ScrollAnimation>
       <ScrollAnimation>
-        <section className="snap-start flex-1">
+        <section className="flex-1">
           <ContactUsTemplate />
         </section>
       </ScrollAnimation>

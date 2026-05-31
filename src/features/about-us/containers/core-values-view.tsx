@@ -10,14 +10,14 @@ export default function CoreValues() {
         alt="macky1"
         width={280}
         height={280}
-        className="absolute -top-28 md:-top-36 z-20 left-0 w-24 md:w-75 h-auto antialiased"
+        className="absolute -top-16 sm:-top-28 md:-top-36 z-20 left-0 w-24 md:w-75 h-auto antialiased"
       />
       <Image
         src="/macky2.png"
         alt="macky2"
         width={280}
         height={280}
-        className="absolute -top-28 md:-top-36 right-0 w-24 md:w-75 h-auto z-20 antialiased"
+        className="absolute -top-20 sm:-top-28 md:-top-36 right-0 w-24 md:w-75 h-auto z-20 antialiased"
       />
       <div className="absolute top-0 left-0 w-full h-1/2 flex justify-center">
         <BackgroundWord text="CORE" yOffset="0%" />

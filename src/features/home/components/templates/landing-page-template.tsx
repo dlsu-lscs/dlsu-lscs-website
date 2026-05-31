@@ -7,7 +7,7 @@ interface LandingPageTemplateProps {
 
 export default function LandingPageTemplate({ heroImage }: LandingPageTemplateProps) {
   return (
-    <div className="h-full flex flex-col p-8 gap-8">
+    <div className="h-full flex flex-col sm:p-8 p-0 gap-8">
       {/* Background image with fade effect */}
       <HeroSection heroImage={heroImage} />
     </div>

@@ -35,7 +35,7 @@ const POSITION_NAMES: Record<string, string> = {
   PRES: 'President',
   EVP: 'Executive Vice President',
   VP: 'Vice President',
-  AVP: 'Assistant Vice President',
+  AVP: 'Associate Vice President',
 };
 
 function getFullPositionName(position: string): string {
@@ -130,7 +130,7 @@ function OfficerCard({
             officer.committeeMembers &&
             officer.committeeMembers.length > 0 && (
               <div className="absolute right-2 top-2 animate-pulse">
-                <span className="rounded-full text-base text-blue-800">
+                <span className="rounded-full text-base text-blue-400">
                   <PiHandTap />
                 </span>
               </div>
@@ -202,7 +202,10 @@ function OfficerCard({
             flex flex-col ${showCommittee ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         >
           <h4 className="mb-4 text-xl font-bold text-center drop-shadow-sm">{officer.committee}</h4>
-          <div className="flex-1 overflow-y-auto space-y-2 pr-1 scrollbar-thin scrollbar-thumb-white/30 scrollbar-track-transparent">
+          <div
+            data-lenis-prevent
+            className="flex-1 overflow-y-auto space-y-2 pr-1 scrollbar-thin scrollbar-thumb-white/30 scrollbar-track-transparent"
+          >
             {officer.committeeMembers.map((member: CommitteeMember, index: number) => (
               <div
                 key={index}

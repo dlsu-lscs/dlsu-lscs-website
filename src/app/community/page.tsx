@@ -21,10 +21,10 @@ export default async function Community() {
 
       {/* Gradient divider for a smoother visual transition */}
       <div className="mx-auto max-w-5xl px-8">
-        <div className="h-px bg-gradient-to-r from-transparent via-[#1A5D89]/30 to-transparent" />
+        <div className="h-px bg-linear-to-r from-transparent via-[#1A5D89]/30 to-transparent" />
       </div>
 
-      <TestimonialsSection testimonialsData={testimonialsData} />
+      {/* <TestimonialsSection testimonialsData={testimonialsData} /> */}
     </main>
   );
 }
