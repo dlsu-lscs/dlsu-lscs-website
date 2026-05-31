@@ -29,9 +29,9 @@ export default function WhatWeDo({ whatWeDoImages }: WhatWeDoProps) {
     : defaultImages;
 
   return (
-    <main className="relative z-20 flex min-h-screen w-full flex-col px-6 sm:px-10 py-10 bg-[radial-gradient(circle_at_center,_#f5f5f5_0%,_#d9d9d9_70%,_#b3b3b3_100%)]">
-      <div className="relative w-full min-h-screen mx-auto rounded-xl overflow-hidden flex">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1A5D89] to-[#001E3B] z-0"></div>
+    <main className="relative z-20 flex min-h-screen w-full flex-col  sm:p-10 bg-[radial-gradient(circle_at_center,#f5f5f5_0%,#d9d9d9_70%,#b3b3b3_100%)]">
+      <div className="relative w-full min-h-screen mx-auto sm:rounded-xl py-10 sm:py-8 overflow-hidden flex">
+        <div className="absolute inset-0 bg-linear-to-b from-[#1A5D89] to-[#001E3B] z-0"></div>
 
         <Image
           src="/dots.png"
