@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import FilterBar from '../components/filter-bar';
 import PressReleaseCard from '../components/press-release-card';
 import ResponsivePagination from '../components/responsive-pagination';
@@ -76,22 +77,54 @@ export default function PressReleaseCardContainer({ releases }: PressReleaseCard
         years={uniqueYears}
       />
 
+      {/* Results Count Indicator */}
+      <div className="mt-4 text-sm text-white/60 font-Poppins">
+        {filtered.length === 0 ? (
+          <span>No articles found</span>
+        ) : (
+          <span>
+            Showing {Math.min(filtered.length, (currentPage - 1) * ITEMS_PER_PAGE + 1)}-
+            {Math.min(filtered.length, currentPage * ITEMS_PER_PAGE)} of {filtered.length}{' '}
+            {filtered.length === 1 ? 'article' : 'articles'}
+          </span>
+        )}
+      </div>
+
       {filtered.length === 0 ? (
-        <p className="mt-8 text-center text-gray-400">No press releases found.</p>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="mt-12 text-center text-white/50 font-Poppins"
+        >
+          No press releases found. Try adjusting your filters or search query.
+        </motion.p>
       ) : (
         <>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-            {paginated.map((item) => (
-              <PressReleaseCard
-                key={item.slug}
-                slug={item.slug}
-                title={item.title}
-                description={item.subtitle || item.content?.slice(0, 120) + '...'}
-                date={item.date}
-                author={item.author}
-                image={item.featuredImage ?? '/misc/placeholder.png'}
-              />
-            ))}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+            <AnimatePresence mode="popLayout">
+              {paginated.map((item, index) => (
+                <motion.div
+                  key={item.slug}
+                  layout
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.35, delay: index * 0.04 }}
+                  className="h-full"
+                >
+                  <PressReleaseCard
+                    slug={item.slug}
+                    title={item.title}
+                    description={
+                      item.subtitle || (item.content ? item.content.slice(0, 120) + '...' : '')
+                    }
+                    date={item.date}
+                    author={item.author}
+                    image={item.featuredImage ?? '/misc/placeholder.png'}
+                  />
+                </motion.div>
+              ))}
+            </AnimatePresence>
           </div>
 
           <ResponsivePagination
