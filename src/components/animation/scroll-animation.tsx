@@ -8,7 +8,7 @@ type ScrollAnimationProps = {
 
 export default function ScrollAnimation({ children }: ScrollAnimationProps) {
   return (
-    <div className="snap-start">
+    <div>
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}

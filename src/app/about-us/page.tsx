@@ -16,43 +16,43 @@ export default async function AboutUs() {
   return (
     <div>
       <ScrollAnimation>
-        <section className="snap-start ">
+        <section className="">
           <About aboutImages={webAssets?.about.images} />
         </section>
       </ScrollAnimation>
 
       <ScrollAnimation>
-        <section className="snap-start min-h-screen">
+        <section className="min-h-screen">
           <WhatWeDo whatWeDoImages={webAssets?.whatWeDo} />
         </section>
       </ScrollAnimation>
 
       <ScrollAnimation>
-        <section className="snap-start min-h-screen">
+        <section className="min-h-screen">
           <VisionMission />
         </section>
       </ScrollAnimation>
 
       <ScrollAnimation>
-        <section className="snap-start min-h-screen">
+        <section className="min-h-screen">
           <CoreValuesView />
         </section>
       </ScrollAnimation>
 
       <ScrollAnimation>
-        <section className="snap-start min-h-screen">
+        <section className="min-h-screen">
           <AwardsRecognitionView awards={awards} />
         </section>
       </ScrollAnimation>
 
       <ScrollAnimation>
-        <section className="snap-start min-h-screen">
+        <section className="min-h-screen">
           <OrgView />
         </section>
       </ScrollAnimation>
 
       <ScrollAnimation>
-        <section className="snap-start min-h-screen">
+        <section className="min-h-screen">
           <PartnersView />
         </section>
       </ScrollAnimation>

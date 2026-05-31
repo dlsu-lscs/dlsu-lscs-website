@@ -32,7 +32,7 @@ export default function Navbar() {
               alt="40th logo"
               width={50}
               height={37}
-              className="w-[50px] h-[37px]"
+              className="w-12.5 h-9.25"
             />
           </Link>
         </div>
@@ -78,15 +78,22 @@ export default function Navbar() {
 
               <section className="mt-6">
                 <div className="flex flex-col gap-4 text-lg items-start font-medium">
-                  {links.map((link) => (
-                    <a
-                      key={link.href}
-                      href={link.href}
-                      className="hover:text-yellow-500 transition-colors duration-200"
-                    >
-                      {link.label}
-                    </a>
-                  ))}
+                  {links.map((link) => {
+                    const isActive = pathname === link.href;
+                    return (
+                      <a
+                        key={link.href}
+                        href={link.href}
+                        className={`transition-colors duration-200 ${
+                          isActive
+                            ? 'text-[#EDCC46] font-bold'
+                            : 'text-white/80 hover:text-[#EDCC46]'
+                        }`}
+                      >
+                        {link.label}
+                      </a>
+                    );
+                  })}
                 </div>
               </section>
             </SheetContent>

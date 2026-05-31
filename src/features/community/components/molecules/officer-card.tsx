@@ -202,7 +202,10 @@ function OfficerCard({
             flex flex-col ${showCommittee ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         >
           <h4 className="mb-4 text-xl font-bold text-center drop-shadow-sm">{officer.committee}</h4>
-          <div className="flex-1 overflow-y-auto space-y-2 pr-1 scrollbar-thin scrollbar-thumb-white/30 scrollbar-track-transparent">
+          <div
+            data-lenis-prevent
+            className="flex-1 overflow-y-auto space-y-2 pr-1 scrollbar-thin scrollbar-thumb-white/30 scrollbar-track-transparent"
+          >
             {officer.committeeMembers.map((member: CommitteeMember, index: number) => (
               <div
                 key={index}

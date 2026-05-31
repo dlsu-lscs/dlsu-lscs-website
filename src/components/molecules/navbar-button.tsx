@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { useLenis } from 'lenis/react';
 
 export default function NavbarButton({
   children,
@@ -11,6 +12,7 @@ export default function NavbarButton({
   link?: string;
 }) {
   const router = useRouter();
+  const lenis = useLenis();
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (!link) return;
@@ -22,9 +24,13 @@ export default function NavbarButton({
     // Check if it's a hash link on the same page
     if (hash && pathname === window.location.pathname) {
       e.preventDefault();
-      const element = document.querySelector(hash);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (lenis) {
+        lenis.scrollTo(hash);
+      } else {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       }
     } else if (hash) {
       // Navigate to the page and then scroll to the hash
@@ -32,9 +38,13 @@ export default function NavbarButton({
       router.push(link);
       // Wait for navigation and then scroll
       setTimeout(() => {
-        const element = document.querySelector(hash);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (lenis) {
+          lenis.scrollTo(hash);
+        } else {
+          const element = document.querySelector(hash);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
         }
       }, 100);
     }
