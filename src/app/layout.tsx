@@ -68,7 +68,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteData) }}
         />
       </head>
-      <body className="w-full font-Poppins antialiased">
+      <body className="w-full font-Poppins antialiased overflow-x-hidden">
         <LenisProvider>
           <Navbar />
           {children}

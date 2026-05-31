@@ -18,7 +18,7 @@ export default async function Home() {
         </section>
       </ScrollAnimation>
       <ScrollAnimation>
-        <section className="h-screen">
+        <section className="min-h-screen">
           <WhoAreWeTemplate whoAreWeImage={webAssets?.whoAreWe.image} />
         </section>
       </ScrollAnimation>

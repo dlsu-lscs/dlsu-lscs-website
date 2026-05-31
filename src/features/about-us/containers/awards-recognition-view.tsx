@@ -56,6 +56,7 @@ export default function AwardsRecognitionView({ awards }: AwardsRecognitionViewP
         <section className="w-[75%] sm:w-[90%] lg:w-[85%] mx-auto mt-12">
           {firstHalf.length > 0 ? (
             <Carousel
+              opts={{ loop: true }}
               plugins={[
                 Autoplay({
                   delay: 4000,
@@ -79,6 +80,7 @@ export default function AwardsRecognitionView({ awards }: AwardsRecognitionViewP
 
           {secondHalf.length > 0 ? (
             <Carousel
+              opts={{ loop: true }}
               plugins={[
                 Autoplay({
                   delay: 8000,

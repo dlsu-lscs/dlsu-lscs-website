@@ -6,7 +6,7 @@ import { MdOutlineCalendarMonth } from 'react-icons/md';
 export default function ArticleCard({ slug, title, content, date, featuredImage }: HomeArticle) {
   return (
     <Link href={`/article/${slug}`}>
-      <div className="flex gap-4 cursor-pointer group bg-gradient-to-b from-[rgba(221,181,24,0.9)] to-[rgba(119,97,13,0.9)] p-6 rounded-lg">
+      <div className="flex gap-4 cursor-pointer group bg-gradient-to-b from-[rgba(221,181,24,0.9)] to-[rgba(119,97,13,0.9)] p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 ease-in-out">
         <div className="relative w-32 h-32 flex-shrink-0 rounded-lg overflow-hidden shadow-lg">
           <Image
             src={featuredImage}

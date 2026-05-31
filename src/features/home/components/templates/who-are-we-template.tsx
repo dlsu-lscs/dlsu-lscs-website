@@ -10,7 +10,7 @@ export default function WhoAreWeTemplate({ whoAreWeImage }: WhoAreWeTemplateProp
   const imageAlt = whoAreWeImage?.alt || 'Placeholder network illustration';
 
   return (
-    <div className="min-h-screen p-4 sm:p-6 lg:p-8">
+    <div className="min-h-screen px-4 pt-12 pb-0 sm:p-6 lg:p-8">
       <AboutSection
         title="WHO ARE WE?"
         subtitle="La Salle Computer Society"

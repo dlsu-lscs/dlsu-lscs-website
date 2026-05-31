@@ -59,9 +59,22 @@ interface CoreApiMember {
  * - AVPs: Fetched per committee for each VP
  */
 export async function getOfficers(): Promise<Officer[]> {
+  const applyOverrides = (list: Officer[]): Officer[] => {
+    return list.map((officer) => {
+      if (officer.position === 'President' || officer.position === 'EVP') {
+        const envKey = `OFFICER_COMMITTEE_${officer.id}`;
+        const override = process.env[envKey] || process.env[envKey.toLowerCase()];
+        if (override) {
+          return { ...officer, committee: override };
+        }
+      }
+      return officer;
+    });
+  };
+
   if (!CORE_API_URL || !CORE_API_KEY) {
     console.warn('CORE_API_URL or CORE_API_KEY not configured, using static data');
-    return staticOfficers as Officer[];
+    return applyOverrides(staticOfficers as Officer[]);
   }
 
   try {
@@ -160,9 +173,9 @@ export async function getOfficers(): Promise<Officer[]> {
     }
 
     // Return: President, then EVPs, then VPs
-    return [...(president ? [president] : []), ...evps, ...vps];
+    return applyOverrides([...(president ? [president] : []), ...evps, ...vps]);
   } catch (error) {
     console.error('Error fetching officers:', error);
-    return staticOfficers as Officer[];
+    return applyOverrides(staticOfficers as Officer[]);
   }
 }

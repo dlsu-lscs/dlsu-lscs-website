@@ -35,7 +35,7 @@ const POSITION_NAMES: Record<string, string> = {
   PRES: 'President',
   EVP: 'Executive Vice President',
   VP: 'Vice President',
-  AVP: 'Assistant Vice President',
+  AVP: 'Associate Vice President',
 };
 
 function getFullPositionName(position: string): string {
@@ -130,7 +130,7 @@ function OfficerCard({
             officer.committeeMembers &&
             officer.committeeMembers.length > 0 && (
               <div className="absolute right-2 top-2 animate-pulse">
-                <span className="rounded-full text-base text-blue-800">
+                <span className="rounded-full text-base text-blue-400">
                   <PiHandTap />
                 </span>
               </div>
