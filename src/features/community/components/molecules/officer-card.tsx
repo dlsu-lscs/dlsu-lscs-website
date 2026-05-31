@@ -1,9 +1,34 @@
 'use client';
 
+import { FaDiscord, FaEnvelope, FaTelegram } from 'react-icons/fa';
 import * as React from 'react';
 import Image from 'next/image';
 import { Officer, CommitteeMember } from '@/features/community/types';
 import { PiHandTap } from 'react-icons/pi';
+
+function getTelegramLink(telegram: string): string | null {
+  const handle = telegram.trim();
+
+  if (!handle) {
+    return null;
+  }
+
+  if (handle.startsWith('http://') || handle.startsWith('https://')) {
+    return handle;
+  }
+
+  return `https://t.me/${handle.replace(/^@/, '')}`;
+}
+
+function getEmailLink(email?: string | null): string | null {
+  const address = email?.trim();
+
+  if (!address) {
+    return null;
+  }
+
+  return `mailto:${address}`;
+}
 
 // Position ID to full name mapping
 const POSITION_NAMES: Record<string, string> = {
@@ -25,7 +50,7 @@ interface OfficerCardProps {
   totalCount?: number;
 }
 
-export default function OfficerCard({
+function OfficerCard({
   officer,
   isPresident = false,
   isCycling = false,
@@ -73,12 +98,16 @@ export default function OfficerCard({
   };
 
   const imageHeight = isPresident ? 'h-0' : 'h-36';
+  const telegramLink = getTelegramLink(officer.telegram);
+  const emailLink = getEmailLink(officer.email);
 
   return (
     <div
-      className={`relative overflow-hidden rounded-lg aspect-13/16 bg-[#1A5D89]
+      className={`group relative overflow-hidden rounded-xl aspect-13/16 bg-[#1A5D89]
         shadow-md transition-all duration-300 ease-in-out border-10 border-[#1A5D89] ${
-          showCommittee ? 'scale-105 shadow-xl' : 'hover:shadow-lg'
+          showCommittee
+            ? 'scale-105 shadow-xl shadow-[#1A5D89]/40'
+            : 'hover:shadow-lg hover:shadow-[#1A5D89]/30 hover:-translate-y-1'
         }`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -91,7 +120,7 @@ export default function OfficerCard({
           className={`relative flex-1 w-full ${imageHeight} transition-opacity duration-500 ease-in-out ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}
         >
           <Image
-            src={officer.image || '/images/placeholder.jpg'}
+            src={officer.image || '/images/placeholder-profile.png'}
             alt={officer.name}
             fill
             className="object-cover rounded-lg"
@@ -114,13 +143,35 @@ export default function OfficerCard({
               <p className="font-semibold text-white/90 drop-shadow-lg">
                 {getFullPositionName(officer.position)}
               </p>
+              <div className="mt-2 flex flex-wrap gap-2">
+                {telegramLink && (
+                  <a
+                    href={telegramLink}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white transition-colors hover:bg-white/20"
+                  >
+                    <FaTelegram />
+                    {officer.telegram}
+                  </a>
+                )}
+
+                {officer.discord && (
+                  <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white">
+                    <FaDiscord />
+                    {officer.discord}
+                  </span>
+                )}
+              </div>
             </div>
           </div>
         </div>
+
+        {/* Committee label bar */}
         <div
-          className={`h-14 mt-2 bg-white rounded-lg w-full flex items-center inset-shadow-sm
+          className="h-14 mt-2 bg-white rounded-lg w-full flex items-center inset-shadow-sm
             justify-center text-base font-bold uppercase
-            `}
+            transition-transform duration-300 group-hover:scale-[1.02]"
         >
           <span
             className="bg-linear-to-b from-[rgba(221,181,24,0.9)] to-[rgba(119,97,13,0.9)]
@@ -129,6 +180,7 @@ export default function OfficerCard({
             <h3 className="text-center">{officer.committee}</h3>
           </span>
         </div>
+
         {isCycling && totalCount > 1 && (
           <div className="flex justify-center gap-1.5 mt-3">
             {Array.from({ length: totalCount }).map((_, i) => (
@@ -147,14 +199,15 @@ export default function OfficerCard({
         <div
           className={`absolute inset-0 bg-white p-4 transition-opacity duration-300 rounded-lg
             bg-linear-to-b from-[rgba(221,181,24,0.9)] to-[rgba(119,97,13,0.9)] text-white 
-            flex flex-col ${showCommittee ? 'opacity-100' : 'opacity-0'}`}
+            flex flex-col ${showCommittee ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         >
           <h4 className="mb-4 text-xl font-bold text-center drop-shadow-sm">{officer.committee}</h4>
           <div className="flex-1 overflow-y-auto space-y-2 pr-1 scrollbar-thin scrollbar-thumb-white/30 scrollbar-track-transparent">
             {officer.committeeMembers.map((member: CommitteeMember, index: number) => (
               <div
                 key={index}
-                className="flex flex-col items-center justify-center rounded-md bg-black/15 p-2 backdrop-blur-xs border border-white/10"
+                className="flex flex-col items-center justify-center rounded-md bg-black/15 p-2 backdrop-blur-xs border border-white/10
+                  transition-colors duration-200 hover:bg-black/25"
               >
                 <span className="text-[11px] uppercase tracking-wider text-white/90 font-medium text-center mb-0.5">
                   {member.position}
@@ -170,3 +223,5 @@ export default function OfficerCard({
     </div>
   );
 }
+
+export default React.memo(OfficerCard);

@@ -31,7 +31,7 @@ export default async function FeaturedArticleSection() {
   if (!featured) return null;
 
   return (
-    <section className="max-w-7xl mx-auto px-6 py-2">
+    <section className="max-w-7xl mx-auto px-6 pt-2 pb-8">
       <FeaturedArticle
         title={featured.title}
         date={featured.createdAt ? new Date(featured.createdAt).toLocaleDateString() : ''}

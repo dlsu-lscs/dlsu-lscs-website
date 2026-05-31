@@ -80,7 +80,7 @@ export default function ResponsivePagination({
   }
 
   return (
-    <div className="mt-8 flex justify-center">
+    <div className="mt-12 flex justify-center">
       <Pagination>
         <PaginationContent>
           <PaginationItem>
@@ -91,8 +91,10 @@ export default function ResponsivePagination({
                 if (currentPage > 1) onPageChange(currentPage - 1);
               }}
               className={cn(
-                currentPage === 1 ? 'pointer-events-none opacity-50' : '',
-                'font-semibold bg-white text-black'
+                'font-semibold bg-white/10 text-white border border-white/20 transition-all duration-200 px-4 py-2 rounded-lg text-sm select-none',
+                currentPage === 1
+                  ? 'pointer-events-none opacity-40'
+                  : 'cursor-pointer hover:bg-white/20 hover:text-white'
               )}
             />
           </PaginationItem>
@@ -100,17 +102,22 @@ export default function ResponsivePagination({
           {visiblePages.map((page) => (
             <PaginationItem key={page}>
               {page === '...' ? (
-                <span className="flex h-10 w-10 items-center justify-center">
+                <span className="flex h-10 w-10 items-center justify-center text-white/50 select-none">
                   <MoreHorizontalIcon className="h-4 w-4" />
                 </span>
               ) : (
                 <PaginationLink
-                  className={cn(page === currentPage && 'text-black', 'font-semibold')}
+                  className={cn(
+                    'font-semibold px-4 py-2 rounded-lg text-sm transition-all duration-200 select-none border',
+                    page === currentPage
+                      ? 'bg-[#ddb518] text-white border-[#ddb518] hover:bg-[#ddb518]/90 cursor-default'
+                      : 'bg-white/10 text-white/80 border-white/20 hover:bg-white/20 hover:text-white cursor-pointer'
+                  )}
                   href="#"
                   isActive={page === currentPage}
                   onClick={(e) => {
                     e.preventDefault();
-                    onPageChange(page as number);
+                    if (page !== currentPage) onPageChange(page as number);
                   }}
                 >
                   {page}
@@ -127,8 +134,10 @@ export default function ResponsivePagination({
                 if (currentPage < totalPages) onPageChange(currentPage + 1);
               }}
               className={cn(
-                currentPage === totalPages ? 'pointer-events-none opacity-50' : '',
-                'bg-white text-black font-semibold'
+                'font-semibold bg-white/10 text-white border border-white/20 transition-all duration-200 px-4 py-2 rounded-lg text-sm select-none',
+                currentPage === totalPages
+                  ? 'pointer-events-none opacity-40'
+                  : 'cursor-pointer hover:bg-white/20 hover:text-white'
               )}
             />
           </PaginationItem>

@@ -27,15 +27,19 @@ export default function FilterBar({
     <div className="flex flex-wrap justify-between items-end gap-6 w-full">
       <div className="flex flex-wrap gap-4">
         <div className="flex flex-col">
-          <label className="text-white font-medium mb-1">Publish Year:</label>
+          <label className="text-sm font-medium tracking-wide text-white/80 mb-1.5 font-Poppins">
+            Publish Year:
+          </label>
           <select
-            className="bg-[#D0D0D0] text-gray-800 px-3 py-2 rounded-md w-40"
+            className="bg-white/10 text-white border border-white/20 hover:bg-white/15 focus:bg-[#002D57]/90 px-3 py-2 rounded-lg w-40 text-sm focus:outline-none focus:ring-2 focus:ring-[#ddb518]/50 focus:border-[#ddb518]/50 transition-all duration-200 cursor-pointer"
             value={selectedYear}
             onChange={(e) => onYearChange(e.target.value)}
           >
-            <option value="">All Time</option>
+            <option value="" className="bg-[#002D57] text-white">
+              All Time
+            </option>
             {years.map((year) => (
-              <option key={year} value={year}>
+              <option key={year} value={year} className="bg-[#002D57] text-white">
                 {year}
               </option>
             ))}
@@ -43,15 +47,19 @@ export default function FilterBar({
         </div>
 
         <div className="flex flex-col">
-          <label className="text-white font-medium mb-1">Author:</label>
+          <label className="text-sm font-medium tracking-wide text-white/80 mb-1.5 font-Poppins">
+            Author:
+          </label>
           <select
-            className="bg-[#D0D0D0] text-gray-800 px-3 py-2 rounded-md w-40"
+            className="bg-white/10 text-white border border-white/20 hover:bg-white/15 focus:bg-[#002D57]/90 px-3 py-2 rounded-lg w-40 text-sm focus:outline-none focus:ring-2 focus:ring-[#ddb518]/50 focus:border-[#ddb518]/50 transition-all duration-200 cursor-pointer"
             value={selectedAuthor}
             onChange={(e) => onAuthorChange(e.target.value)}
           >
-            <option value="">All Authors</option>
+            <option value="" className="bg-[#002D57] text-white">
+              All Authors
+            </option>
             {authors.map((author) => (
-              <option key={author} value={author}>
+              <option key={author} value={author} className="bg-[#002D57] text-white">
                 {author}
               </option>
             ))}
@@ -59,14 +67,20 @@ export default function FilterBar({
         </div>
 
         <div className="flex flex-col">
-          <label className="text-white font-medium mb-1">Sort By:</label>
+          <label className="text-sm font-medium tracking-wide text-white/80 mb-1.5 font-Poppins">
+            Sort By:
+          </label>
           <select
-            className="bg-[#D0D0D0] text-gray-800 px-3 py-2 rounded-md w-40"
+            className="bg-white/10 text-white border border-white/20 hover:bg-white/15 focus:bg-[#002D57]/90 px-3 py-2 rounded-lg w-40 text-sm focus:outline-none focus:ring-2 focus:ring-[#ddb518]/50 focus:border-[#ddb518]/50 transition-all duration-200 cursor-pointer"
             value={selectedSort}
             onChange={(e) => onSortChange(e.target.value)}
           >
-            <option value="latest">Latest</option>
-            <option value="oldest">Oldest</option>
+            <option value="latest" className="bg-[#002D57] text-white">
+              Latest
+            </option>
+            <option value="oldest" className="bg-[#002D57] text-white">
+              Oldest
+            </option>
           </select>
         </div>
       </div>
@@ -75,10 +89,10 @@ export default function FilterBar({
         <input
           type="text"
           placeholder="Search by title..."
-          className="bg-slate-200 text-gray-800 pr-10 pl-3 py-2 rounded-md w-full"
+          className="bg-white/10 text-white placeholder:text-white/50 border border-white/20 hover:bg-white/15 pr-10 pl-3.5 py-2 rounded-lg w-full text-sm focus:outline-none focus:ring-2 focus:ring-[#ddb518]/50 focus:border-[#ddb518]/50 transition-all duration-200"
           onChange={(e) => onSearch(e.target.value)}
         />
-        <MagnifyingGlassIcon className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
+        <MagnifyingGlassIcon className="absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/50" />
       </div>
     </div>
   );
