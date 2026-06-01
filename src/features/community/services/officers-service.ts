@@ -17,7 +17,7 @@ const COMMITTEE_NAMES: Record<string, string> = {
   HRD: 'Human Resource Development',
   MEM: 'La Salle Computer Society',
   PUBLI: 'Publications',
-  PUBS: 'Publicity',
+  PUBS: 'Publicity and Creatives',
   RND: 'Research and Development',
   SOCIOCIVIC: 'Socio-Civic',
   TND: 'Training and Development',
