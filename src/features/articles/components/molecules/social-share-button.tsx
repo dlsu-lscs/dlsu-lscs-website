@@ -9,12 +9,33 @@ interface SocialShareButtonProps {
   icon: string;
   alt: string;
   platform: 'facebook' | 'twitter' | 'linkedin' | 'instagram';
+  articleTitle?: string;
+  articleSlug?: string;
 }
 
-export default function SocialShareButton({ icon, alt, platform }: SocialShareButtonProps) {
+export default function SocialShareButton({
+  icon,
+  alt,
+  platform,
+  articleTitle,
+  articleSlug,
+}: SocialShareButtonProps) {
   const [copied, setCopied] = useState(false);
-  const articleUrl = typeof window !== 'undefined' ? window.location.href : '';
-  const title = typeof document !== 'undefined' ? document.title : '';
+
+  const baseUrl =
+    typeof window !== 'undefined'
+      ? process.env.NEXT_PUBLIC_APP_URL || window.location.origin
+      : process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+
+  const cleanedBaseUrl = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
+
+  const articleUrl = articleSlug
+    ? `${cleanedBaseUrl}/article/${articleSlug}`
+    : typeof window !== 'undefined'
+      ? window.location.href
+      : '';
+
+  const title = articleTitle || (typeof document !== 'undefined' ? document.title : '');
 
   const handleInstagramCopy = () => {
     navigator.clipboard.writeText(articleUrl);
