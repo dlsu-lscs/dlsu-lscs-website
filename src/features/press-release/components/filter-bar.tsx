@@ -27,10 +27,14 @@ export default function FilterBar({
     <div className="flex flex-wrap justify-between items-end gap-6 w-full">
       <div className="flex flex-wrap gap-4">
         <div className="flex flex-col">
-          <label className="text-sm font-medium tracking-wide text-white/80 mb-1.5 font-Poppins">
+          <label
+            htmlFor="publish-year-select"
+            className="text-sm font-medium tracking-wide text-white/80 mb-1.5 font-Poppins"
+          >
             Publish Year:
           </label>
           <select
+            id="publish-year-select"
             className="bg-white/10 text-white border border-white/20 hover:bg-white/15 focus:bg-[#002D57]/90 px-3 py-2 rounded-lg w-40 text-sm focus:outline-none focus:ring-2 focus:ring-[#ddb518]/50 focus:border-[#ddb518]/50 transition-all duration-200 cursor-pointer"
             value={selectedYear}
             onChange={(e) => onYearChange(e.target.value)}
@@ -47,10 +51,14 @@ export default function FilterBar({
         </div>
 
         <div className="flex flex-col">
-          <label className="text-sm font-medium tracking-wide text-white/80 mb-1.5 font-Poppins">
+          <label
+            htmlFor="author-select"
+            className="text-sm font-medium tracking-wide text-white/80 mb-1.5 font-Poppins"
+          >
             Author:
           </label>
           <select
+            id="author-select"
             className="bg-white/10 text-white border border-white/20 hover:bg-white/15 focus:bg-[#002D57]/90 px-3 py-2 rounded-lg w-40 text-sm focus:outline-none focus:ring-2 focus:ring-[#ddb518]/50 focus:border-[#ddb518]/50 transition-all duration-200 cursor-pointer"
             value={selectedAuthor}
             onChange={(e) => onAuthorChange(e.target.value)}
@@ -67,10 +75,14 @@ export default function FilterBar({
         </div>
 
         <div className="flex flex-col">
-          <label className="text-sm font-medium tracking-wide text-white/80 mb-1.5 font-Poppins">
+          <label
+            htmlFor="sort-select"
+            className="text-sm font-medium tracking-wide text-white/80 mb-1.5 font-Poppins"
+          >
             Sort By:
           </label>
           <select
+            id="sort-select"
             className="bg-white/10 text-white border border-white/20 hover:bg-white/15 focus:bg-[#002D57]/90 px-3 py-2 rounded-lg w-40 text-sm focus:outline-none focus:ring-2 focus:ring-[#ddb518]/50 focus:border-[#ddb518]/50 transition-all duration-200 cursor-pointer"
             value={selectedSort}
             onChange={(e) => onSortChange(e.target.value)}
@@ -88,6 +100,7 @@ export default function FilterBar({
       <div className="relative w-full sm:w-96">
         <input
           type="text"
+          aria-label="Search by title"
           placeholder="Search by title..."
           className="bg-white/10 text-white placeholder:text-white/50 border border-white/20 hover:bg-white/15 pr-10 pl-3.5 py-2 rounded-lg w-full text-sm focus:outline-none focus:ring-2 focus:ring-[#ddb518]/50 focus:border-[#ddb518]/50 transition-all duration-200"
           onChange={(e) => onSearch(e.target.value)}

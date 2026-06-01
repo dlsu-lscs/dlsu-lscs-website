@@ -139,7 +139,7 @@ function OfficerCard({
             <div
               className={`transition-opacity duration-500 ease-in-out ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}
             >
-              <h4 className="text-xl font-bold text-white drop-shadow-lg">{officer.name}</h4>
+              <h3 className="text-xl font-bold text-white drop-shadow-lg">{officer.name}</h3>
               <p className="font-semibold text-white/90 drop-shadow-lg">
                 {getFullPositionName(officer.position)}
               </p>
@@ -175,9 +175,9 @@ function OfficerCard({
         >
           <span
             className="bg-linear-to-b from-[rgba(221,181,24,0.9)] to-[rgba(119,97,13,0.9)]
-            bg-clip-text text-transparent"
+            bg-clip-text text-transparent text-center"
           >
-            <h3 className="text-center">{officer.committee}</h3>
+            {officer.committee}
           </span>
         </div>
 

@@ -6,7 +6,14 @@ import Image from 'next/image';
 import NavbarButton from '../molecules/navbar-button';
 import { useScrollDirection } from '@/hooks/useScrollDirection';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+  SheetClose,
+} from '@/components/ui/sheet';
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -40,7 +47,7 @@ export default function Navbar() {
         {/* Nav Links */}
         <div className="hidden md:flex gap-20 text-md h-full items-center">
           {links.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className={`relative flex h-full items-center group
@@ -51,16 +58,16 @@ export default function Navbar() {
         `}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
           <NavbarButton link="/#contact-us">Contact Us</NavbarButton>
         </div>
         <div className="flex md:hidden">
           <Sheet>
-            <SheetTrigger>
+            <SheetTrigger aria-label="Open navigation menu">
               <GiHamburgerMenu size={28} className="text-white" />
             </SheetTrigger>
-            <SheetContent className="bg-[#1E1E1E] text-white border-none outline-none shadow-none font-onest p-6">
+            <SheetContent className="bg-[#1E1E1E] text-white border-none outline-none shadow-none font-onest p-6 flex flex-col">
               <SheetHeader className="flex items-start gap-4">
                 <SheetTitle>
                   <Image
@@ -76,26 +83,32 @@ export default function Navbar() {
                 </div>
               </SheetHeader>
 
-              <section className="mt-6">
-                <div className="flex flex-col gap-4 text-lg items-start font-medium">
+              <div className="mt-6 flex flex-col justify-between flex-1">
+                <div className="flex flex-col gap-6 text-lg items-start font-medium">
                   {links.map((link) => {
                     const isActive = pathname === link.href;
                     return (
-                      <a
-                        key={link.href}
-                        href={link.href}
-                        className={`transition-colors duration-200 ${
-                          isActive
-                            ? 'text-[#EDCC46] font-bold'
-                            : 'text-white/80 hover:text-[#EDCC46]'
-                        }`}
-                      >
-                        {link.label}
-                      </a>
+                      <SheetClose asChild key={link.href}>
+                        <Link
+                          href={link.href}
+                          className={`transition-colors duration-200 ${
+                            isActive
+                              ? 'text-[#EDCC46] font-bold'
+                              : 'text-white/80 hover:text-[#EDCC46]'
+                          }`}
+                        >
+                          {link.label}
+                        </Link>
+                      </SheetClose>
                     );
                   })}
                 </div>
-              </section>
+                <div className="mt-auto pb-6 flex flex-col w-full">
+                  <SheetClose asChild>
+                    <NavbarButton link="/#contact-us">Contact Us</NavbarButton>
+                  </SheetClose>
+                </div>
+              </div>
             </SheetContent>
           </Sheet>
         </div>

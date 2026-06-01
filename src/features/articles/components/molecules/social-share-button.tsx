@@ -25,12 +25,12 @@ export default function SocialShareButton({ icon, alt, platform }: SocialShareBu
   if (platform === 'facebook') {
     return (
       <FacebookShareButton url={articleUrl} quote={title}>
-        <button
-          className="cursor-pointer hover:opacity-75 transition-opacity"
+        <span
+          className="w-12 h-12 flex items-center justify-center cursor-pointer hover:opacity-75 transition-opacity"
           title="Share on Facebook"
         >
-          <Image alt={alt} width={28} height={28} src={icon} />
-        </button>
+          <Image alt={alt} width={32} height={32} src={icon} />
+        </span>
       </FacebookShareButton>
     );
   }
@@ -38,12 +38,12 @@ export default function SocialShareButton({ icon, alt, platform }: SocialShareBu
   if (platform === 'twitter') {
     return (
       <TwitterShareButton url={articleUrl} title={title}>
-        <button
-          className="cursor-pointer hover:opacity-75 transition-opacity"
+        <span
+          className="w-12 h-12 flex items-center justify-center cursor-pointer hover:opacity-75 transition-opacity"
           title="Share on Twitter"
         >
           <Image alt={alt} width={32} height={32} src={icon} />
-        </button>
+        </span>
       </TwitterShareButton>
     );
   }
@@ -51,12 +51,12 @@ export default function SocialShareButton({ icon, alt, platform }: SocialShareBu
   if (platform === 'linkedin') {
     return (
       <LinkedinShareButton url={articleUrl}>
-        <button
-          className="cursor-pointer hover:opacity-75 transition-opacity"
+        <span
+          className="w-12 h-12 flex items-center justify-center cursor-pointer hover:opacity-75 transition-opacity"
           title="Share on LinkedIn"
         >
           <Image alt={alt} width={32} height={32} src={icon} />
-        </button>
+        </span>
       </LinkedinShareButton>
     );
   }
@@ -64,8 +64,9 @@ export default function SocialShareButton({ icon, alt, platform }: SocialShareBu
   return (
     <button
       onClick={handleInstagramCopy}
-      className="relative cursor-pointer hover:opacity-75 transition-opacity"
+      className="relative w-12 h-12 flex items-center justify-center cursor-pointer hover:opacity-75 transition-opacity"
       title={copied ? 'Copied!' : 'Copy link for Instagram'}
+      aria-label={copied ? 'Copied!' : 'Copy link for Instagram'}
     >
       <FiCopy size={32} />
       {copied && (

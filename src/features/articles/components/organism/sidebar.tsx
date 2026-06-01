@@ -24,7 +24,7 @@ export default async function SideBar() {
     <div className="md:flex-2/6">
       <aside className="justify-start max-w-96 flex flex-col gap-6">
         <section className="py-4 px-6 rounded-lg bg-white drop-shadow-xl flex flex-col gap-2">
-          <h3 className="font-onest font-bold text-base">Share This Story</h3>
+          <h2 className="font-onest font-bold text-base">Share This Story</h2>
           <div className="flex gap-4">
             {socialLinks.map((social) => (
               <SocialShareButton
@@ -37,7 +37,7 @@ export default async function SideBar() {
           </div>
         </section>
         <section className="bg-white drop-shadow-xl rounded-lg p-4 flex flex-col gap-4">
-          <h3 className="font-onest text-base font-bold ">Suggested Articles</h3>
+          <h2 className="font-onest text-base font-bold ">Suggested Articles</h2>
           {suggestedArticles.map((article) => (
             <SideBarCard
               key={article.id}
@@ -57,7 +57,7 @@ export default async function SideBar() {
           ))}
         </section>
         <section className="bg-white drop-shadow-xl rounded-lg p-4 flex flex-col gap-4">
-          <h3 className="font-onest text-base font-bold ">Latest Releases</h3>
+          <h2 className="font-onest text-base font-bold ">Latest Releases</h2>
           {latestArticles.map((article) => (
             <SideBarCard
               key={article.id}

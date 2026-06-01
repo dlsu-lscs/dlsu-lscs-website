@@ -7,10 +7,39 @@ import { usePathname } from 'next/navigation';
 function LenisScrollReset() {
   const pathname = usePathname();
   const lenis = useLenis();
+  const isFirstMount = React.useRef(true);
 
   React.useEffect(() => {
-    if (lenis) {
-      lenis.scrollTo(0, { immediate: true });
+    if (lenis && typeof window !== 'undefined') {
+      const hash = window.location.hash;
+      if (hash) {
+        const scrollToTarget = (immediate: boolean) => {
+          try {
+            const el = document.querySelector(hash) as HTMLElement | null;
+            if (el) {
+              lenis.scrollTo(el, { immediate });
+              return true;
+            }
+          } catch (e) {
+            // querySelector might fail on invalid selectors
+          }
+          return false;
+        };
+
+        // Try immediately
+        const success = scrollToTarget(isFirstMount.current);
+
+        if (!success) {
+          // If not found, try again shortly
+          const timer = setTimeout(() => {
+            scrollToTarget(false);
+          }, 150);
+          return () => clearTimeout(timer);
+        }
+      } else {
+        lenis.scrollTo(0, { immediate: true });
+      }
+      isFirstMount.current = false;
     }
   }, [pathname, lenis]);
 

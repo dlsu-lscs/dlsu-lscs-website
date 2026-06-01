@@ -9,48 +9,52 @@ export default function ContactUsTemplate() {
         <Image
           src="/social_links/fb-logo.png"
           alt="Facebook"
-          width={18}
-          height={24}
-          className="w-4.5 h-6"
+          width={17}
+          height={33}
+          className="w-auto h-6"
         />
       ),
       url: 'https://www.facebook.com/LaSalleComputerSociety',
+      ariaLabel: 'Follow La Salle Computer Society on Facebook',
     },
     {
       icon: (
         <Image
           src="/social_links/ig-logo.png"
           alt="Instagram"
-          width={24}
-          height={24}
+          width={33}
+          height={33}
           className="w-6 h-6"
         />
       ),
       url: 'https://www.instagram.com/dlsu_lscs/',
+      ariaLabel: 'Follow La Salle Computer Society on Instagram',
     },
     {
       icon: (
         <Image
           src="/social_links/linkedin-logo.png"
           alt="LinkedIn"
-          width={24}
-          height={18}
-          className="w-6 h-4.5"
+          width={29}
+          height={20}
+          className="w-6 h-auto"
         />
       ),
       url: 'https://www.linkedin.com/company/la-salle-computer-society/posts/?feedView=all',
+      ariaLabel: 'Follow La Salle Computer Society on LinkedIn',
     },
     {
       icon: (
         <Image
           src="/social_links/tiktok-logo.png"
           alt="TikTok"
-          width={24}
-          height={24}
-          className="w-6 h-6"
+          width={28}
+          height={31}
+          className="w-auto h-6"
         />
       ),
       url: 'https://www.tiktok.com/@dlsu_lscs',
+      ariaLabel: 'Follow La Salle Computer Society on TikTok',
     },
   ];
 
