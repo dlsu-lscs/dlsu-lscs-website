@@ -15,7 +15,7 @@ export default function ArticleHeader(props: headerProps) {
           <h1 className="font-onest sm:text-5xl text-3xl font-bold inline-block bg-linear-to-r from-[#DDB518] to-[#003D6F] to-75% bg-clip-text text-transparent">
             {props.title}
           </h1>
-          <p className="font-geist text-black/50 sm:text-base text-sm">
+          <p className="font-geist text-black/60 sm:text-base text-sm">
             <time>{props.uploadDate}</time>
             {' • '}
             <span>{props.author}</span>

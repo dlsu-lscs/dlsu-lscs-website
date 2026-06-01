@@ -38,22 +38,22 @@ export default function HeroSection({ heroImage }: HeroSectionProps) {
 
       {/* Content */}
       <div className="relative z-10 flex flex-col justify-center items-center flex-1 p-2 gap-2">
-        <motion.h2
+        <motion.h1
           initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="text-[#EDCC46] font-onest font-extrabold text-base sm:text-xl md:text-3xl text-center leading-tight sm:leading-snug mb-2"
         >
           LA SALLE COMPUTER SOCIETY
-        </motion.h2>
-        <motion.h1
+        </motion.h1>
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }}
           className="mb-8 sm:mb-10 md:mb-12 font-onest text-white font-bold text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-center whitespace-pre-line leading-tight sm:leading-snug"
         >
           {`Living Yesterday's Vision,\nSetting Today's Trends,\nInspiring Tomorrow's Leaders.`}
-        </motion.h1>
+        </motion.h2>
       </div>
 
       {/* Circle shape at bottom */}

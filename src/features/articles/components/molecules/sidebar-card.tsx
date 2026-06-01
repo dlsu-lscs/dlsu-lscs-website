@@ -19,7 +19,7 @@ export default function SideBarCard(props: cardProps) {
           <span className="font-bold bg-gradient-to-r from-[#DDB518] to-[#003D6F] to-75% bg-clip-text text-transparent line-clamp-3">
             {props.title}
           </span>
-          <time className="text-xs text-black/50">{props.date}</time>
+          <time className="text-xs text-black/60">{props.date}</time>
         </p>
       </div>
     </Link>

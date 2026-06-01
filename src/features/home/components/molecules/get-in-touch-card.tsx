@@ -19,9 +19,9 @@ export default function GetInTouchCard({
 
   return (
     <section className="flex flex-col gap-6">
-      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-onest text-[#DDB518]">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-onest text-[#DDB518]">
         {title}
-      </h1>
+      </h2>
       <p className="text-xs sm:text-sm md:text-base text-[#FFFFFF] font-geist font-normal">
         {description}
       </p>

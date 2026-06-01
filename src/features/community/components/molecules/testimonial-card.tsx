@@ -44,7 +44,7 @@ export default function TestimonialCard({
           </blockquote>
 
           <div className="mt-6 border-t border-white/20 pt-4 text-right">
-            <h4 className="font-semibold text-lg">{testimonial.name}</h4>
+            <h3 className="font-semibold text-lg">{testimonial.name}</h3>
             <p className="text-sm text-white/80">
               {testimonial.position} • {testimonial.committee} • {testimonial['id-number']}
             </p>

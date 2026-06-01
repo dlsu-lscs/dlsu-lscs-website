@@ -62,11 +62,11 @@ export default function WhatWeDo({ whatWeDoImages }: WhatWeDoProps) {
           <Image
             src="/lscs.png"
             alt="LSCS logo"
-            width={268}
-            height={299}
+            width={240}
+            height={267}
             className={`
-              block mx-auto mt-2 w-[120px] h-[130px] sm:w-[160px] sm:h-[180px]
-              md:absolute md:top-10 md:right-12 md:w-[268px] md:h-[299px] 
+              block mx-auto mt-2 w-[120px] h-[134px] sm:w-[160px] sm:h-[178px]
+              md:absolute md:top-10 md:right-12 md:w-[240px] md:h-[267px] 
               md:-z-10
             `}
             priority
