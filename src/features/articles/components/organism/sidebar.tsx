@@ -2,7 +2,12 @@ import SideBarCard from '../molecules/sidebar-card';
 import { fetchArticles } from '../../services';
 import SocialShareButton from '../molecules/social-share-button';
 
-export default async function SideBar() {
+interface SideBarProps {
+  articleTitle?: string;
+  articleSlug?: string;
+}
+
+export default async function SideBar({ articleTitle, articleSlug }: SideBarProps) {
   // Fetch articles (10 for latest + random selection)
   const articles = await fetchArticles(10);
 
@@ -32,6 +37,8 @@ export default async function SideBar() {
                 icon={social.icon}
                 alt={social.alt}
                 platform={social.platform}
+                articleTitle={articleTitle}
+                articleSlug={articleSlug}
               />
             ))}
           </div>
