@@ -38,8 +38,8 @@ export default function FeaturedArticleCard({
                 })
               : ''}
           </p>
-          <p className="text-sm text-gray-100 mt-2 line-clamp-3">
-            {content?.replace(/[#*`\-_\[\]()]/g, '').slice(0, 150)}...
+          <p className="text-sm text-gray-100 mt-2 line-clamp-2">
+            {content?.replace(/[#*`\-_\[\]()]/g, '')}
           </p>
         </div>
       </div>
