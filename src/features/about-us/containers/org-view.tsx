@@ -5,13 +5,13 @@ import GoldHeader from '../components/gold-header';
 export default function OrgView() {
   return (
     <>
-      <main className="relative z-20 min-h-screen w-full px-6 md:px-24 py-24 bg-[radial-gradient(circle_at_center,#f5f5f5_0%,#d9d9d9_70%,#b3b3b3_100%)]">
+      <main className="relative z-20 min-h-screen w-full px-6 md:px-24 py-24 overflow-visible bg-[radial-gradient(circle_at_center,#f5f5f5_0%,#d9d9d9_70%,#b3b3b3_100%)]">
         <Image
           src="/virus.png"
           alt="virus"
           width={280}
           height={280}
-          className="absolute -top-28 md:-top-36 right-0 w-50 md:w-75 h-auto -z-10 md:z-0 antialiased"
+          className="absolute -top-28 md:-top-36 right-0 z-0 w-50 md:w-75 h-auto object-contain pointer-events-none select-none antialiased"
         />
 
         {/* CSO */}
