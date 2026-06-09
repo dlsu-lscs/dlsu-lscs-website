@@ -11,6 +11,7 @@ import {
   SheetContent,
   SheetHeader,
   SheetTitle,
+  SheetDescription,
   SheetTrigger,
   SheetClose,
 } from '@/components/ui/sheet';
@@ -75,10 +76,13 @@ export default function Navbar() {
                     src="/40th_logo.png"
                     alt="40th logo"
                     width={55}
-                    height={37}
-                    style={{ width: 'auto', height: 'auto' }}
+                    height={0}
+                    className="w-14 h-auto"
                   />
                 </SheetTitle>
+                <SheetDescription className="sr-only">
+                  Navigation menu for La Salle Computer Society
+                </SheetDescription>
                 <div className="flex font-medium text-xl  font-onest">
                   La Salle Computer Society
                 </div>

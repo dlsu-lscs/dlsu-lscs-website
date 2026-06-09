@@ -4,7 +4,7 @@ import BlueBackground from '../components/blue-background';
 
 export default function CoreValues() {
   return (
-    <div className="min-h-screen relative flex flex-col items-center justify-between p-8 sm:p-16">
+    <div className="lg:min-h-screen relative flex flex-col items-center justify-between p-8 sm:p-16">
       <Image
         src="/macky1.png"
         alt="macky1"

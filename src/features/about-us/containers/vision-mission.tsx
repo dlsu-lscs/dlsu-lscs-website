@@ -2,9 +2,9 @@ import BackgroundWord from '../components/background-word';
 
 export default function VisionMission() {
   return (
-    <main className="relative min-h-screen flex flex-col">
+    <main className="relative min-h-screen flex flex-col justify-center items-center">
       {/* Vision Background */}
-      <section className="hidden md:flex absolute w-full justify-center -top-10 sm:-top-15 md:-top-5 lg:top-0">
+      <section className="hidden sm:flex absolute w-full justify-center top-10 lg:top-0">
         <BackgroundWord text="VISION" yOffset="0%" />
         <div
           className="absolute top-0 left-0 w-full h-20 sm:h-26 md:h-28 lg:h-40 pointer-events-none z-10"
@@ -19,7 +19,7 @@ export default function VisionMission() {
       </section>
 
       {/* Mission Background */}
-      <section className="hidden md:flex absolute w-full justify-center -bottom-5 sm:-bottom-15 md:bottom-10 lg:bottom-20 -z-10">
+      <section className="hidden sm:flex absolute w-full justify-center bottom-15 lg:bottom-20 -z-10">
         <BackgroundWord text="MISSION" yOffset="-5%" />
         <div
           className="absolute bottom-0 left-0 w-full h-32 sm:h-40 md:h-50 lg:h-40 pointer-events-none z-10"
@@ -35,7 +35,7 @@ export default function VisionMission() {
 
       {/* Content */}
       <section
-        className="relative flex flex-col md:flex-row flex-1 items-center justify-between 
+        className="relative flex flex-col md:flex-row flex-1 items-center justify-center 
                    px-6 py-12 sm:px-10 sm:py-16 md:px-20 md:py-20 gap-4 md:gap-0"
       >
         {/* Vision */}
