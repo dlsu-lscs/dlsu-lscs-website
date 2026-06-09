@@ -10,9 +10,8 @@ export default function OrgView() {
           src="/virus.png"
           alt="virus"
           width={280}
-          height={280}
+          height={0}
           className="absolute -top-28 md:-top-36 right-0 z-0 w-50 md:w-75 h-auto object-contain pointer-events-none select-none antialiased"
-          style={{ height: 'auto', width: 'auto' }}
         />
 
         {/* CSO */}
@@ -64,9 +63,8 @@ export default function OrgView() {
               src="/oneccs.png"
               alt="oneccs logo"
               width={224}
-              height={224}
-              className="w-48 md:w-56 h-auto antialiased order-1 md:order-2"
-              style={{ height: 'auto', width: 'auto' }}
+              height={0}
+              className="w-44 md:w-54 h-auto antialiased order-1 md:order-2"
             />
           </div>
         </section>
