@@ -5,7 +5,7 @@ import { fetchArticles, fetchArticleBySlug } from '@/features/articles/services'
 import { LscsArticle } from '@/features/articles/types';
 import { createArticleSchema, createBreadcrumbSchema } from '@/lib/structured-data';
 
-export const revalidate = 60; // Revalidate every hour
+export const revalidate = 3600; // Revalidate every hour
 
 function getImageUrl(article: LscsArticle): string | undefined {
   if (article.meta?.image && typeof article.meta.image === 'object' && article.meta.image.url) {
