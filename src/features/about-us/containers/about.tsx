@@ -65,9 +65,11 @@ export default function About({ aboutImages }: AboutProps) {
               <Image
                 src={aboutImages ? aboutImages[0].image.url : '/40th_logo.png'}
                 alt={aboutImages ? aboutImages[0].image.alt : 'logo'}
+                className="drop-shadow-2xl"
                 width={600}
                 height={600}
-                className="drop-shadow-2xl"
+                style={{ width: 'auto', height: 'auto' }}
+                loading="eager"
               />
             </div>
           </motion.section>

@@ -12,6 +12,7 @@ export default function OrgView() {
           width={280}
           height={280}
           className="absolute -top-28 md:-top-36 right-0 z-0 w-50 md:w-75 h-auto object-contain pointer-events-none select-none antialiased"
+          style={{ height: 'auto', width: 'auto' }}
         />
 
         {/* CSO */}
@@ -31,9 +32,9 @@ export default function OrgView() {
             <Image
               src="/cso.png"
               alt="cso logo"
-              width={320}
-              height={320}
-              className="w-72 md:w-80 h-auto"
+              width={480}
+              height={0}
+              className="w-72 md:w-80 h-auto antialiased"
             />
             <div className="max-w-2xl text-center md:text-left">
               <GoldHeader>Council of Student Organizations</GoldHeader>
@@ -65,6 +66,7 @@ export default function OrgView() {
               width={224}
               height={224}
               className="w-48 md:w-56 h-auto antialiased order-1 md:order-2"
+              style={{ height: 'auto', width: 'auto' }}
             />
           </div>
         </section>

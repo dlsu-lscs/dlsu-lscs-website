@@ -14,6 +14,7 @@ export default async function PartnersView() {
           width={175}
           height={175}
           className="absolute -top-12 sm:-top-16 md:-top-28 right-0 w-18.75 sm:w-30 md:w-43.75 h-auto -z-10 md:z-0 antialiased"
+          style={{ height: 'auto', width: 'auto' }}
         />
 
         <header className="flex justify-center">
@@ -24,7 +25,7 @@ export default async function PartnersView() {
         <h2 className="text-center text-xl font-semibold font-geist">For AY 2025-2026</h2>
 
         {/* List of Partners */}
-        <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 mt-12 sm:mt-16">
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mt-12 sm:mt-16">
           {partners && partners.length > 0 ? (
             partners.map((partner) => (
               <div key={partner.id} className="flex justify-center">

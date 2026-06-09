@@ -19,7 +19,7 @@ export default function AboutSection({
   buttonText = 'Learn more',
 }: AboutSectionProps) {
   return (
-    <main className="mx-auto flex w-full max-w-7xl flex-col gap-4 sm:gap-6 lg:gap-8 md:flex-row md:items-center md:min-h-screen">
+    <main className="mx-auto flex w-full max-w-7xl flex-col gap-4 sm:gap-6 lg:gap-8 md:flex-row md:items-center md:min-h-screen px-4">
       <section className="flex flex-col flex-1 min-w-0 text-center md:text-left">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">{title}</h2>
         <h3 className="text-xl sm:text-2xl lg:text-3xl font-medium mb-4 sm:mb-6">{subtitle}</h3>
