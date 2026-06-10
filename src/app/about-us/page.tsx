@@ -5,7 +5,6 @@ import VisionMission from '@/features/about-us/containers/vision-mission';
 import About from '@/features/about-us/containers/about';
 import CoreValuesView from '@/features/about-us/containers/core-values-view';
 import WhatWeDo from '@/features/about-us/containers/what-we-do';
-import ScrollAnimation from '@/components/animation/scroll-animation';
 import { getAwards } from '@/features/about-us/services/getAwards';
 import { getWebAssets } from '@/features/home/services/getWebAssets';
 
@@ -15,47 +14,33 @@ export default async function AboutUs() {
 
   return (
     <div>
-      <ScrollAnimation>
-        <section className="">
-          <About aboutImages={webAssets?.about.images} />
-        </section>
-      </ScrollAnimation>
+      <section className="">
+        <About aboutImages={webAssets?.about.images} />
+      </section>
 
-      <ScrollAnimation>
-        <section className="min-h-screen">
-          <WhatWeDo whatWeDoImages={webAssets?.whatWeDo} />
-        </section>
-      </ScrollAnimation>
+      <section className="min-h-screen">
+        <WhatWeDo whatWeDoImages={webAssets?.whatWeDo} />
+      </section>
 
-      <ScrollAnimation>
-        <section className="min-h-screen">
-          <VisionMission />
-        </section>
-      </ScrollAnimation>
+      <section className="min-h-screen">
+        <VisionMission />
+      </section>
 
-      <ScrollAnimation>
-        <section className="min-h-screen">
-          <CoreValuesView />
-        </section>
-      </ScrollAnimation>
+      <section className="min-h-screen">
+        <CoreValuesView />
+      </section>
 
-      <ScrollAnimation>
-        <section className="min-h-screen">
-          <AwardsRecognitionView awards={awards} />
-        </section>
-      </ScrollAnimation>
+      <section className="min-h-screen">
+        <AwardsRecognitionView awards={awards} />
+      </section>
 
-      <ScrollAnimation>
-        <section className="min-h-screen">
-          <OrgView />
-        </section>
-      </ScrollAnimation>
+      <section className="min-h-screen">
+        <OrgView />
+      </section>
 
-      <ScrollAnimation>
-        <section className="min-h-screen">
-          <PartnersView />
-        </section>
-      </ScrollAnimation>
+      <section className="min-h-screen">
+        <PartnersView />
+      </section>
     </div>
   );
 }

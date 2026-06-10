@@ -12,7 +12,7 @@ export default function FeaturedArticleCard({
 }: HomeArticle) {
   return (
     <Link href={`/article/${slug}`}>
-      <div className="p-6 bg-gradient-to-b from-[rgba(221,181,24,0.9)] to-[rgba(119,97,13,0.9)] h-full cursor-pointer group rounded-[16px] shadow-[4px_4px_4px_rgba(0,0,0,0.25)] hover:shadow-xl hover:scale-[1.02] active:scale-[0.99] transition-all duration-300 ease-in-out overflow-hidden">
+      <div className="p-6 bg-gradient-to-b from-[rgba(221,181,24,0.9)] to-[rgba(119,97,13,0.9)] h-full cursor-pointer group rounded-[16px] shadow-[4px_4px_4px_rgba(0,0,0,0.25)] hover:shadow-xl hover:scale-[1.02] active:scale-[0.99] transition-[transform,box-shadow] will-change-transform duration-300 ease-in-out overflow-hidden">
         {/* Image Container */}
         <div className="relative w-full h-52 overflow-hidden">
           <Image

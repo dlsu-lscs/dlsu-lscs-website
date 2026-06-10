@@ -25,7 +25,7 @@ export default function About({ aboutImages }: AboutProps) {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, ease: 'easeOut' }}
-              className="self-start flex bg-linear-to-r from-[#DDB518] to-[#AA8B12] text-white font-bold px-4 py-1.5 rounded-lg text-[18px] tracking-wider drop-shadow-2xl"
+              className="self-start flex bg-linear-to-r from-[#DDB518] to-[#AA8B12] text-white font-bold px-4 py-1.5 rounded-lg text-[18px] tracking-wider shadow-lg shadow-[#DDB518]/25"
             >
               ABOUT US
             </motion.h1>
@@ -34,11 +34,11 @@ export default function About({ aboutImages }: AboutProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
-              className="text-[#003D6F] sm:text-7xl text-5xl font-extrabold leading-none drop-shadow-lg"
+              className="text-[#003D6F] sm:text-7xl text-5xl font-extrabold leading-none drop-shadow-md will-change-transform"
             >
-              <h1 className="drop-shadow-lg">LA SALLE</h1>
-              <h1 className="drop-shadow-lg">COMPUTER</h1>
-              <h1 className="drop-shadow-lg">SOCIETY</h1>
+              <h1>LA SALLE</h1>
+              <h1>COMPUTER</h1>
+              <h1>SOCIETY</h1>
             </motion.div>
 
             <motion.div
@@ -61,7 +61,7 @@ export default function About({ aboutImages }: AboutProps) {
             transition={{ duration: 0.7, delay: 0.3, ease: 'easeOut' }}
             className="flex-1 flex items-center justify-center min-w-48"
           >
-            <div className="relative hover:scale-105 transition-transform duration-500 ease-in-out">
+            <div className="relative hover:scale-105 transition-transform will-change-transform duration-500 ease-in-out">
               <Image
                 src={aboutImages ? aboutImages[0].image.url : '/40th_logo.png'}
                 alt={aboutImages ? aboutImages[0].image.alt : 'logo'}

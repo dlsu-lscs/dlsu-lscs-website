@@ -104,7 +104,7 @@ function OfficerCard({
   return (
     <div
       className={`group relative overflow-hidden rounded-xl aspect-13/16 bg-[#1A5D89]
-        shadow-md transition-all duration-300 ease-in-out border-10 border-[#1A5D89] ${
+        shadow-md transition-[transform,box-shadow] will-change-transform duration-300 ease-in-out border-10 border-[#1A5D89] ${
           showCommittee
             ? 'scale-105 shadow-xl shadow-[#1A5D89]/40'
             : 'hover:shadow-lg hover:shadow-[#1A5D89]/30 hover:-translate-y-1'
@@ -186,7 +186,7 @@ function OfficerCard({
             {Array.from({ length: totalCount }).map((_, i) => (
               <div
                 key={i}
-                className={`transition-all duration-500 ease-in-out ${
+                className={`transition-[width,background-color] duration-500 ease-in-out ${
                   i === currentIndex ? 'h-2 w-6 bg-[rgba(221,181,24,0.9)]' : 'h-2 w-2 bg-gray-400'
                 } rounded-full`}
               />

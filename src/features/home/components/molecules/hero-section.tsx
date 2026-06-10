@@ -59,9 +59,11 @@ export default function HeroSection({ heroImage }: HeroSectionProps) {
       {/* Circle shape at bottom */}
       <motion.div
         onClick={handleScrollDown}
-        whileHover={{ scale: 1.06 }}
-        whileTap={{ scale: 0.96 }}
-        className="absolute left-1/2 -translate-x-1/2 bottom-0 md:w-40 md:h-20 sm:w-32 sm:h-16 h-10 w-20 flex justify-center items-center rounded-t-full z-20 bg-gradient-to-b from-[#DDB518] to-[#77610D] shadow-[4px_4px_4px_rgba(0,0,0,0.25)] cursor-pointer"
+        initial={{ x: '-50%' }}
+        style={{ x: '-50%' }}
+        whileHover={{ scale: 1.06, x: '-50%' }}
+        whileTap={{ scale: 0.96, x: '-50%' }}
+        className="absolute left-1/2 bottom-0 md:w-40 md:h-20 sm:w-32 sm:h-16 h-10 w-20 flex justify-center items-center rounded-t-full z-20 bg-gradient-to-b from-[#DDB518] to-[#77610D] shadow-[4px_4px_4px_rgba(0,0,0,0.25)] cursor-pointer"
       >
         <TriangleDownIcon className="text-white md:w-24 md:h-24 sm:w-20 sm:h-20 w-16 h-16" />
       </motion.div>

@@ -12,14 +12,14 @@ export default function DiagonalLscsBg({ className }: bgProps) {
     >
       <div
         className="absolute inset-0 w-full h-full
-                   bg-[url('/40th-lscs-single.svg')] bg-repeat bg-center"
+                   bg-[url('/40th-lscs-single.svg')] bg-repeat"
         style={{
-          transform: 'rotate(-30deg)', // rotate background container
+          transform: 'rotate(-15deg)', // rotate background container
           transformOrigin: 'center',
           maskImage:
-            'radial-gradient(circle at center, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 100%)',
+            'radial-gradient(ellipse at center, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.1) 100%)',
           WebkitMaskImage:
-            'radial-gradient(circle at center, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 100%)',
+            'radial-gradient(ellipse at center, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.1) 100%)',
         }}
       />
     </div>

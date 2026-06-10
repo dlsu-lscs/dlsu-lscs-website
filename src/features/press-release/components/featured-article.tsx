@@ -38,7 +38,7 @@ export default function FeaturedArticle({
     >
       <Link
         href={link}
-        className="block group bg-linear-to-b from-[#DDB518] to-[#BC7A00] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-[#ddb518]/20 transition-all duration-500 hover:-translate-y-1 flex flex-col min-h-96 md:flex-row"
+        className="block group bg-linear-to-b from-[#DDB518] to-[#BC7A00] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-[#ddb518]/20 transition-[transform,box-shadow] will-change-transform duration-500 hover:-translate-y-1 flex flex-col min-h-96 md:flex-row"
       >
         <div className="relative w-full md:w-1/2 h-64 md:h-auto overflow-hidden">
           <Image
@@ -56,7 +56,7 @@ export default function FeaturedArticle({
           <div className="flex flex-col gap-3">
             {/* Featured Badge */}
             <div>
-              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/20 border border-white/30 backdrop-blur-sm">
+              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/25 border border-white/40">
                 Featured
               </span>
             </div>
@@ -76,7 +76,7 @@ export default function FeaturedArticle({
           </div>
 
           <div>
-            <span className="inline-flex items-center gap-2 bg-white text-[#77610d] font-bold px-5 py-2.5 rounded-lg hover:bg-white/95 hover:shadow-lg transition-all duration-300">
+            <span className="inline-flex items-center gap-2 bg-white text-[#77610d] font-bold px-5 py-2.5 rounded-lg hover:bg-white/95 hover:shadow-lg transition-[background-color,box-shadow] duration-300">
               Read More
               <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
             </span>

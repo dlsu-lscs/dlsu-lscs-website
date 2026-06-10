@@ -10,6 +10,7 @@ import {
 import Autoplay from 'embla-carousel-autoplay';
 import Image from 'next/image';
 import { CmsAward } from '../types/awards';
+import ScrollAnimation from '@/components/animation/scroll-animation';
 
 interface AwardsRecognitionViewProps {
   awards: CmsAward[];
@@ -23,13 +24,15 @@ export default function AwardsRecognitionView({ awards }: AwardsRecognitionViewP
   return (
     <>
       <main className="relative z-20 min-h-screen bg-linear-to-b from-[#003D6F] to-[#041019] flex flex-col items-center justify-center">
-        <Image
-          src="/puzzle.png"
-          alt="puzzle"
-          width={380}
-          height={0}
-          className="absolute -top-24 left-0 w-50 md:w-96 h-auto -z-10 md:z-0"
-        />
+        <ScrollAnimation className="absolute -top-24 left-0 w-50 md:w-96 h-auto -z-10 md:z-0">
+          <Image
+            src="/puzzle.png"
+            alt="puzzle"
+            width={380}
+            height={0}
+            className="w-full h-auto antialiased"
+          />
+        </ScrollAnimation>
 
         {/* Dots BG */}
         <div
@@ -41,67 +44,73 @@ export default function AwardsRecognitionView({ awards }: AwardsRecognitionViewP
             zIndex: -1,
           }}
         />
-        <header className="flex flex-col gap-6">
-          <h1
-            className="text-[#FEE373] font-bold px-2 text-4xl md:text-5xl text-center"
-            style={{ textShadow: '3px 3px 7px rgba(0,0,0,0.8)' }}
-          >
-            Awards <span className="text-[#003D6F]">&</span> Recognition
-          </h1>
 
-          <p className="font-geist text-center text-[#FFFF] text-wrap px-4 text-md md:text-lg font-semibold">
-            Awards received this AY 2025-2026
-          </p>
-        </header>
-        <section className="w-[75%] sm:w-[90%] lg:w-[85%] mx-auto mt-12">
-          {firstHalf.length > 0 ? (
-            <Carousel
-              opts={{ loop: true }}
-              plugins={[
-                Autoplay({
-                  delay: 4000,
-                }),
-              ]}
+        <ScrollAnimation>
+          <header className="flex flex-col gap-6">
+            <h1
+              className="text-[#FEE373] font-bold px-2 text-4xl md:text-5xl text-center"
+              style={{ textShadow: '3px 3px 7px rgba(0,0,0,0.8)' }}
             >
-              <CarouselContent className="py-4 flex justify-start gap-6 overflow-visible">
-                {firstHalf.map((award) => (
-                  <CarouselItem
-                    key={award.id}
-                    className="flex-none min-w-65 sm:min-w-75 md:min-w-70 lg:min-w-65"
-                  >
-                    <AwardsCard {...award} />
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
-            </Carousel>
-          ) : null}
+              Awards <span className="text-[#003D6F]">&</span> Recognition
+            </h1>
 
-          {secondHalf.length > 0 ? (
-            <Carousel
-              opts={{ loop: true }}
-              plugins={[
-                Autoplay({
-                  delay: 8000,
-                }),
-              ]}
-            >
-              <CarouselContent className="py-4 flex justify-start gap-6 overflow-visible">
-                {secondHalf.map((award) => (
-                  <CarouselItem
-                    key={award.id}
-                    className="flex-none min-w-65 sm:min-w-75 md:min-w-70 lg:min-w-65"
-                  >
-                    <AwardsCard {...award} />
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
-            </Carousel>
-          ) : null}
-        </section>
+            <p className="font-geist text-center text-[#FFFF] text-wrap px-4 text-md md:text-lg font-semibold">
+              Awards received this AY 2025-2026
+            </p>
+          </header>
+        </ScrollAnimation>
+
+        <ScrollAnimation className="w-[75%] sm:w-[90%] lg:w-[85%] mx-auto mt-12" delay={0.15}>
+          <section className="w-full">
+            {firstHalf.length > 0 ? (
+              <Carousel
+                opts={{ loop: true }}
+                plugins={[
+                  Autoplay({
+                    delay: 4000,
+                  }),
+                ]}
+              >
+                <CarouselContent className="py-4 flex justify-start gap-6 overflow-visible">
+                  {firstHalf.map((award) => (
+                    <CarouselItem
+                      key={award.id}
+                      className="flex-none min-w-65 sm:min-w-75 md:min-w-70 lg:min-w-65"
+                    >
+                      <AwardsCard {...award} />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
+              </Carousel>
+            ) : null}
+
+            {secondHalf.length > 0 ? (
+              <Carousel
+                opts={{ loop: true }}
+                plugins={[
+                  Autoplay({
+                    delay: 8000,
+                  }),
+                ]}
+              >
+                <CarouselContent className="py-4 flex justify-start gap-6 overflow-visible">
+                  {secondHalf.map((award) => (
+                    <CarouselItem
+                      key={award.id}
+                      className="flex-none min-w-65 sm:min-w-75 md:min-w-70 lg:min-w-65"
+                    >
+                      <AwardsCard {...award} />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
+              </Carousel>
+            ) : null}
+          </section>
+        </ScrollAnimation>
       </main>
     </>
   );
