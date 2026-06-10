@@ -34,7 +34,7 @@ describe('getRevalidationPaths', () => {
 
     const paths = getRevalidationPaths(payload);
 
-    expect(paths).toContain('/articles');
+    expect(paths).toContain('/press-release');
     expect(paths).toContain('/');
     expect(paths.length).toBeGreaterThan(0);
   });
@@ -51,7 +51,7 @@ describe('getRevalidationPaths', () => {
     const paths = getRevalidationPaths(payload);
 
     expect(paths).toContain(`/article/${articleId}`);
-    expect(paths).toContain('/articles');
+    expect(paths).toContain('/press-release');
     expect(paths).toContain('/');
   });
 
@@ -65,7 +65,7 @@ describe('getRevalidationPaths', () => {
 
     const paths = getRevalidationPaths(payload);
 
-    expect(paths).toContain('/articles');
+    expect(paths).toContain('/press-release');
     expect(paths).toContain('/');
   });
 

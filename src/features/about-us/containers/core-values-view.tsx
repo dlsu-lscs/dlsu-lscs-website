@@ -28,7 +28,7 @@ const cardVariants = {
 
 export default function CoreValues() {
   return (
-    <div className="lg:min-h-screen relative flex flex-col items-center justify-between p-8 sm:p-16">
+    <div className="lg:min-h-screen relative flex flex-col items-center justify-between p-8 sm:p-16 overflow-x-clip">
       {/* Animated absolute image (Left) */}
       <motion.div
         initial={{ opacity: 0, x: -60, rotate: -5 }}
@@ -59,7 +59,7 @@ export default function CoreValues() {
           alt="macky2"
           width={280}
           height={280}
-          className="w-full h-auto z-20 antialiased"
+          className="w-full h-auto z-50 antialiased"
         />
       </motion.div>
 

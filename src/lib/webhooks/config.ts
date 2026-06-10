@@ -18,13 +18,13 @@ export const WEBHOOK_PATHS = {
  * Path revalidation mapping based on article action
  */
 export const ARTICLE_REVALIDATION_PATHS: RevalidationPathMap = {
-  created: ['/articles', '/'], // Refresh article list and home page
+  created: ['/press-release', '/'], // Refresh article list and home page
   updated: (articleId: string) => [
     `/article/${articleId}`, // Specific article detail page
-    '/articles', // Article listing page
+    '/press-release', // Article listing page
     '/', // Home page (may display featured articles)
   ],
-  deleted: ['/articles', '/'], // Refresh article list and home page
+  deleted: ['/press-release', '/'], // Refresh article list and home page
 } as const;
 
 /**
