@@ -1,21 +1,23 @@
-export default function WhiteDiagonalLscsBg() {
+import { cn } from '@/lib/utils';
+
+interface WhiteDiagonalLscsBgProps {
+  className?: string;
+}
+
+export default function WhiteDiagonalLscsBg({ className }: WhiteDiagonalLscsBgProps) {
   return (
-    <div className="absolute inset-0 pointer-events-none -z-0" aria-hidden="true">
+    <div
+      className={cn('fixed inset-0 overflow-hidden z-0 pointer-events-none', className)}
+      aria-hidden="true"
+    >
       <div
-        className="absolute top-1/2 left-1/2 w-[175%] h-[175%] -translate-x-1/2 -translate-y-1/2"
+        className="absolute top-1/2 left-1/2 w-[150%] h-[150%] bg-repeat opacity-10"
         style={{
-          backgroundColor: 'rgba(255, 255, 255, 0.1)',
-          WebkitMaskImage: "url('/40th-lscs-single.svg')",
-          maskImage: "url('/40th-lscs-single.svg')",
-          WebkitMaskRepeat: 'repeat',
-          maskRepeat: 'repeat',
-          WebkitMaskPosition: 'center',
-          maskPosition: 'center',
-          WebkitMaskSize: 'auto',
-          maskSize: 'auto',
-          transform: 'rotate(-10deg)',
+          backgroundImage: "url('/40th-lscs-single.svg')",
+          filter: 'brightness(0) invert(1)',
+          WebkitFilter: 'brightness(0) invert(1)',
+          transform: 'translate(-50%, -50%) rotate(-10deg)',
           transformOrigin: 'center',
-          opacity: 0.9,
         }}
       />
     </div>
