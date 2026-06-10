@@ -41,12 +41,12 @@ export default function WhatWeDo({ whatWeDoImages }: WhatWeDoProps) {
           style={{ transform: 'translate(-6rem, -8rem)' }}
         />
 
-        <div className="relative z-20 flex flex-col md:flex-row w-full h-full">
-          <div className="w-full md:w-1/2 flex justify-center items-center p-4 md:p-8">
+        <div className="relative z-20 flex flex-col lg:flex-row w-full h-full">
+          <div className="w-full lg:w-1/2 flex justify-center items-center p-4 md:p-8">
             <ImageGrid images={images} />
           </div>
 
-          <div className="w-full md:w-1/2 p-6 md:p-12 flex flex-col justify-center items-center md:items-start text-center md:text-left">
+          <div className="w-full lg:w-1/2 p-6 md:p-12 flex flex-col justify-center items-center md:items-start text-center md:text-left">
             <h1 className="text-[#FFFFFF] text-3xl sm:text-4xl md:text-[58px] font-bold leading-tight drop-shadow-2xl">
               What We Do
             </h1>
@@ -65,8 +65,8 @@ export default function WhatWeDo({ whatWeDoImages }: WhatWeDoProps) {
             width={240}
             height={267}
             className={`
-              block mx-auto mt-2 w-[120px] h-[134px] sm:w-[160px] sm:h-[178px]
-              md:absolute md:top-10 md:right-12 md:w-[240px] md:h-[267px] 
+              block mx-auto mt-2 w-30 h-33.5 sm:w-40 sm:h-44.5
+              lg:absolute md:top-10 md:right-12 md:w-60 md:h-66.75 
               md:-z-10
             `}
             priority

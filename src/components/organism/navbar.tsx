@@ -11,6 +11,7 @@ import {
   SheetContent,
   SheetHeader,
   SheetTitle,
+  SheetDescription,
   SheetTrigger,
   SheetClose,
 } from '@/components/ui/sheet';
@@ -28,11 +29,11 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`z-50 bg-[#1E1E1E] text-white h-20 px-8 md:px-16 flex justify-between items-center font-onest transition-all duration-300 sticky 
+        className={`z-50 bg-[#1E1E1E] text-white h-20 px-8 lg:px-16 flex justify-between items-center font-onest transition-all duration-300 sticky 
          ${!isVisible ? '-top-20' : 'top-0'}`}
       >
         {/* Logo*/}
-        <div>
+        <div className="mr-4 shrink-0">
           <Link href={'/'}>
             <Image
               src="/40th_logo.png"
@@ -40,12 +41,13 @@ export default function Navbar() {
               width={50}
               height={37}
               className="w-12.5 h-9.25"
+              loading="eager"
             />
           </Link>
         </div>
 
         {/* Nav Links */}
-        <div className="hidden md:flex gap-20 text-md h-full items-center">
+        <div className="hidden md:flex md:gap-8 lg:gap-20 text-md h-full items-center">
           {links.map((link) => (
             <Link
               key={link.href}
@@ -74,10 +76,13 @@ export default function Navbar() {
                     src="/40th_logo.png"
                     alt="40th logo"
                     width={55}
-                    height={37}
-                    style={{ width: 'auto', height: 'auto' }}
+                    height={0}
+                    className="w-14 h-auto"
                   />
                 </SheetTitle>
+                <SheetDescription className="sr-only">
+                  Navigation menu for La Salle Computer Society
+                </SheetDescription>
                 <div className="flex font-medium text-xl  font-onest">
                   La Salle Computer Society
                 </div>

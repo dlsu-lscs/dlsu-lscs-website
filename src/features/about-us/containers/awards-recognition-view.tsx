@@ -27,8 +27,8 @@ export default function AwardsRecognitionView({ awards }: AwardsRecognitionViewP
           src="/puzzle.png"
           alt="puzzle"
           width={380}
-          height={380}
-          className="absolute -top-24 left-0 w-50 md:w-95 h-auto -z-10 md:z-0 object-contain"
+          height={0}
+          className="absolute -top-24 left-0 w-50 md:w-96 h-auto -z-10 md:z-0"
         />
 
         {/* Dots BG */}
