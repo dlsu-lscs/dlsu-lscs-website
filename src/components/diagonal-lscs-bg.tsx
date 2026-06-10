@@ -11,10 +11,10 @@ export default function DiagonalLscsBg({ className }: bgProps) {
       aria-hidden="true"
     >
       <div
-        className="absolute inset-0 w-full h-full
+        className="absolute top-1/2 left-1/2 w-[150%] h-[150%]
                    bg-[url('/40th-lscs-single.svg')] bg-repeat"
         style={{
-          transform: 'rotate(-15deg)', // rotate background container
+          transform: 'translate(-50%, -50%) rotate(-15deg)', // rotate background container
           transformOrigin: 'center',
           maskImage:
             'radial-gradient(ellipse at center, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.1) 100%)',
