@@ -11,10 +11,12 @@ export default function WhiteDiagonalLscsBg({ className }: WhiteDiagonalLscsBgPr
       aria-hidden="true"
     >
       <div
-        className="absolute inset-0 w-full h-full bg-repeat opacity-15"
+        className="absolute top-1/2 left-1/2 w-[150%] h-[150%] bg-repeat opacity-10"
         style={{
           backgroundImage: "url('/40th-lscs-single.svg')",
-          transform: 'rotate(-10deg)',
+          filter: 'brightness(0) invert(1)',
+          WebkitFilter: 'brightness(0) invert(1)',
+          transform: 'translate(-50%, -50%) rotate(-10deg)',
           transformOrigin: 'center',
         }}
       />
