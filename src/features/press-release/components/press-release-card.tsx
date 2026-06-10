@@ -28,7 +28,7 @@ export default function PressReleaseCard({
 
   return (
     <Link href={`/article/${slug}`} className="group block h-full">
-      <div className="bg-white border border-slate-100 rounded-xl overflow-hidden flex flex-col h-full hover:-translate-y-1 shadow-md hover:shadow-xl hover:shadow-[#002d57]/10 transition-all duration-300 cursor-pointer">
+      <div className="bg-white border border-slate-100 rounded-xl overflow-hidden flex flex-col h-full hover:-translate-y-1 shadow-md hover:shadow-xl hover:shadow-[#002d57]/10 transition-[transform,box-shadow] will-change-transform duration-300 cursor-pointer">
         {/* Image Container with aspect ratio */}
         <div className="relative aspect-video w-full overflow-hidden">
           <Image

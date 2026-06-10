@@ -29,8 +29,8 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`z-50 bg-[#1E1E1E] text-white h-20 px-8 lg:px-16 flex justify-between items-center font-onest transition-all duration-300 sticky 
-         ${!isVisible ? '-top-20' : 'top-0'}`}
+        className={`z-50 bg-[#1E1E1E] text-white h-20 px-8 lg:px-16 flex justify-between items-center font-onest transition-transform duration-300 sticky top-0
+         ${!isVisible ? '-translate-y-full' : 'translate-y-0'}`}
       >
         {/* Logo*/}
         <div className="mr-4 shrink-0">

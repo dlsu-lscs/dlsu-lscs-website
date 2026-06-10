@@ -1,6 +1,7 @@
 import GetInTouchCard from '../molecules/get-in-touch-card';
 import StayInTouchCard from '../molecules/stay-in-touch-card';
 import Image from 'next/image';
+import ScrollAnimation from '@/components/animation/scroll-animation';
 
 export default function ContactUsTemplate() {
   const socialLinks = [
@@ -73,21 +74,22 @@ export default function ContactUsTemplate() {
         id="contact-us"
         className="flex flex-col md:flex-row w-full h-full items-center justify-center lg:gap-24 sm:gap-16 gap-8"
       >
-        <div className="flex-1 w-full max-w-sm">
+        <ScrollAnimation className="flex-1 w-full max-w-sm">
           <GetInTouchCard
             title="Get in touch"
             description="Have questions or want to collaborate with us? Reach out to the La Salle Computer Society."
             buttonText="Contact Us"
             email="lscs@dlsu.edu.ph"
           />
-        </div>
-        <div className="flex-1 w-full max-w-sm">
+        </ScrollAnimation>
+
+        <ScrollAnimation className="flex-1 w-full max-w-sm" delay={0.15}>
           <StayInTouchCard
             title="Stay Updated"
             description="Follow us on social media to stay updated with our latest events, projects, and announcements."
             socialLinks={socialLinks}
           />
-        </div>
+        </ScrollAnimation>
       </main>
     </div>
   );

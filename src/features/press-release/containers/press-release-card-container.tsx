@@ -105,7 +105,6 @@ export default function PressReleaseCardContainer({ releases }: PressReleaseCard
               {paginated.map((item, index) => (
                 <motion.div
                   key={item.slug}
-                  layout
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.95 }}

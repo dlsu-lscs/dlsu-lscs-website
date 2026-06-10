@@ -1,4 +1,5 @@
 import BackgroundWord from '../components/background-word';
+import ScrollAnimation from '@/components/animation/scroll-animation';
 
 export default function VisionMission() {
   return (
@@ -39,34 +40,38 @@ export default function VisionMission() {
                    px-6 py-12 sm:px-10 sm:py-16 md:px-20 md:py-20 gap-4 md:gap-0"
       >
         {/* Vision */}
-        <article className="w-full md:w-1/2 md:pr-6 lg:pr-10 text-center md:text-left">
-          <h1 className="text-3xl sm:text-4xl md:text-[36px] lg:text-[48px] font-extrabold mb-4">
-            Our Vision
-          </h1>
-          <p className="text-base sm:text-lg md:text-[16px] lg:text-[18px] leading-relaxed text-justify">
-            We envision the La Salle Computer Society to be an organization that, through quality
-            assistance and activities, will mold its members academically, socially and spiritually
-            in order for them to become competent Lasallian students and well-rounded individuals.
-            We also see the organization to be the pioneering student organization of the De La
-            Salle University Manila that strongly symbolizes the expertise of the College of
-            Computer Studies (CCS) in the field of computer science.
-          </p>
-        </article>
+        <ScrollAnimation className="w-full md:w-1/2">
+          <article className="md:pr-6 lg:pr-10 text-center md:text-left">
+            <h1 className="text-3xl sm:text-4xl md:text-[36px] lg:text-[48px] font-extrabold mb-4">
+              Our Vision
+            </h1>
+            <p className="text-base sm:text-lg md:text-[16px] lg:text-[18px] leading-relaxed text-justify">
+              We envision the La Salle Computer Society to be an organization that, through quality
+              assistance and activities, will mold its members academically, socially and
+              spiritually in order for them to become competent Lasallian students and well-rounded
+              individuals. We also see the organization to be the pioneering student organization of
+              the De La Salle University Manila that strongly symbolizes the expertise of the
+              College of Computer Studies (CCS) in the field of computer science.
+            </p>
+          </article>
+        </ScrollAnimation>
 
         {/* Mission */}
-        <article className="w-full md:w-1/2 md:pl-6 lg:pl-10 text-center md:text-left mt-8 md:mt-0">
-          <h1 className="text-3xl sm:text-4xl md:text-[36px] lg:text-[48px] font-extrabold mb-4">
-            Our Mission
-          </h1>
-          <p className="text-base sm:text-lg md:text-[16px] lg:text-[18px] leading-relaxed text-justify">
-            We envision the La Salle Computer Society to be an organization that, through quality
-            assistance and activities, will mold its members academically, socially and spiritually
-            in order for them to become competent Lasallian students and well-rounded individuals.
-            We also see the organization to be the pioneering student organization of the De La
-            Salle University Manila that strongly symbolizes the expertise of the College of
-            Computer Studies (CCS) in the field of computer science.
-          </p>
-        </article>
+        <ScrollAnimation className="w-full md:w-1/2" delay={0.15}>
+          <article className="md:pl-6 lg:pl-10 text-center md:text-left mt-8 md:mt-0">
+            <h1 className="text-3xl sm:text-4xl md:text-[36px] lg:text-[48px] font-extrabold mb-4">
+              Our Mission
+            </h1>
+            <p className="text-base sm:text-lg md:text-[16px] lg:text-[18px] leading-relaxed text-justify">
+              We envision the La Salle Computer Society to be an organization that, through quality
+              assistance and activities, will mold its members academically, socially and
+              spiritually in order for them to become competent Lasallian students and well-rounded
+              individuals. We also see the organization to be the pioneering student organization of
+              the De La Salle University Manila that strongly symbolizes the expertise of the
+              College of Computer Studies (CCS) in the field of computer science.
+            </p>
+          </article>
+        </ScrollAnimation>
       </section>
     </main>
   );

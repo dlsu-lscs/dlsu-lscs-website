@@ -13,14 +13,14 @@ export default function TestimonialCard({
 }: TestimonialCardProps) {
   return (
     <div
-      className={`aspect-13/16 relative overflow-hidden rounded-xl bg-linear-to-b from-[rgba(221,181,24,0.9)] to-[rgba(119,97,13,0.9)] p-3 shadow-md transition-all duration-500 ease-out
+      className={`aspect-13/16 relative overflow-hidden rounded-xl bg-linear-to-b from-[rgba(221,181,24,0.9)] to-[rgba(119,97,13,0.9)] p-3 shadow-md transition-[transform,opacity,box-shadow] will-change-transform duration-500 ease-out
         ${
           isHighlighted
             ? 'opacity-100 translate-y-0 scale-100 shadow-lg shadow-[#ddb518]/20'
             : 'opacity-40 translate-y-2 scale-90'
         }`}
     >
-      <div className="relative h-full overflow-hidden rounded-lg drop-shadow-2xl inset-shadow-2xs">
+      <div className="relative h-full overflow-hidden rounded-lg inset-shadow-2xs">
         {/* Full card background image */}
         <div className="absolute inset-0">
           <Image

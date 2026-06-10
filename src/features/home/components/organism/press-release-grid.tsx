@@ -1,6 +1,7 @@
 import FeaturedArticleCard from '../molecules/featured-article-card';
 import ArticleCard from '../molecules/article-card';
 import { HomeArticle } from '../../types';
+import ScrollAnimation from '@/components/animation/scroll-animation';
 
 interface PressReleaseGridProps {
   articles: HomeArticle[];
@@ -11,18 +12,20 @@ export default function PressReleaseGrid({ articles }: PressReleaseGridProps) {
   const rightArticles = articles.slice(1, 3);
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 auto-rows-max">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 auto-rows-max w-full">
       {/* Left side - Large featured article */}
       {leftArticle && (
-        <div className="lg:col-span-1 lg:row-span-2">
+        <ScrollAnimation className="lg:col-span-1 lg:row-span-2">
           <FeaturedArticleCard {...leftArticle} />
-        </div>
+        </ScrollAnimation>
       )}
 
       {/* Right side - Two stacked articles */}
       <div className="lg:col-span-1 flex flex-col gap-6">
-        {rightArticles.map((article) => (
-          <ArticleCard key={article.slug} {...article} />
+        {rightArticles.map((article, index) => (
+          <ScrollAnimation key={article.slug} delay={index * 0.15}>
+            <ArticleCard {...article} />
+          </ScrollAnimation>
         ))}
       </div>
     </div>

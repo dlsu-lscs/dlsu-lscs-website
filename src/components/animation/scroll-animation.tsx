@@ -20,7 +20,7 @@ export default function ScrollAnimation({
   children,
   offsetY = 40,
   offsetX = 0,
-  scale = 0.98,
+  scale = 1,
   duration = 1,
   delay = 0,
   ease = [0.16, 1, 0.3, 1], // Ultra-smooth easeOutExpo bezier curve
@@ -29,20 +29,18 @@ export default function ScrollAnimation({
   className,
 }: ScrollAnimationProps) {
   return (
-    <div className={cn('relative z-10 overflow-visible', className)}>
-      <motion.div
-        className="overflow-visible"
-        initial={{ opacity: 0, y: offsetY, x: offsetX, scale }}
-        whileInView={{ opacity: 1, y: 0, x: 0, scale: 1 }}
-        transition={{
-          duration,
-          delay,
-          ease,
-        }}
-        viewport={{ once, amount: viewportAmount }}
-      >
-        {children}
-      </motion.div>
-    </div>
+    <motion.div
+      className={cn('relative z-10 overflow-visible', className)}
+      initial={{ opacity: 0, y: offsetY, x: offsetX, scale }}
+      whileInView={{ opacity: 1, y: 0, x: 0, scale: 1 }}
+      transition={{
+        duration,
+        delay,
+        ease,
+      }}
+      viewport={{ once, amount: viewportAmount }}
+    >
+      {children}
+    </motion.div>
   );
 }

@@ -37,7 +37,7 @@ export default function CommunityHero() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.2, ease: 'easeOut' }}
-          className="rounded-full border border-white/20 bg-white/10 px-5 py-1.5 text-sm font-medium uppercase tracking-widest backdrop-blur-sm"
+          className="rounded-full border border-white/25 bg-white/20 px-5 py-1.5 text-sm font-medium uppercase tracking-widest"
         >
           La Salle Computer Society
         </motion.div>
@@ -72,7 +72,7 @@ export default function CommunityHero() {
             className="font-Poppins cursor-pointer font-bold text-xl sm:text-2xl w-72 rounded-4xl py-6
               bg-linear-180 from-[#ddb518] to-[#77610d]
               shadow-lg shadow-[#ddb518]/20
-              transition-all duration-300
+              transition-[transform,box-shadow,filter] duration-300 will-change-transform
               hover:shadow-xl hover:shadow-[#ddb518]/30 hover:scale-105 hover:brightness-110
               active:scale-95"
             onClick={scrollToOfficers}
