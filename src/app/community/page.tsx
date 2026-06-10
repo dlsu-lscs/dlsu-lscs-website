@@ -5,6 +5,8 @@ import TestimonialsSection from '@/features/community/components/organism/testim
 import { getOfficers } from '@/features/community/services/officers-service';
 import { getTestimonials } from '@/features/community/services/testimonials-service';
 
+export const revalidate = 3600; // Fallback: revalidate every hour (not covered by webhooks)
+
 export default async function Community() {
   const officers = await getOfficers();
   const testimonialsData = await getTestimonials();

@@ -47,7 +47,7 @@ export async function getWebAssets(): Promise<CmsWebAssets | null> {
         'Content-Type': 'application/json',
         Authorization: `users API-Key ${process.env.API_KEY}`,
       },
-      next: { revalidate: 3600 }, // ISR: revalidate every hour
+      next: { revalidate: 86400 }, // ISR: revalidate once a day
     });
 
     if (!res.ok) {

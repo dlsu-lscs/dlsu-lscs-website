@@ -5,6 +5,8 @@ import WhoAreWeTemplate from '@/features/home/components/templates/who-are-we-te
 import { getWebAssets } from '@/features/home/services/getWebAssets';
 import DiagonalLscsBg from '@/components/diagonal-lscs-bg';
 
+export const revalidate = 86400; // Fallback: revalidate once a day since it is covered by webhooks
+
 export default async function Home() {
   const webAssets = await getWebAssets();
 

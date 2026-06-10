@@ -8,6 +8,8 @@ import WhatWeDo from '@/features/about-us/containers/what-we-do';
 import { getAwards } from '@/features/about-us/services/getAwards';
 import { getWebAssets } from '@/features/home/services/getWebAssets';
 
+export const revalidate = 86400; // Fallback: revalidate once a day since it is covered by webhooks
+
 export default async function AboutUs() {
   const awards = await getAwards();
   const webAssets = await getWebAssets();
